@@ -1,8 +1,8 @@
-import { Main } from '../../pages/Main';
+import { MainScreen } from '../../pages/MainScreen';
 import type { Props } from '../../types';
 
 function App({ cards }: Props): JSX.Element {
-  return <Main cards={cards}/>;
+  return <MainScreen cards={cards}/>;
 }
 
 export default App;
