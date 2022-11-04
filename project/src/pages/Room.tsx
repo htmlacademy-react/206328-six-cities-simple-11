@@ -61,46 +61,46 @@ export const Room = () => (
       <section className='property'>
         <div className='property__gallery-container container'>
           <div className='property__gallery'>
-            <div className='property__image-wrapper'>
+            <div className='property__pic-wrapper'>
               <img
-                className='property__image'
+                className='property__pic'
                 src='img/room.jpg'
-                alt='Photo studio'
+                alt='studio pic'
               />
             </div>
-            <div className='property__image-wrapper'>
+            <div className='property__pic-wrapper'>
               <img
-                className='property__image'
+                className='property__pic'
                 src='img/apartment-01.jpg'
-                alt='Photo studio'
+                alt='studio pic'
               />
             </div>
-            <div className='property__image-wrapper'>
+            <div className='property__pic-wrapper'>
               <img
-                className='property__image'
+                className='property__pic'
                 src='img/apartment-02.jpg'
-                alt='Photo studio'
+                alt='studio pic'
               />
             </div>
-            <div className='property__image-wrapper'>
+            <div className='property__pic-wrapper'>
               <img
-                className='property__image'
+                className='property__pic'
                 src='img/apartment-03.jpg'
-                alt='Photo studio'
+                alt='studio pic'
               />
             </div>
-            <div className='property__image-wrapper'>
+            <div className='property__pic-wrapper'>
               <img
-                className='property__image'
+                className='property__pic'
                 src='img/studio-01.jpg'
-                alt='Photo studio'
+                alt='studio pic'
               />
             </div>
-            <div className='property__image-wrapper'>
+            <div className='property__pic-wrapper'>
               <img
-                className='property__image'
+                className='property__pic'
                 src='img/apartment-01.jpg'
-                alt='Photo studio'
+                alt='studio pic'
               />
             </div>
           </div>
@@ -347,7 +347,7 @@ export const Room = () => (
                     src='img/room.jpg'
                     width='260'
                     height='200'
-                    alt='Place image'
+                    alt='room pic'
                   />
                 </a>
               </div>
