@@ -31,7 +31,7 @@ export const MainScreen = ({ cards }: Props) => (
           <div className='header__left'>
             <a
               className='header__logo-link header__logo-link--active'
-              href='https://github.com/'
+              href='https://localhost:3000'
             >
               <img
                 className='header__logo'
@@ -53,7 +53,7 @@ export const MainScreen = ({ cards }: Props) => (
                 </div>
               </li>
               <li className='header__nav-item'>
-                <a className='header__nav-link' href='https://github.com/'>
+                <a className='header__nav-link' href='https://localhost:3000'>
                   <span className='header__signout'>Sign out</span>
                 </a>
               </li>
@@ -71,7 +71,7 @@ export const MainScreen = ({ cards }: Props) => (
             <li className='locations__item'>
               <a
                 className='locations__item-link tabs__item'
-                href='https://github.com/'
+                href='https://localhost:3000'
               >
                 <span>Paris</span>
               </a>
@@ -79,7 +79,7 @@ export const MainScreen = ({ cards }: Props) => (
             <li className='locations__item'>
               <a
                 className='locations__item-link tabs__item'
-                href='https://github.com/'
+                href='https://localhost:3000'
               >
                 <span>Cologne</span>
               </a>
@@ -87,7 +87,7 @@ export const MainScreen = ({ cards }: Props) => (
             <li className='locations__item'>
               <a
                 className='locations__item-link tabs__item'
-                href='https://github.com/'
+                href='https://localhost:3000'
               >
                 <span>Brussels</span>
               </a>
@@ -95,7 +95,7 @@ export const MainScreen = ({ cards }: Props) => (
             <li className='locations__item'>
               <a
                 className='locations__item-link tabs__item tabs__item--active'
-                href='https://github.com/'
+                href='https://localhost:3000'
               >
                 <span>Amsterdam</span>
               </a>
@@ -103,7 +103,7 @@ export const MainScreen = ({ cards }: Props) => (
             <li className='locations__item'>
               <a
                 className='locations__item-link tabs__item'
-                href='https://github.com/'
+                href='https://localhost:3000'
               >
                 <span>Hamburg</span>
               </a>
@@ -111,7 +111,7 @@ export const MainScreen = ({ cards }: Props) => (
             <li className='locations__item'>
               <a
                 className='locations__item-link tabs__item'
-                href='https://github.com/'
+                href='https://localhost:3000'
               >
                 <span>Dusseldorf</span>
               </a>
