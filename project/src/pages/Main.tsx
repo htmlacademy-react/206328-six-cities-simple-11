@@ -1,8 +1,5 @@
 import { Card } from '../components/card/Card';
-
-type Props = {
-  cards: number[];
-}
+import type { Props } from '../types';
 
 export const Main = ({ cards }: Props) => (
   <>

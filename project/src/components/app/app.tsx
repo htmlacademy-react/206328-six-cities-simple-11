@@ -1,7 +1,7 @@
 import { Main } from '../../pages/Main';
+import type { Props } from '../../types';
 
-function App(): JSX.Element {
-  const cards = [1,2,3,4,5];
+function App({ cards }: Props): JSX.Element {
   return <Main cards={cards}/>;
 }
 
