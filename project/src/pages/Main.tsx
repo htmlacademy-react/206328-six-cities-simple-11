@@ -1,6 +1,10 @@
 import { Card } from '../components/card/Card';
 
-export const Main = () => (
+type Props = {
+  cards: number[];
+}
+
+export const Main = ({ cards }: Props) => (
   <>
     <div style={{ display: 'none' }}>
       <svg xmlns='http://www.w3.org/2000/svg'>
@@ -150,11 +154,7 @@ export const Main = () => (
               </ul>
             </form>
             <div className='cities__places-list places__list tabs__content'>
-              <Card />
-              <Card />
-              <Card />
-              <Card />
-              <Card />
+              {cards.map((card: number) => <Card key={card} />)}
             </div>
           </section>
           <div className='cities__right-section'>
