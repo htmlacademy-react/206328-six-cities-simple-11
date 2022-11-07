@@ -1,4 +1,4 @@
-import { MainScreen } from '../../pages/MainScreen';
+import { MainScreen } from '../../pages/main-screen';
 import type { Props } from '../../types';
 
 function App({ cards }: Props): JSX.Element {

@@ -1,4 +1,4 @@
-import { Card } from '../components/card/Card';
+import { Card } from '../components/card';
 import type { Props } from '../types';
 
 export const MainScreen = ({ cards }: Props) => (
