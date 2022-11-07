@@ -1,7 +1,7 @@
 import { MainScreen } from '../../pages/main-screen';
-import type { Props } from '../../types';
+import type { AppProps } from '../../types';
 
-function App({ cards }: Props): JSX.Element {
+function App({ cards }: AppProps): JSX.Element {
   return <MainScreen cards={cards}/>;
 }
 

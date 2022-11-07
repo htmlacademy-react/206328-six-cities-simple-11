@@ -1,2 +1,3 @@
 export type Card = number;
-export type Props = { cards: Card[] }
+export type MainProps = { cards: Card[] };
+export type AppProps = { cards: Card[] };

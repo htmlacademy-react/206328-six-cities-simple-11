@@ -1,7 +1,7 @@
 import { Card } from '../components/card';
-import type { Props } from '../types';
+import type { MainProps } from '../types';
 
-export const MainScreen = ({ cards }: Props) => (
+export const MainScreen = ({ cards }: MainProps) => (
   <>
     <div style={{ display: 'none' }}>
       <svg xmlns='http://www.w3.org/2000/svg'>
