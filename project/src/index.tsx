@@ -6,8 +6,11 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
 );
 
+type Card = number;
+const cards: Card[] = [1,2,3,4,5];
+
 root.render(
   <React.StrictMode>
-    <App />
+    <App cards={cards} />
   </React.StrictMode>,
 );
