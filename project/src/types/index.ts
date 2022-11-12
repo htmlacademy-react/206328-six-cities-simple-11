@@ -1,4 +1,3 @@
-
 export type Review = {
   text: string;
   name: string;
@@ -18,7 +17,7 @@ export type Features = {
   entire: string;
   bedrooms: string;
   adults: string;
-}
+};
 
 export type Offer = {
   id: string;
@@ -30,9 +29,9 @@ export type Offer = {
   details: string[];
   host: Host;
   reviews: Review[];
-}
-
+};
 
 export type AppProps = { offers: Offer[] };
 export type CardProps = { offer: Offer };
 export type MainProps = { offers: Offer[] };
+export type OffersProps = { offers: Offer[] };
