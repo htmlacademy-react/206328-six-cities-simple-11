@@ -5,11 +5,11 @@ import { NotFound } from '../../pages/not-found';
 import { Room } from '../../pages/room';
 import type { AppProps } from '../../types';
 
-function App({ cards }: AppProps): JSX.Element {
+function App({ offers }: AppProps): JSX.Element {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<MainScreen cards={cards} />} />
+        <Route path='/' element={<MainScreen offers={offers} />} />
         <Route path='/login' element={<Login />} />
         <Route path='/offer/:id' element={<Room />} />
         <Route path='*' element={<NotFound />} />
