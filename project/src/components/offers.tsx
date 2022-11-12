@@ -33,8 +33,8 @@ export const Offers = ({ offers}: OffersProps): JSX.Element => (
           </ul>
         </form>
         <div className='cities__places-list places__list tabs__content'>
-          {offers.map((offer: Offer) => (
-            <Card key={offer.id} offer={offer} />
+          {offers.map((offer: Offer, index: number) => (
+            <Card key={offer.id} offer={offer} index={index}/>
           ))}
         </div>
       </section>

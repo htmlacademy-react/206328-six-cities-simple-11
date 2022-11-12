@@ -32,6 +32,6 @@ export type Offer = {
 };
 
 export type AppProps = { offers: Offer[] };
-export type CardProps = { offer: Offer };
+export type CardProps = { offer: Offer; index: number };
 export type MainProps = { offers: Offer[] };
 export type OffersProps = { offers: Offer[] };
