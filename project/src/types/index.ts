@@ -21,6 +21,7 @@ export type Features = {
 }
 
 export type Offer = {
+  id: string;
   name: string;
   type: string;
   features: Features;

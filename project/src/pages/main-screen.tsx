@@ -151,7 +151,7 @@ export const MainScreen = ({ offers }: MainProps) => (
               </ul>
             </form>
             <div className='cities__places-list places__list tabs__content'>
-              {offers.map((offer: Offer) => <Card key={offer.name} offer={offer} />)}
+              {offers.map((offer: Offer) => <Card key={offer.id} offer={offer} />)}
             </div>
           </section>
           <div className='cities__right-section'>
