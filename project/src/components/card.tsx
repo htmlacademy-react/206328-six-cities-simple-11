@@ -1,4 +1,6 @@
-export const Card = () => (
+import type { CardProps } from '../types';
+
+export const Card = ({ offer }: CardProps): JSX.Element => (
   <article className='cities__card place-card'>
     <div className='place-card__mark'>
       <span>Premium</span>

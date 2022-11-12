@@ -1,5 +1,3 @@
-export type Card = number;
-export type MainProps = { cards: Card[] };
 
 export type Review = {
   text: string;
@@ -34,4 +32,6 @@ export type Offer = {
 }
 
 
-export type AppProps = { cards: Card[]; offers: Offer[] };
+export type AppProps = { offers: Offer[] };
+export type CardProps = { offer: Offer };
+export type MainProps = { offers: Offer[] };

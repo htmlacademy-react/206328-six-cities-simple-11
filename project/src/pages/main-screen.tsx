@@ -1,7 +1,7 @@
 import { Card } from '../components/card';
-import type { MainProps } from '../types';
+import type { MainProps, Offer } from '../types';
 
-export const MainScreen = ({ cards }: MainProps) => (
+export const MainScreen = ({ offers }: MainProps) => (
   <>
     <div style={{ display: 'none' }}>
       <svg xmlns='http://www.w3.org/2000/svg'>
@@ -123,7 +123,7 @@ export const MainScreen = ({ cards }: MainProps) => (
         <div className='cities__places-container container'>
           <section className='cities__places places'>
             <h2 className='visually-hidden'>Places</h2>
-            <b className='places__found'>{cards.length} places to stay in Amsterdam</b>
+            <b className='places__found'>{offers.length} places to stay in Amsterdam</b>
             <form className='places__sorting' action='#' method='get'>
               <span className='places__sorting-caption'>Sort by</span>
               <span className='places__sorting-type' tabIndex={0}>
@@ -151,7 +151,7 @@ export const MainScreen = ({ cards }: MainProps) => (
               </ul>
             </form>
             <div className='cities__places-list places__list tabs__content'>
-              {cards.map((card: number) => <Card key={card} />)}
+              {offers.map((offer: Offer) => <Card key={offer.name} offer={offer} />)}
             </div>
           </section>
           <div className='cities__right-section'>
