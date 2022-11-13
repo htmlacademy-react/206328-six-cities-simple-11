@@ -1,6 +1,7 @@
 import { Form } from '../components/form';
+import { RoomProps } from '../types';
 
-export const Room = () => (
+export const Room = ({ offers }: RoomProps): JSX.Element => (
   <div className='page'>
     <div style={{ display: 'none' }}>
       <svg xmlns='http://www.w3.org/2000/svg'>
