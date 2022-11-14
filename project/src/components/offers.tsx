@@ -1,5 +1,6 @@
 import { Offer, OffersProps } from '../types';
 import { Card } from './card';
+import { Map } from './map';
 
 export const Offers = ({ offers}: OffersProps): JSX.Element => (
   <div className='cities'>
@@ -39,7 +40,7 @@ export const Offers = ({ offers}: OffersProps): JSX.Element => (
         </div>
       </section>
       <div className='cities__right-section'>
-        <section className='cities__map map'></section>
+        <Map />
       </div>
     </div>
   </div>
