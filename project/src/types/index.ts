@@ -29,6 +29,7 @@ export type Offer = {
   details: string[];
   host: Host;
   reviews: Review[];
+  point: Point;
 };
 
 export type City = {
