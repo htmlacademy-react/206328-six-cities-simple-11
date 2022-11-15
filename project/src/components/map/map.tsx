@@ -1,40 +1,10 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import leaflet, { Layer } from 'leaflet';
-import type { Map as MapType } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { URL_MARKER_DEFAULT, URL_MARKER_CURRENT } from './const';
-import { City, MapProps } from '../../types';
+import { MapProps } from '../../types';
+import { useMap } from '../../hooks/useMap';
 
-const useMap = (
-  mapRef: React.MutableRefObject<null | HTMLDivElement>,
-  city: City
-) => {
-  const [map, setMap] = useState<MapType | null>(null);
-  const isRenderedRef = useRef(false);
-
-  useEffect(() => {
-    if (mapRef.current !== null && !isRenderedRef.current) {
-      const instance = leaflet.map(mapRef.current, {
-        center: {
-          lat: city.lat,
-          lng: city.lng,
-        },
-        zoom: city.zoom,
-      });
-
-      leaflet
-        .tileLayer(
-          'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png'
-        )
-        .addTo(instance);
-
-      setMap(instance);
-      isRenderedRef.current = true;
-    }
-  }, [mapRef, city]);
-
-  return map;
-};
 
 export const Map = ({ city, points, selectedPoint }: MapProps) => {
   const mapRef = useRef(null);
