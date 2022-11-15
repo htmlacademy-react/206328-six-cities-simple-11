@@ -74,7 +74,7 @@ export const Map = ({ city, points, selectedPoint }: MapProps) => {
           .addTo(map);
       });
     }
-  }, [map, points]);
+  }, [map, points, selectedPoint, currentCustomIcon, defaultCustomIcon]);
 
   return <section className="cities__map map" ref={mapRef}></section>;
 };
