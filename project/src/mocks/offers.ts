@@ -36,9 +36,9 @@ export const offers = [
       {
         text: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.',
         name: 'Max',
-        rating: 4,
+        rating: 1,
         date: '10.10.2022',
-        avatar: 'test.png',
+        avatar: 'img/avatar-max.jpg',
       },
     ],
     point: {
@@ -85,7 +85,7 @@ export const offers = [
         name: 'Max',
         rating: 4,
         date: '10.10.2022',
-        avatar: 'test.png',
+        avatar: 'img/avatar-max.jpg',
       },
     ],
     point: {
@@ -132,7 +132,7 @@ export const offers = [
         name: 'Max',
         rating: 4,
         date: '10.10.2022',
-        avatar: 'test.png',
+        avatar: 'img/avatar-max.jpg',
       },
     ],
     point: {
@@ -179,7 +179,7 @@ export const offers = [
         name: 'Max',
         rating: 4,
         date: '10.10.2022',
-        avatar: 'test.png',
+        avatar: 'img/avatar-max.jpg',
       },
     ],
     point: {
