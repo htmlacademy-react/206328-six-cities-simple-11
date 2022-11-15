@@ -2,9 +2,9 @@ import { useRef, useState, useEffect } from 'react';
 import leaflet from 'leaflet';
 import type { Map as MapType } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { URL_MARKER_DEFAULT } from './const';
+import { URL_MARKER_DEFAULT, URL_MARKER_CURRENT } from './const';
 import { City, MapProps } from '../../types';
-//URL_MARKER_CURRENT
+
 
 const useMap = (
   mapRef: React.MutableRefObject<null | HTMLDivElement>,
@@ -41,7 +41,7 @@ const useMap = (
   return map;
 };
 
-export const Map = ({ city, points }: MapProps) => {
+export const Map = ({ city, points, selectedPoint }: MapProps) => {
   const mapRef = useRef(null);
 
   const defaultCustomIcon = leaflet.icon({
@@ -50,11 +50,11 @@ export const Map = ({ city, points }: MapProps) => {
     iconAnchor: [20, 40],
   });
 
-  // const currentCustomIcon = leaflet.icon({
-  //   iconUrl: URL_MARKER_CURRENT,
-  //   iconSize: [40, 40],
-  //   iconAnchor: [20, 40],
-  // });
+  const currentCustomIcon = leaflet.icon({
+    iconUrl: URL_MARKER_CURRENT,
+    iconSize: [40, 40],
+    iconAnchor: [20, 40],
+  });
 
   const map = useMap(mapRef, city);
 
@@ -68,7 +68,7 @@ export const Map = ({ city, points }: MapProps) => {
               lng: point.lng,
             },
             {
-              icon: defaultCustomIcon,
+              icon: point.lat === selectedPoint?.lat && point.lng === selectedPoint?.lng ? currentCustomIcon : defaultCustomIcon,
             }
           )
           .addTo(map);

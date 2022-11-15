@@ -1,9 +1,9 @@
 import type { CardProps } from '../types';
 import { Link } from 'react-router-dom';
 
-export const Card = ({ offer, index }: CardProps): JSX.Element => (
+export const Card = ({ offer, index, onListItemHover }: CardProps): JSX.Element => (
   <Link to={`offer/${index}`}>
-    <article className='cities__card place-card'>
+    <article className='cities__card place-card' onMouseEnter={() => onListItemHover(offer.id)}>
       <div className='place-card__mark'>
         <span>Premium</span>
       </div>

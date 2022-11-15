@@ -45,8 +45,8 @@ export type Point = {
 };
 
 export type AppProps = { offers: Offer[] };
-export type CardProps = { offer: Offer; index: number };
+export type CardProps = { offer: Offer; index: number; onListItemHover: (id: string) => void };
 export type MainProps = { offers: Offer[] };
 export type OffersProps = { offers: Offer[]; city: City };
 export type RoomProps = { offers: Offer[] };
-export type MapProps = { city: City; points: Point[] };
+export type MapProps = { city: City; points: Point[]; selectedPoint: Point | null };

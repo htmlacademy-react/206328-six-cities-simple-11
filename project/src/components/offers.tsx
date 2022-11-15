@@ -1,9 +1,16 @@
-import { Offer, OffersProps } from '../types';
+import { useState } from 'react';
+import { Offer, OffersProps, Point } from '../types';
 import { Card } from './card';
 import { Map } from './map/map';
 
 export const Offers = ({ offers, city }: OffersProps): JSX.Element => {
   const points = offers.map((item: Offer) => item.point);
+  const [selectedPoint, setSelectedPoint] = useState<Point | null>(null);
+
+  const onListItemHover = (listItemId: string) => {
+    const offer = offers.find((item: Offer) => item.id === listItemId);
+    if (offer) { setSelectedPoint(offer.point); }
+  };
   return (
     <div className='cities'>
       <div className='cities__places-container container'>
@@ -37,12 +44,12 @@ export const Offers = ({ offers, city }: OffersProps): JSX.Element => {
           </form>
           <div className='cities__places-list places__list tabs__content'>
             {offers.map((offer: Offer, index: number) => (
-              <Card key={offer.id} offer={offer} index={index} />
+              <Card key={offer.id} offer={offer} index={index} onListItemHover={onListItemHover} />
             ))}
           </div>
         </section>
         <div className='cities__right-section'>
-          <Map city={city} points={points} />
+          <Map city={city} points={points} selectedPoint={selectedPoint} />
         </div>
       </div>
     </div>
