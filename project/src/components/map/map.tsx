@@ -3,7 +3,7 @@ import leaflet from 'leaflet';
 import type { Map as MapType } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { URL_MARKER_DEFAULT } from './const';
-import { City, MapProps, Point } from '../../types';
+import { City, MapProps } from '../../types';
 //URL_MARKER_CURRENT
 
 const useMap = (
@@ -41,27 +41,8 @@ const useMap = (
   return map;
 };
 
-export const Map = ({ city }: MapProps) => {
+export const Map = ({ city, points }: MapProps) => {
   const mapRef = useRef(null);
-
-  const points: Point[] = [
-    {
-      lat: 52.3909553943508,
-      lng: 4.85309666406198,
-    },
-    {
-      lat: 52.3609553943508,
-      lng: 4.85309666406198,
-    },
-    {
-      lat: 52.3909553943508,
-      lng: 4.929309666406198,
-    },
-    {
-      lat: 52.3809553943508,
-      lng: 4.939309666406198,
-    },
-  ];
 
   const defaultCustomIcon = leaflet.icon({
     iconUrl: URL_MARKER_DEFAULT,

@@ -49,4 +49,4 @@ export type CardProps = { offer: Offer; index: number };
 export type MainProps = { offers: Offer[] };
 export type OffersProps = { offers: Offer[]; city: City };
 export type RoomProps = { offers: Offer[] };
-export type MapProps = { city: City };
+export type MapProps = { city: City; points: Point[] };
