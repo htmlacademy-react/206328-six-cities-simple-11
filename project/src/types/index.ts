@@ -29,9 +29,24 @@ export type Offer = {
   details: string[];
   host: Host;
   reviews: Review[];
+  point: Point;
+};
+
+export type City = {
+  title: string;
+  lat: number;
+  lng: number;
+  zoom: number;
+};
+
+export type Point = {
+  lat: number;
+  lng: number;
 };
 
 export type AppProps = { offers: Offer[] };
-export type CardProps = { offer: Offer; index: number };
+export type CardProps = { offer: Offer; index: number; onListItemHover: (id: string) => void };
 export type MainProps = { offers: Offer[] };
-export type OffersProps = { offers: Offer[] };
+export type OffersProps = { offers: Offer[]; city: City };
+export type RoomProps = { offers: Offer[] };
+export type MapProps = { city: City; points: Point[]; selectedPoint: Point | null };
