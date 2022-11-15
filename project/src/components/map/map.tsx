@@ -1,10 +1,9 @@
 import { useRef, useState, useEffect } from 'react';
-import leaflet from 'leaflet';
+import leaflet, { Layer } from 'leaflet';
 import type { Map as MapType } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { URL_MARKER_DEFAULT, URL_MARKER_CURRENT } from './const';
 import { City, MapProps } from '../../types';
-
 
 const useMap = (
   mapRef: React.MutableRefObject<null | HTMLDivElement>,
@@ -25,11 +24,7 @@ const useMap = (
 
       leaflet
         .tileLayer(
-          'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
-          {
-            attribution:
-              '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-          }
+          'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png'
         )
         .addTo(instance);
 
@@ -59,8 +54,9 @@ export const Map = ({ city, points, selectedPoint }: MapProps) => {
   const map = useMap(mapRef, city);
 
   useEffect(() => {
+    let markers: Layer[];
     if (map) {
-      points.forEach((point) => {
+      markers = points.map((point) =>
         leaflet
           .marker(
             {
@@ -68,13 +64,22 @@ export const Map = ({ city, points, selectedPoint }: MapProps) => {
               lng: point.lng,
             },
             {
-              icon: point.lat === selectedPoint?.lat && point.lng === selectedPoint?.lng ? currentCustomIcon : defaultCustomIcon,
+              icon:
+                point.lat === selectedPoint?.lat &&
+                point.lng === selectedPoint?.lng
+                  ? currentCustomIcon
+                  : defaultCustomIcon,
             }
           )
-          .addTo(map);
-      });
+          .addTo(map)
+      );
     }
+    return () => {
+      markers?.forEach((marker: Layer) => {
+        map?.removeLayer(marker);
+      });
+    };
   }, [map, points, selectedPoint, currentCustomIcon, defaultCustomIcon]);
 
-  return <section className="cities__map map" ref={mapRef}></section>;
+  return <section className='cities__map map' ref={mapRef}></section>;
 };
