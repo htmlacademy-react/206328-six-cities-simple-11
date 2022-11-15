@@ -195,7 +195,7 @@ export const Room = ({ offers }: RoomProps): JSX.Element => {
                 </div>
                 <section className='property__reviews reviews'>
                   <h2 className='reviews__title'>
-                    Reviews &middot; <span className='reviews__amount'>1</span>
+                    Reviews &middot; <span className='reviews__amount'>{offer.reviews.length}</span>
                   </h2>
                   <ReviewList reviews={offer.reviews} />
                   <Form />
