@@ -3,19 +3,8 @@ import leaflet from 'leaflet';
 import type { Map as MapType } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { URL_MARKER_DEFAULT } from './const';
+import { City, MapProps, Point } from '../../types';
 //URL_MARKER_CURRENT
-
-type City = {
-  title: string;
-  lat: number;
-  lng: number;
-  zoom: number;
-};
-
-type Point = {
-  lat: number;
-  lng: number;
-};
 
 const useMap = (
   mapRef: React.MutableRefObject<null | HTMLDivElement>,
@@ -52,15 +41,8 @@ const useMap = (
   return map;
 };
 
-export const Map = () => {
+export const Map = ({ city }: MapProps) => {
   const mapRef = useRef(null);
-
-  const CITY: City = {
-    title: 'Амстердам',
-    lat: 52.3609553943508,
-    lng: 4.85309666406198,
-    zoom: 10,
-  };
 
   const points: Point[] = [
     {
@@ -93,7 +75,7 @@ export const Map = () => {
   //   iconAnchor: [20, 40],
   // });
 
-  const map = useMap(mapRef, CITY);
+  const map = useMap(mapRef, city);
 
   useEffect(() => {
     if (map) {
