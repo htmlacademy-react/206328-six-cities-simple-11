@@ -1,12 +1,12 @@
-import { MapProps } from '../types';
+import { MapComponentProps, MapProps } from '../types';
 import { useRef, useEffect, ForwardRefExoticComponent, RefAttributes } from 'react';
 import leaflet, { Layer } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { URL_MARKER_DEFAULT, URL_MARKER_CURRENT } from './const';
 import { useMap } from '../hooks/useMap';
 
-export const withMap = (Component: ForwardRefExoticComponent<RefAttributes<HTMLElement>>) =>
-  function Map({ city, points, selectedPoint }: MapProps) {
+export const withMap = (Component: ForwardRefExoticComponent<MapComponentProps & RefAttributes<HTMLElement>>) =>
+  function Map({ city, points, selectedPoint, className }: MapProps) {
     const mapRef = useRef(null);
 
     const defaultCustomIcon = leaflet.icon({
@@ -51,5 +51,5 @@ export const withMap = (Component: ForwardRefExoticComponent<RefAttributes<HTMLE
       };
     }, [map, points, selectedPoint, currentCustomIcon, defaultCustomIcon]);
 
-    return <Component ref={mapRef} />;
+    return <Component ref={mapRef} className={className} />;
   };

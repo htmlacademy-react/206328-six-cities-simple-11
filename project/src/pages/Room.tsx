@@ -2,7 +2,7 @@ import { Form } from '../components/form';
 import type { Offer, RoomProps, City } from '../types';
 import { useParams } from 'react-router-dom';
 import { ReviewList } from '../components/review-list';
-import { Map } from '../components/room-map';
+import { Map } from '../components/map';
 
 export const Room = ({ offers }: RoomProps): JSX.Element => {
   const { id } = useParams();
@@ -211,7 +211,7 @@ export const Room = ({ offers }: RoomProps): JSX.Element => {
                 </section>
               </div>
             </div>
-            <Map city={city} points={points} selectedPoint={offer.point} />
+            <Map city={city} points={points} selectedPoint={offer.point} className="property__map map" />
           </section>
           <div className='container'>
             <section className='near-places places'>

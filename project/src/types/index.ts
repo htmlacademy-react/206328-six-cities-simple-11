@@ -59,7 +59,8 @@ export type MapProps = {
   city: City;
   points: Point[];
   selectedPoint: Point | null;
+  className: string;
 };
 export type ReviewListProps = { reviews: Review[] };
 export type ReviewItemProps = { review: Review };
-export type ComponentWithRef = { text: string };
+export type MapComponentProps = { className: string };
