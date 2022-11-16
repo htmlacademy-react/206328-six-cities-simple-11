@@ -1,3 +1,5 @@
+
+
 export type Review = {
   text: string;
   name: string;
@@ -44,12 +46,20 @@ export type Point = {
   lng: number;
 };
 
-
 export type AppProps = { offers: Offer[] };
-export type CardProps = { offer: Offer; index: number; onListItemHover: (id: string) => void };
+export type CardProps = {
+  offer: Offer;
+  index: number;
+  onListItemHover: (id: string) => void;
+};
 export type MainProps = { offers: Offer[] };
 export type OffersProps = { offers: Offer[]; city: City };
 export type RoomProps = { offers: Offer[] };
-export type MapProps = { city: City; points: Point[]; selectedPoint: Point | null };
+export type MapProps = {
+  city: City;
+  points: Point[];
+  selectedPoint: Point | null;
+};
 export type ReviewListProps = { reviews: Review[] };
 export type ReviewItemProps = { review: Review };
+export type ComponentWithRef = { text: string };
