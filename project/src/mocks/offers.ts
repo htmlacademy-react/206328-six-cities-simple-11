@@ -3,10 +3,9 @@ export const offers = [
     id: 'e730b5b8-16fa-4cac-a04a-e09bbe280185',
     name: 'Wood and stone place',
     premium: false,
-    type: 'Private room',
     pic: 'img/apartment-01.jpg',
     features: {
-      entire: 'Apartment',
+      type: 'Private room',
       bedrooms: '3 Bedrooms',
       adults: 'Max 4 adults',
     },
@@ -26,8 +25,8 @@ export const offers = [
     ],
     host: {
       name: 'Angelina',
-      type: 'pro',
-      avatar: 'test.png',
+      type: 'Pro',
+      avatar: 'img/avatar-angelina.jpg',
       comments: [
         'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.',
 
@@ -52,10 +51,9 @@ export const offers = [
     id: 'e730b5b8-16fa-4cac-a04a-e09bbe280184',
     name: 'Beautiful & luxurious studio at great location',
     premium: false,
-    type: 'Appartment',
     pic: 'img/apartment-02.jpg',
     features: {
-      entire: 'Apartment',
+      type: 'Apartment',
       bedrooms: '3 Bedrooms',
       adults: 'Max 4 adults',
     },
@@ -75,8 +73,8 @@ export const offers = [
     ],
     host: {
       name: 'Angelina',
-      type: 'pro',
-      avatar: 'test.png',
+      type: 'Pro',
+      avatar: 'img/avatar-angelina.jpg',
       comments: [
         'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.',
 
@@ -101,10 +99,9 @@ export const offers = [
     id: 'e730b5b8-16fa-4cac-a04a-e09bbe280183',
     name: 'Canal View Prinsengracht',
     premium: false,
-    type: 'Appartment',
     pic: 'img/apartment-03.jpg',
     features: {
-      entire: 'Apartment',
+      type: 'Apartment',
       bedrooms: '3 Bedrooms',
       adults: 'Max 4 adults',
     },
@@ -124,8 +121,8 @@ export const offers = [
     ],
     host: {
       name: 'Angelina',
-      type: 'pro',
-      avatar: 'test.png',
+      type: 'Pro',
+      avatar: 'img/avatar-angelina.jpg',
       comments: [
         'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.',
 
@@ -150,10 +147,9 @@ export const offers = [
     id: 'e730b5b8-16fa-4cac-a04a-e09bbe280182',
     name: 'Nice, cozy, warm big bed appartment',
     premium: true,
-    type: 'Appartment',
     pic: 'img/room.jpg',
     features: {
-      entire: 'Apartment',
+      type: 'Apartment',
       bedrooms: '3 Bedrooms',
       adults: 'Max 4 adults',
     },
@@ -173,8 +169,8 @@ export const offers = [
     ],
     host: {
       name: 'Angelina',
-      type: 'pro',
-      avatar: 'test.png',
+      type: 'Pro',
+      avatar: 'img/avatar-angelina.jpg',
       comments: [
         'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.',
 

@@ -16,7 +16,7 @@ export type Host = {
 };
 
 export type Features = {
-  entire: string;
+  type: string;
   bedrooms: string;
   adults: string;
 };
@@ -26,7 +26,6 @@ export type Offer = {
   pic: string;
   name: string;
   premium: boolean;
-  type: string;
   features: Features;
   rating: number;
   price: number;

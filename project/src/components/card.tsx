@@ -45,7 +45,7 @@ export const Card = ({
             {offer.name}
           </a>
         </h2>
-        <p className='place-card__type'>{offer.type}</p>
+        <p className='place-card__type'>{offer.features.type}</p>
       </div>
     </article>
   </Link>
