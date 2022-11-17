@@ -7,6 +7,8 @@ import { InitialStateType } from '../types';
 const initialState: InitialStateType = {
   cities: [],
   offers: [],
+  selectedCity: null,
+  selectedOffer: null
 };
 
 const reducer = createReducer(initialState, (builder) => {
