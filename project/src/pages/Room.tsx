@@ -1,35 +1,35 @@
+import { useEffect, useState, useRef } from 'react';
 import { Form } from '../components/form';
-import type { RoomProps } from '../types';
+import { Card } from '../components/card';
+import type { Offer, RoomProps, City } from '../types';
 import { useParams } from 'react-router-dom';
+import { ReviewList } from '../components/review-list';
+import { Map } from '../components/map';
 
 export const Room = ({ offers }: RoomProps): JSX.Element => {
   const { id } = useParams();
+  const headerRef = useRef<HTMLHeadingElement>(null);
+  const offer = offers.find((item: Offer) => item.id === id) as Offer;
+  const [selectedPoint, setSelectedPoint] = useState(offer.point);
+  const points = offers.map((item: Offer) => item.point);
+  const exceptCarrentOffers = offers.filter((item: Offer) => item.id !== offer.id);
+
+  useEffect(() => {
+    setSelectedPoint(offer.point);
+    headerRef?.current?.scrollIntoView();
+  }, [offer.point]);
+
+
+  const city: City = {
+    title: 'Амстердам',
+    lat: 52.377956,
+    lng: 4.89707,
+    zoom: 10,
+  };
 
   return (
     <div className='page'>
-      <div style={{ display: 'none' }}>
-        <svg xmlns='http://www.w3.org/2000/svg'>
-          <symbol id='icon-arrow-select' viewBox='0 0 7 4'>
-            <path
-              fillRule='evenodd'
-              clipRule='evenodd'
-              d='M0 0l3.5 2.813L7 0v1.084L3.5 4 0 1.084V0z'
-            />
-          </symbol>
-          <symbol id='icon-bookmark' viewBox='0 0 17 18'>
-            <path d='M3.993 2.185l.017-.092V2c0-.554.449-1 .99-1h10c.522 0 .957.41.997.923l-2.736 14.59-4.814-2.407-.39-.195-.408.153L1.31 16.44 3.993 2.185z' />
-          </symbol>
-          <symbol id='icon-star' viewBox='0 0 13 12'>
-            <path
-              fillRule='evenodd'
-              clipRule='evenodd'
-              d='M6.5 9.644L10.517 12 9.451 7.56 13 4.573l-4.674-.386L6.5 0 4.673 4.187 0 4.573 3.549 7.56 2.483 12 6.5 9.644z'
-            />
-          </symbol>
-        </svg>
-      </div>
-
-      <header className='header'>
+      <header className='header' ref={headerRef}>
         <div className='container'>
           <div className='header__wrapper'>
             <div className='header__left'>
@@ -64,7 +64,7 @@ export const Room = ({ offers }: RoomProps): JSX.Element => {
         </div>
       </header>
 
-      {offers[Number(id)] ? (
+      {offer ? (
         <main className='page__main page__main--property'>
           <section className='property'>
             <div className='property__gallery-container container'>
@@ -115,51 +115,46 @@ export const Room = ({ offers }: RoomProps): JSX.Element => {
             </div>
             <div className='property__container container'>
               <div className='property__wrapper'>
-                <div className='property__mark'>
-                  <span>Premium</span>
-                </div>
+                {offer.premium && (
+                  <div className='property__mark'>
+                    <span>Premium</span>
+                  </div>
+                )}
                 <div className='property__name-wrapper'>
-                  <h1 className='property__name'>
-                    Beautiful &amp; luxurious studio at great location
-                  </h1>
+                  <h1 className='property__name'>{offer.name}</h1>
                 </div>
                 <div className='property__rating rating'>
                   <div className='property__stars rating__stars'>
-                    <span style={{ width: '80%' }}></span>
+                    <span style={{ width: `${(offer.rating / 5) * 100}%` }} />
                     <span className='visually-hidden'>Rating</span>
                   </div>
                   <span className='property__rating-value rating__value'>
-                    4.8
+                    {offer.rating}
                   </span>
                 </div>
                 <ul className='property__features'>
                   <li className='property__feature property__feature--entire'>
-                    Apartment
+                    {offer.features.type}
                   </li>
                   <li className='property__feature property__feature--bedrooms'>
-                    3 Bedrooms
+                    {offer.features.bedrooms}
                   </li>
                   <li className='property__feature property__feature--adults'>
-                    Max 4 adults
+                    {offer.features.adults}
                   </li>
                 </ul>
                 <div className='property__price'>
-                  <b className='property__price-value'>&euro;120</b>
+                  <b className='property__price-value'>&euro;{offer.price}</b>
                   <span className='property__price-text'>&nbsp;night</span>
                 </div>
                 <div className='property__inside'>
                   <h2 className='property__inside-title'>What&apos;s inside</h2>
                   <ul className='property__inside-list'>
-                    <li className='property__inside-item'>Wi-Fi</li>
-                    <li className='property__inside-item'>Washing machine</li>
-                    <li className='property__inside-item'>Towels</li>
-                    <li className='property__inside-item'>Heating</li>
-                    <li className='property__inside-item'>Coffee machine</li>
-                    <li className='property__inside-item'>Baby seat</li>
-                    <li className='property__inside-item'>Kitchen</li>
-                    <li className='property__inside-item'>Dishwasher</li>
-                    <li className='property__inside-item'>Cabel TV</li>
-                    <li className='property__inside-item'>Fridge</li>
+                    {offer.details.map((detail: string) => (
+                      <li key={detail} className='property__inside-item'>
+                        {detail}
+                      </li>
+                    ))}
                   </ul>
                 </div>
                 <div className='property__host'>
@@ -168,70 +163,45 @@ export const Room = ({ offers }: RoomProps): JSX.Element => {
                     <div className='property__avatar-wrapper property__avatar-wrapper--pro user__avatar-wrapper'>
                       <img
                         className='property__avatar user__avatar'
-                        src='img/avatar-angelina.jpg'
+                        src={offer.host.avatar}
                         width='74'
                         height='74'
                         alt='Host avatar'
                       />
                     </div>
-                    <span className='property__user-name'>Angelina</span>
-                    <span className='property__user-status'>Pro</span>
+                    <span className='property__user-name'>
+                      {offer.host.name}
+                    </span>
+                    <span className='property__user-status'>
+                      {offer.host.type}
+                    </span>
                   </div>
                   <div className='property__description'>
-                    <p className='property__text'>
-                      A quiet cozy and picturesque that hides behind a a river
-                      by the unique lightness of Amsterdam. The building is
-                      green and from 18th century.
-                    </p>
-                    <p className='property__text'>
-                      An independent House, strategically located between
-                      Rembrand Square and National Opera, but where the bustle
-                      of the city comes to rest in this alley flowery and
-                      colorful.
-                    </p>
+                    {offer.host.comments.map((comment: string) => (
+                      <p key={comment} className='property__text'>
+                        {comment}
+                      </p>
+                    ))}
                   </div>
                 </div>
                 <section className='property__reviews reviews'>
                   <h2 className='reviews__title'>
-                    Reviews &middot; <span className='reviews__amount'>1</span>
+                    Reviews &middot;
+                    <span className='reviews__amount'>
+                      {offer.reviews.length}
+                    </span>
                   </h2>
-                  <ul className='reviews__list'>
-                    <li className='reviews__item'>
-                      <div className='reviews__user user'>
-                        <div className='reviews__avatar-wrapper user__avatar-wrapper'>
-                          <img
-                            className='reviews__avatar user__avatar'
-                            src='img/avatar-max.jpg'
-                            width='54'
-                            height='54'
-                            alt='Reviews avatar'
-                          />
-                        </div>
-                        <span className='reviews__user-name'>Max</span>
-                      </div>
-                      <div className='reviews__info'>
-                        <div className='reviews__rating rating'>
-                          <div className='reviews__stars rating__stars'>
-                            <span style={{ width: '80%' }}></span>
-                            <span className='visually-hidden'>Rating</span>
-                          </div>
-                        </div>
-                        <p className='reviews__text'>
-                          A quiet cozy and picturesque that hides behind a a
-                          river by the unique lightness of Amsterdam. The
-                          building is green and from 18th century.
-                        </p>
-                        <time className='reviews__time' dateTime='2019-04-24'>
-                          April 2019
-                        </time>
-                      </div>
-                    </li>
-                  </ul>
+                  <ReviewList reviews={offer.reviews} />
                   <Form />
                 </section>
               </div>
             </div>
-            <section className='property__map map'></section>
+            <Map
+              city={city}
+              points={points}
+              selectedPoint={selectedPoint}
+              className='property__map map'
+            />
           </section>
           <div className='container'>
             <section className='near-places places'>
@@ -239,114 +209,13 @@ export const Room = ({ offers }: RoomProps): JSX.Element => {
                 Other places in the neighbourhood
               </h2>
               <div className='near-places__list places__list'>
-                <article className='near-places__card place-card'>
-                  <div className='near-places__image-wrapper place-card__image-wrapper'>
-                    <a href='http://localhost:3000'>
-                      <img
-                        className='place-card__image'
-                        src='img/room.jpg'
-                        width='260'
-                        height='200'
-                        alt='room pic'
-                      />
-                    </a>
-                  </div>
-                  <div className='place-card__info'>
-                    <div className='place-card__price-wrapper'>
-                      <div className='place-card__price'>
-                        <b className='place-card__price-value'>&euro;80</b>
-                        <span className='place-card__price-text'>
-                          &#47;&nbsp;night
-                        </span>
-                      </div>
-                    </div>
-                    <div className='place-card__rating rating'>
-                      <div className='place-card__stars rating__stars'>
-                        <span style={{ width: '80%' }}></span>
-                        <span className='visually-hidden'>Rating</span>
-                      </div>
-                    </div>
-                    <h2 className='place-card__name'>
-                      <a href='http://localhost:3000'>Wood and stone place</a>
-                    </h2>
-                    <p className='place-card__type'>Private room</p>
-                  </div>
-                </article>
-
-                <article className='near-places__card place-card'>
-                  <div className='near-places__image-wrapper place-card__image-wrapper'>
-                    <a href='http://localhost:3000'>
-                      <img
-                        className='place-card__image'
-                        src='img/apartment-02.jpg'
-                        width='260'
-                        height='200'
-                        alt='Place '
-                      />
-                    </a>
-                  </div>
-                  <div className='place-card__info'>
-                    <div className='place-card__price-wrapper'>
-                      <div className='place-card__price'>
-                        <b className='place-card__price-value'>&euro;132</b>
-                        <span className='place-card__price-text'>
-                          &#47;&nbsp;night
-                        </span>
-                      </div>
-                    </div>
-                    <div className='place-card__rating rating'>
-                      <div className='place-card__stars rating__stars'>
-                        <span style={{ width: '80%' }}></span>
-                        <span className='visually-hidden'>Rating</span>
-                      </div>
-                    </div>
-                    <h2 className='place-card__name'>
-                      <a href='http://localhost:3000'>
-                        Canal View Prinsengracht
-                      </a>
-                    </h2>
-                    <p className='place-card__type'>Apartment</p>
-                  </div>
-                </article>
-
-                <article className='near-places__card place-card'>
-                  <div className='place-card__mark'>
-                    <span>Premium</span>
-                  </div>
-                  <div className='near-places__image-wrapper place-card__image-wrapper'>
-                    <a href='http://localhost:3000'>
-                      <img
-                        className='place-card__image'
-                        src='img/apartment-03.jpg'
-                        width='260'
-                        height='200'
-                        alt='Place'
-                      />
-                    </a>
-                  </div>
-                  <div className='place-card__info'>
-                    <div className='place-card__price-wrapper'>
-                      <div className='place-card__price'>
-                        <b className='place-card__price-value'>&euro;180</b>
-                        <span className='place-card__price-text'>
-                          &#47;&nbsp;night
-                        </span>
-                      </div>
-                    </div>
-                    <div className='place-card__rating rating'>
-                      <div className='place-card__stars rating__stars'>
-                        <span style={{ width: '100%' }}></span>
-                        <span className='visually-hidden'>Rating</span>
-                      </div>
-                    </div>
-                    <h2 className='place-card__name'>
-                      <a href='http://localhost:3000'>
-                        Nice, cozy, warm big bed apartment
-                      </a>
-                    </h2>
-                    <p className='place-card__type'>Apartment</p>
-                  </div>
-                </article>
+                {exceptCarrentOffers.map((item: Offer, index: number) => (
+                  <Card
+                    key={item.id}
+                    offer={item}
+                    index={index}
+                  />
+                ))}
               </div>
             </section>
           </div>

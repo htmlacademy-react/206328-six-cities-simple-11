@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Offer, OffersProps, Point } from '../types';
 import { Card } from './card';
-import { Map } from './map/map';
+import { Map } from './map';
 
 export const Offers = ({ offers, city }: OffersProps): JSX.Element => {
   const points = offers.map((item: Offer) => item.point);
@@ -11,6 +11,7 @@ export const Offers = ({ offers, city }: OffersProps): JSX.Element => {
     const offer = offers.find((item: Offer) => item.id === listItemId);
     if (offer) { setSelectedPoint(offer.point); }
   };
+
   return (
     <div className='cities'>
       <div className='cities__places-container container'>
@@ -49,7 +50,7 @@ export const Offers = ({ offers, city }: OffersProps): JSX.Element => {
           </div>
         </section>
         <div className='cities__right-section'>
-          <Map city={city} points={points} selectedPoint={selectedPoint} />
+          <Map city={city} points={points} selectedPoint={selectedPoint} className="cities__map map" />
         </div>
       </div>
     </div>

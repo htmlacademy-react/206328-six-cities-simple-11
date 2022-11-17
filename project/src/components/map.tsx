@@ -1,12 +1,14 @@
+import { MapProps } from '../types';
 import { useRef, useEffect } from 'react';
 import leaflet, { Layer } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { URL_MARKER_DEFAULT, URL_MARKER_CURRENT } from './const';
-import { MapProps } from '../../types';
-import { useMap } from '../../hooks/useMap';
+import { useMap } from '../hooks/useMap';
+
+const URL_MARKER_DEFAULT = 'https://assets.htmlacademy.ru/content/intensive/javascript-1/demo/interactive-map/pin.svg';
+const URL_MARKER_CURRENT = 'https://assets.htmlacademy.ru/content/intensive/javascript-1/demo/interactive-map/main-pin.svg';
 
 
-export const Map = ({ city, points, selectedPoint }: MapProps) => {
+export const Map = ({ city, points, selectedPoint, className }: MapProps) => {
   const mapRef = useRef(null);
 
   const defaultCustomIcon = leaflet.icon({
@@ -51,5 +53,5 @@ export const Map = ({ city, points, selectedPoint }: MapProps) => {
     };
   }, [map, points, selectedPoint, currentCustomIcon, defaultCustomIcon]);
 
-  return <section className='cities__map map' ref={mapRef}></section>;
+  return <section ref={mapRef} className={className} />;
 };

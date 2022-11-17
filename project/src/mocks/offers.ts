@@ -1,15 +1,16 @@
 export const offers = [
   {
     id: 'e730b5b8-16fa-4cac-a04a-e09bbe280185',
-    name: 'Beautiful & luxurious studio at great location',
-    type: 'Premium',
+    name: 'Wood and stone place',
+    premium: false,
+    pic: 'img/apartment-01.jpg',
     features: {
-      entire: 'Apartment',
+      type: 'Private room',
       bedrooms: '3 Bedrooms',
       adults: 'Max 4 adults',
     },
-    rating: 4.8,
-    price: 120,
+    rating: 3.8,
+    price: 80,
     details: [
       'Wi-Fi',
       'Washing machine',
@@ -24,8 +25,8 @@ export const offers = [
     ],
     host: {
       name: 'Angelina',
-      type: 'pro',
-      avatar: 'test.png',
+      type: 'Pro',
+      avatar: 'img/avatar-angelina.jpg',
       comments: [
         'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.',
 
@@ -36,9 +37,9 @@ export const offers = [
       {
         text: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.',
         name: 'Max',
-        rating: 4,
+        rating: 1,
         date: '10.10.2022',
-        avatar: 'test.png',
+        avatar: 'img/avatar-max.jpg',
       },
     ],
     point: {
@@ -49,13 +50,14 @@ export const offers = [
   {
     id: 'e730b5b8-16fa-4cac-a04a-e09bbe280184',
     name: 'Beautiful & luxurious studio at great location',
-    type: 'Premium',
+    premium: false,
+    pic: 'img/apartment-02.jpg',
     features: {
-      entire: 'Apartment',
+      type: 'Apartment',
       bedrooms: '3 Bedrooms',
       adults: 'Max 4 adults',
     },
-    rating: 4.8,
+    rating: 4.5,
     price: 120,
     details: [
       'Wi-Fi',
@@ -71,8 +73,8 @@ export const offers = [
     ],
     host: {
       name: 'Angelina',
-      type: 'pro',
-      avatar: 'test.png',
+      type: 'Pro',
+      avatar: 'img/avatar-angelina.jpg',
       comments: [
         'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.',
 
@@ -85,7 +87,7 @@ export const offers = [
         name: 'Max',
         rating: 4,
         date: '10.10.2022',
-        avatar: 'test.png',
+        avatar: 'img/avatar-max.jpg',
       },
     ],
     point: {
@@ -95,15 +97,16 @@ export const offers = [
   },
   {
     id: 'e730b5b8-16fa-4cac-a04a-e09bbe280183',
-    name: 'Beautiful & luxurious studio at great location',
-    type: 'Premium',
+    name: 'Canal View Prinsengracht',
+    premium: false,
+    pic: 'img/apartment-03.jpg',
     features: {
-      entire: 'Apartment',
+      type: 'Apartment',
       bedrooms: '3 Bedrooms',
       adults: 'Max 4 adults',
     },
-    rating: 4.8,
-    price: 120,
+    rating: 4,
+    price: 132,
     details: [
       'Wi-Fi',
       'Washing machine',
@@ -118,8 +121,8 @@ export const offers = [
     ],
     host: {
       name: 'Angelina',
-      type: 'pro',
-      avatar: 'test.png',
+      type: 'Pro',
+      avatar: 'img/avatar-angelina.jpg',
       comments: [
         'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.',
 
@@ -132,7 +135,7 @@ export const offers = [
         name: 'Max',
         rating: 4,
         date: '10.10.2022',
-        avatar: 'test.png',
+        avatar: 'img/avatar-max.jpg',
       },
     ],
     point: {
@@ -141,16 +144,17 @@ export const offers = [
     },
   },
   {
-    id: 'e730b5b8-16fa-4cac-a04a-e09bbe280182',
-    name: 'Beautiful & luxurious studio at great location',
-    type: 'Premium',
+    id: 'e730b5b8-16fa-4cac-a04a-e09bbe280453',
+    name: 'Nice, cozy, warm big bed appartment',
+    premium: true,
+    pic: 'img/room.jpg',
     features: {
-      entire: 'Apartment',
+      type: 'Apartment',
       bedrooms: '3 Bedrooms',
       adults: 'Max 4 adults',
     },
-    rating: 4.8,
-    price: 120,
+    rating: 5,
+    price: 180,
     details: [
       'Wi-Fi',
       'Washing machine',
@@ -165,8 +169,8 @@ export const offers = [
     ],
     host: {
       name: 'Angelina',
-      type: 'pro',
-      avatar: 'test.png',
+      type: 'Pro',
+      avatar: 'img/avatar-angelina.jpg',
       comments: [
         'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.',
 
@@ -179,7 +183,7 @@ export const offers = [
         name: 'Max',
         rating: 4,
         date: '10.10.2022',
-        avatar: 'test.png',
+        avatar: 'img/avatar-max.jpg',
       },
     ],
     point: {
