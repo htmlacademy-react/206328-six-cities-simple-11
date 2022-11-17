@@ -23,6 +23,7 @@ export type Features = {
 
 export type Offer = {
   id: string;
+  pic: string;
   name: string;
   type: string;
   features: Features;

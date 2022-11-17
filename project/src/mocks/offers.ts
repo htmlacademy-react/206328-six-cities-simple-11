@@ -3,6 +3,7 @@ export const offers = [
     id: 'e730b5b8-16fa-4cac-a04a-e09bbe280185',
     name: 'Beautiful & luxurious studio at great location',
     type: 'Premium',
+    pic: 'img/apartment-01.jpg',
     features: {
       entire: 'Apartment',
       bedrooms: '3 Bedrooms',
@@ -50,6 +51,7 @@ export const offers = [
     id: 'e730b5b8-16fa-4cac-a04a-e09bbe280184',
     name: 'Beautiful & luxurious studio at great location',
     type: 'Premium',
+    pic: 'img/apartment-01.jpg',
     features: {
       entire: 'Apartment',
       bedrooms: '3 Bedrooms',
@@ -97,6 +99,7 @@ export const offers = [
     id: 'e730b5b8-16fa-4cac-a04a-e09bbe280183',
     name: 'Beautiful & luxurious studio at great location',
     type: 'Premium',
+    pic: 'img/apartment-01.jpg',
     features: {
       entire: 'Apartment',
       bedrooms: '3 Bedrooms',
@@ -144,6 +147,7 @@ export const offers = [
     id: 'e730b5b8-16fa-4cac-a04a-e09bbe280182',
     name: 'Beautiful & luxurious studio at great location',
     type: 'Premium',
+    pic: 'img/apartment-01.jpg',
     features: {
       entire: 'Apartment',
       bedrooms: '3 Bedrooms',

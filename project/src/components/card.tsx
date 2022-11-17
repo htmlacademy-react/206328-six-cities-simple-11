@@ -11,7 +11,7 @@ export const Card = ({ offer, index, onListItemHover }: CardProps): JSX.Element 
         <a href='https://localhost:3000'>
           <img
             className='place-card__image'
-            src='img/apartment-01.jpg'
+            src={offer.pic}
             width='260'
             height='200'
             alt='Place'
