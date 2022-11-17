@@ -11,6 +11,7 @@ export const Offers = ({ offers, city }: OffersProps): JSX.Element => {
     const offer = offers.find((item: Offer) => item.id === listItemId);
     if (offer) { setSelectedPoint(offer.point); }
   };
+
   return (
     <div className='cities'>
       <div className='cities__places-container container'>

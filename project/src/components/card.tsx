@@ -6,10 +6,10 @@ export const Card = ({
   index,
   onListItemHover,
 }: CardProps): JSX.Element => (
-  <Link to={`offer/${index}`}>
+  <Link to={`/offer/${offer.id}`}>
     <article
       className='cities__card place-card'
-      onMouseEnter={() => onListItemHover(offer.id)}
+      onMouseEnter={() => onListItemHover?.(offer.id)}
     >
       {offer.premium && (
         <div className='place-card__mark'>

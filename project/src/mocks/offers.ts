@@ -144,7 +144,7 @@ export const offers = [
     },
   },
   {
-    id: 'e730b5b8-16fa-4cac-a04a-e09bbe280182',
+    id: 'e730b5b8-16fa-4cac-a04a-e09bbe280453',
     name: 'Nice, cozy, warm big bed appartment',
     premium: true,
     pic: 'img/room.jpg',

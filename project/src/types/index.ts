@@ -51,7 +51,7 @@ export type AppProps = { offers: Offer[] };
 export type CardProps = {
   offer: Offer;
   index: number;
-  onListItemHover: (id: string) => void;
+  onListItemHover?: (id: string) => void;
 };
 export type MainProps = { offers: Offer[] };
 export type OffersProps = { offers: Offer[]; city: City };
