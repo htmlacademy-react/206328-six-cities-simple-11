@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { Form } from '../components/form';
 import { Card } from '../components/card';
 import type { Offer, RoomProps, City } from '../types';
@@ -8,6 +8,7 @@ import { Map } from '../components/map';
 
 export const Room = ({ offers }: RoomProps): JSX.Element => {
   const { id } = useParams();
+  const headerRef = useRef<HTMLHeadingElement>(null);
   const offer = offers.find((item: Offer) => item.id === id) as Offer;
   const [selectedPoint, setSelectedPoint] = useState(offer.point);
   const points = offers.map((item: Offer) => item.point);
@@ -15,6 +16,7 @@ export const Room = ({ offers }: RoomProps): JSX.Element => {
 
   useEffect(() => {
     setSelectedPoint(offer.point);
+    headerRef?.current?.scrollIntoView();
   }, [offer.point]);
 
 
@@ -27,7 +29,7 @@ export const Room = ({ offers }: RoomProps): JSX.Element => {
 
   return (
     <div className='page'>
-      <header className='header'>
+      <header className='header' ref={headerRef}>
         <div className='container'>
           <div className='header__wrapper'>
             <div className='header__left'>
