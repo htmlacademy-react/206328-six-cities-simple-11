@@ -1,9 +1,9 @@
 import { Offers } from '../components/offers';
 import { Cities } from '../components/cities';
-import type { City, MainProps } from '../types';
+import type { City } from '../types';
 
+export const MainScreen = () => {
 
-export const MainScreen = ({ offers }: MainProps) => {
   const city: City = {
     title: 'Амстердам',
     lat: 52.377956,
@@ -57,7 +57,7 @@ export const MainScreen = ({ offers }: MainProps) => {
             <Cities />
           </section>
         </div>
-        <Offers offers={offers} city={city} />
+        <Offers city={city} />
       </main>
     </>
   );

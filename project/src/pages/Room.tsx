@@ -1,12 +1,14 @@
 import { useEffect, useState, useRef } from 'react';
 import { Form } from '../components/form';
 import { Card } from '../components/card';
-import type { Offer, RoomProps, City } from '../types';
+import type { Offer, City } from '../types';
 import { useParams } from 'react-router-dom';
 import { ReviewList } from '../components/review-list';
 import { Map } from '../components/map';
+import { useAppSelector } from '../hooks';
 
-export const Room = ({ offers }: RoomProps): JSX.Element => {
+export const Room = (): JSX.Element => {
+  const offers = useAppSelector((state) => state.offers);
   const { id } = useParams();
   const headerRef = useRef<HTMLHeadingElement>(null);
   const offer = offers.find((item: Offer) => item.id === id) as Offer;
