@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { Form } from '../components/form';
 import { Card } from '../components/card';
-import type { Offer, City } from '../types';
+import type { Offer } from '../types';
 import { useParams } from 'react-router-dom';
 import { ReviewList } from '../components/review-list';
 import { Map } from '../components/map';
@@ -9,25 +9,20 @@ import { useAppSelector } from '../hooks';
 
 export const Room = (): JSX.Element => {
   const offers = useAppSelector((state) => state.offers);
+  const city = useAppSelector((state) => state.selectedCity);
   const { id } = useParams();
   const headerRef = useRef<HTMLHeadingElement>(null);
   const offer = offers.find((item: Offer) => item.id === id) as Offer;
   const [selectedPoint, setSelectedPoint] = useState(offer.point);
   const points = offers.map((item: Offer) => item.point);
-  const exceptCarrentOffers = offers.filter((item: Offer) => item.id !== offer.id);
+  const exceptCarrentOffers = offers.filter(
+    (item: Offer) => item.id !== offer.id
+  );
 
   useEffect(() => {
     setSelectedPoint(offer.point);
     headerRef?.current?.scrollIntoView();
   }, [offer.point]);
-
-
-  const city: City = {
-    title: 'Амстердам',
-    lat: 52.377956,
-    lng: 4.89707,
-    zoom: 10,
-  };
 
   return (
     <div className='page'>
@@ -198,12 +193,14 @@ export const Room = (): JSX.Element => {
                 </section>
               </div>
             </div>
-            <Map
-              city={city}
-              points={points}
-              selectedPoint={selectedPoint}
-              className='property__map map'
-            />
+            {city && (
+              <Map
+                city={city}
+                points={points}
+                selectedPoint={selectedPoint}
+                className='property__map map'
+              />
+            )}
           </section>
           <div className='container'>
             <section className='near-places places'>
@@ -212,11 +209,7 @@ export const Room = (): JSX.Element => {
               </h2>
               <div className='near-places__list places__list'>
                 {exceptCarrentOffers.map((item: Offer, index: number) => (
-                  <Card
-                    key={item.id}
-                    offer={item}
-                    index={index}
-                  />
+                  <Card key={item.id} offer={item} index={index} />
                 ))}
               </div>
             </section>

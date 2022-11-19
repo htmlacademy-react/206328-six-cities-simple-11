@@ -54,7 +54,6 @@ export type CardProps = {
   onListItemHover?: (id: string) => void;
 };
 
-export type OffersProps = { city: City };
 export type MapProps = {
   city: City;
   points: Point[];

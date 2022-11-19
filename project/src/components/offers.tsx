@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import { Offer, OffersProps, Point } from '../types';
+import { Offer, Point } from '../types';
 import { Card } from './card';
 import { Map } from './map';
 import { useAppSelector } from '../hooks';
 
-export const Offers = ({ city }: OffersProps): JSX.Element => {
+export const Offers = (): JSX.Element => {
   const offers = useAppSelector((state) => state.offers);
-
+  const city = useAppSelector((state) => state.selectedCity);
   const points = offers.map((item: Offer) => item.point);
   const [selectedPoint, setSelectedPoint] = useState<Point | null>(null);
 
@@ -53,7 +53,7 @@ export const Offers = ({ city }: OffersProps): JSX.Element => {
           </div>
         </section>
         <div className='cities__right-section'>
-          {offers.length > 0 && <Map city={city} points={points} selectedPoint={selectedPoint} className="cities__map map" />}
+          {city && <Map city={city} points={points} selectedPoint={selectedPoint} className="cities__map map" />}
         </div>
       </div>
     </div>
