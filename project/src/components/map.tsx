@@ -51,7 +51,7 @@ export const Map = ({ city, points, selectedPoint, className }: MapProps) => {
         map?.removeLayer(marker);
       });
     };
-  }, [map, points, selectedPoint, currentCustomIcon, defaultCustomIcon]);
+  }, [map, points, selectedPoint, currentCustomIcon, defaultCustomIcon, city]);
 
   return <section ref={mapRef} className={className} />;
 };
