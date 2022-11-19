@@ -26,6 +26,7 @@ export type Offer = {
   id: string;
   pic: string;
   name: string;
+  city: string;
   premium: boolean;
   features: Features;
   rating: number;
