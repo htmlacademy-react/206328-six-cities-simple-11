@@ -17,11 +17,11 @@ export const Offers = (): JSX.Element => {
 
   return (
     <div className='cities'>
-      <div className='cities__places-container container'>
+      <div className='cities__places-container container' style={{ minHeight: 800}}>
         <section className='cities__places places'>
           <h2 className='visually-hidden'>Places</h2>
           <b className='places__found'>
-            {offers.length} places to stay in Amsterdam
+            {offers.length} places to stay in {city?.title}
           </b>
           <form className='places__sorting' action='#' method='get'>
             <span className='places__sorting-caption'>Sort by</span>

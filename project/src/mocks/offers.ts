@@ -51,7 +51,7 @@ export const offers = [
   {
     id: 'e730b5b8-16fa-4cac-a04a-e09bbe280184',
     name: 'Beautiful & luxurious studio at great location',
-    city: 'AAmsterdam',
+    city: 'Amsterdam',
     premium: false,
     pic: 'img/apartment-02.jpg',
     features: {
@@ -196,3 +196,5 @@ export const offers = [
     },
   },
 ];
+
+export const getOffersByCity = (city: string) => offers.filter((offer) => offer.city === city);

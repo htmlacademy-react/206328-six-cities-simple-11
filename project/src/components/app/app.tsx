@@ -6,13 +6,14 @@ import { NotFound } from '../../pages/not-found';
 import { Room } from '../../pages/room';
 import { useAppDispatch } from '../../hooks';
 import { getCities, getOffers } from '../../store/action';
+import { getOffersByCity } from '../../mocks/offers';
 
 function App(): JSX.Element {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(getCities());
-    dispatch(getOffers());
+    dispatch(getOffers({ offers: getOffersByCity('Paris')}));
   });
 
   return (
