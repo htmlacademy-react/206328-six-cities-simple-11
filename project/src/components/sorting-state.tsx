@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import cn from 'classnames';
 
 export const SortingState = () => {
   const [open, setOpen] = useState(false);
@@ -31,7 +32,7 @@ export const SortingState = () => {
         }`}
       >
         {sortingTypes.map((item: string) => (
-          <li className={ `places__option${sortingValue === item ? ' places__option--active' : ''}` } key={item} tabIndex={0} onClick={() => handleChange(item)}>
+          <li className={cn('places__option', { 'places__option--active': sortingValue === item })} key={item} tabIndex={0} onClick={() => handleChange(item)}>
             {item}
           </li>
         ))}
