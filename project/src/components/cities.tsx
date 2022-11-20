@@ -17,6 +17,7 @@ export const Cities = () => {
                 ? 'locations__item-link tabs__item tabs__item--active'
                 : 'locations__item-link tabs__item'
             }
+            style={{ cursor: 'pointer' }}
             onClick={() => {
               dispatch(setCity({ city: item }));
               dispatch(getOffers({ offers: getOffersByCity(item.title) }));
