@@ -9,4 +9,5 @@ export type InitialStateType = {
   offers: Offer[];
   selectedCity: City | null;
   selectedOffer: Offer | null;
+  sortingState: string;
 }
