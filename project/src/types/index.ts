@@ -51,7 +51,6 @@ export type Point = {
 
 export type CardProps = {
   offer: Offer;
-  index: number;
   onListItemHover?: (id: string) => void;
 };
 

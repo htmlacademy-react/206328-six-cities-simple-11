@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 export const Card = ({
   offer,
-  index,
   onListItemHover,
 }: CardProps): JSX.Element => (
   <Link to={`/offer/${offer.id}`}>

@@ -208,8 +208,8 @@ export const Room = (): JSX.Element => {
                 Other places in the neighbourhood
               </h2>
               <div className='near-places__list places__list'>
-                {exceptCarrentOffers.map((item: Offer, index: number) => (
-                  <Card key={item.id} offer={item} index={index} />
+                {exceptCarrentOffers.map((item: Offer) => (
+                  <Card key={item.id} offer={item} />
                 ))}
               </div>
             </section>
