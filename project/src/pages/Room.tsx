@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import { ReviewList } from '../components/review-list';
 import { Map } from '../components/map';
 import { useAppSelector } from '../hooks';
+import { MAX_RATING_VALUE } from '../constants';
 
 export const Room = (): JSX.Element => {
   const offers = useAppSelector((state) => state.offers);
@@ -122,7 +123,7 @@ export const Room = (): JSX.Element => {
                 </div>
                 <div className='property__rating rating'>
                   <div className='property__stars rating__stars'>
-                    <span style={{ width: `${(offer.rating / 5) * 100}%` }} />
+                    <span style={{ width: `${(offer.rating / MAX_RATING_VALUE) * 100}%` }} />
                     <span className='visually-hidden'>Rating</span>
                   </div>
                   <span className='property__rating-value rating__value'>

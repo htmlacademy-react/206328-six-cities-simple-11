@@ -1,5 +1,6 @@
 import type { CardProps } from '../types';
 import { Link } from 'react-router-dom';
+import { MAX_RATING_VALUE } from '../constants';
 
 export const Card = ({
   offer,
@@ -35,7 +36,7 @@ export const Card = ({
         </div>
         <div className='place-card__rating rating'>
           <div className='place-card__stars rating__stars'>
-            <span style={{ width: `${(offer.rating / 5) * 100}%` }}></span>
+            <span style={{ width: `${(offer.rating / MAX_RATING_VALUE) * 100}%` }}></span>
             <span className='visually-hidden'>Rating</span>
           </div>
         </div>
