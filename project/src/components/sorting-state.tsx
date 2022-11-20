@@ -31,7 +31,7 @@ export const SortingState = () => {
         }`}
       >
         {sortingTypes.map((item: string) => (
-          <li className='places__option' key={item} tabIndex={0} onClick={() => handleChange(item)}>
+          <li className={ `places__option${sortingValue === item ? ' places__option--active' : ''}` } key={item} tabIndex={0} onClick={() => handleChange(item)}>
             {item}
           </li>
         ))}
