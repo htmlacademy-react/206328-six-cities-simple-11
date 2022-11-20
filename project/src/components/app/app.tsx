@@ -5,20 +5,18 @@ import { MainScreen } from '../../pages/main-screen';
 import { NotFound } from '../../pages/not-found';
 import { Room } from '../../pages/room';
 import { useAppDispatch,useAppSelector } from '../../hooks';
-import { getCities, getOffers, setCity } from '../../store/action';
+import { getCities, getOffers } from '../../store/action';
 import { getOffersByCity } from '../../mocks/offers';
-import { getCityByName } from '../../mocks/cities';
-import { City } from '../../types';
 
 function App(): JSX.Element {
   const dispatch = useAppDispatch();
   const city = useAppSelector((state) => state.selectedCity);
+  const sortingState = useAppSelector((state) => state.sortingState);
 
   useEffect(() => {
     dispatch(getCities());
-    dispatch(setCity({ city: getCityByName(city?.title ?? 'Paris') as City }));
-    dispatch(getOffers({ offers: getOffersByCity(city?.title ?? 'Paris')}));
-  });
+    dispatch(getOffers({ offers: getOffersByCity(city?.title ?? 'Paris', sortingState )}));
+  }, [city, sortingState, dispatch]);
 
   return (
     <BrowserRouter>

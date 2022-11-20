@@ -1,6 +1,5 @@
 import { useAppSelector, useAppDispatch } from '../hooks';
-import { getOffersByCity } from '../mocks/offers';
-import { setCity, getOffers } from '../store/action';
+import { setCity } from '../store/action';
 import cn from 'classnames';
 
 export const Cities = () => {
@@ -15,10 +14,7 @@ export const Cities = () => {
           <div
             className={cn('locations__item-link tabs__item', { 'tabs__item tabs__item--active': selectedCty?.title === item.title })}
             style={{ cursor: 'pointer' }}
-            onClick={() => {
-              dispatch(setCity({ city: item }));
-              dispatch(getOffers({ offers: getOffersByCity(item.title) }));
-            }}
+            onClick={() => dispatch(setCity({ city: item }))}
           >
             <span>{item.title}</span>
           </div>

@@ -1,13 +1,17 @@
 import { useState } from 'react';
 import cn from 'classnames';
+import { setSortingState } from '../store/action';
+import { useAppDispatch } from '../hooks';
 
 export const SortingState = () => {
+  const dispatch = useAppDispatch();
   const [open, setOpen] = useState(false);
   const [sortingValue, setValue] = useState('Popular');
   const handleOpen = () => setOpen(true);
   const handleChange = (value: string) => {
     setOpen(false);
     setValue(value);
+    dispatch(setSortingState({ state: value }));
   };
 
   const sortingTypes = [

@@ -208,7 +208,7 @@ export const getOffersByCity = (city: string, sortingType?: string) => {
     case 'Price: high to low':
       return offersX.sort((a,b) => b.price - a.price);
     case 'Top rated first':
-      return offersX.sort((a,b) => a.rating - b.rating);
+      return offersX.sort((a,b) => b.rating - a.rating);
     default:
       return offersX;
   }
