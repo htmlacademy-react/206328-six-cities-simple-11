@@ -36,3 +36,5 @@ export const cities = [
     zoom: 10,
   }
 ];
+
+export const getCityByName = (name: string) => cities.find((city) => city.title === name);

@@ -5,14 +5,17 @@ import { MainScreen } from '../../pages/main-screen';
 import { NotFound } from '../../pages/not-found';
 import { Room } from '../../pages/room';
 import { useAppDispatch } from '../../hooks';
-import { getCities, getOffers } from '../../store/action';
+import { getCities, getOffers, setCity } from '../../store/action';
 import { getOffersByCity } from '../../mocks/offers';
+import { getCityByName } from '../../mocks/cities';
+import { City } from '../../types';
 
 function App(): JSX.Element {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(getCities());
+    dispatch(setCity({ city: getCityByName('Paris') as City }));
     dispatch(getOffers({ offers: getOffersByCity('Paris')}));
   });
 
