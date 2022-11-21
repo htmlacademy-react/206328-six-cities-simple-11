@@ -1,4 +1,4 @@
-import { City, Offer } from '.';
+import { City, Offer, Offer2 } from '.';
 import { store } from '../store';
 
 export type State = ReturnType<typeof store.getState>;
@@ -10,4 +10,5 @@ export type InitialStateType = {
   selectedCity: City | null;
   selectedOffer: Offer | null;
   sortingState: string;
+  offers2: Offer2[];
 }
