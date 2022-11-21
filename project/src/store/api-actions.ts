@@ -13,7 +13,9 @@ export const fetchHotelsAction = createAsyncThunk<
     state: State;
     extra: AxiosInstance;
   }
->('data/fetchHotels', async (_arg, { dispatch, extra: api }) => {
+>('data/fetchHotels', async (_arg, { dispatch, extra: api, getState }) => {
   const { data } = await api.get<Offers>(APIRoute.Hotels);
-  dispatch(loadOffers(data));
+  const state = getState();
+  const filtered = data.filter((item) => item.city.name === state?.selectedCity?.title ?? 'Paris');
+  dispatch(loadOffers(filtered));
 });
