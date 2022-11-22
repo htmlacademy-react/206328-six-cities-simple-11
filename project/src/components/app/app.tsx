@@ -16,7 +16,7 @@ function App(): JSX.Element {
 
   useEffect(() => {
     dispatch(getCities());
-    dispatch(getOffers({ offers: getOffersByCity(city?.title ?? 'Paris', sortingState )}));
+    dispatch(getOffers({ offers: getOffersByCity(city?.name ?? 'Paris', sortingState )}));
     dispatch(fetchHotelsAction());
   }, [city, sortingState, dispatch]);
 

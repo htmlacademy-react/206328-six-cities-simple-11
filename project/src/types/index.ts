@@ -36,10 +36,12 @@ export type Offer = {
 };
 
 export type City = {
-  title: string;
-  lat: number;
-  lng: number;
-  zoom: number;
+  location: {
+    latitude: number;
+    longitude: number;
+    zoom: number;
+  };
+  name: string;
 };
 
 export type Point = {
@@ -61,14 +63,7 @@ export type MapProps = {
 
 export type Offer2 = {
   bedrooms: number;
-  city: {
-    location: {
-      latitude: number;
-      longitude: number;
-      zoom: number;
-    };
-    name: string;
-  };
+  city: City;
   description: string;
   goods: [string];
   host: {

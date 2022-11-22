@@ -17,6 +17,6 @@ export const fetchHotelsAction = createAsyncThunk<
 >('data/fetchHotels', async (_arg, { dispatch, extra: api, getState }) => {
   const { data } = await api.get<Offers>(APIRoute.Hotels);
   const state = getState();
-  const filtered = data.filter((item) => item.city.name === state?.selectedCity?.title ?? 'Paris');
+  const filtered = data.filter((item) => item.city.name === state?.selectedCity?.name ?? 'Paris');
   dispatch(loadOffers(sorted(filtered, state.sortingState)));
 });
