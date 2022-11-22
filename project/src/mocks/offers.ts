@@ -2,7 +2,14 @@ export const offers = [
   {
     id: 1,
     title: 'Wood and stone place',
-    city: 'Amsterdam',
+    city: {
+      name: 'Amsterdam',
+      location: {
+        latitude: 52.377956,
+        longitude: 4.89707,
+        zoom: 10
+      }
+    },
     isPremium: false,
     description: 'test',
     previewImage: 'img/apartment-01.jpg',
@@ -39,7 +46,14 @@ export const offers = [
   {
     id: 2,
     title: 'Beautiful & luxurious studio at great location',
-    city: 'Amsterdam',
+    city: {
+      name: 'Amsterdam',
+      location: {
+        latitude: 52.377956,
+        longitude: 4.89707,
+        zoom: 10
+      }
+    },
     isPremium: false,
     description: 'test',
     previewImage: 'img/apartment-02.jpg',
@@ -76,7 +90,14 @@ export const offers = [
   {
     id: 3,
     title: 'Canal View Prinsengracht',
-    city: 'Amsterdam',
+    city: {
+      name: 'Amsterdam',
+      location: {
+        latitude: 52.377956,
+        longitude: 4.89707,
+        zoom: 10
+      }
+    },
     isPremium: false,
     previewImage: 'img/apartment-03.jpg',
     images: ['img/apartment-03.jpg'],
@@ -113,7 +134,14 @@ export const offers = [
   {
     id: 4,
     title: 'Nice, cozy, warm big bed appartment',
-    city: 'Amsterdam',
+    city: {
+      name: 'Amsterdam',
+      location: {
+        latitude: 52.377956,
+        longitude: 4.89707,
+        zoom: 10
+      }
+    },
     isPremium: true,
     previewImage: 'img/room.jpg',
     images: ['img/room.jpg'],
@@ -151,7 +179,7 @@ export const offers = [
 
 
 export const getOffersByCity = (city: string, sortingType?: string) => {
-  const offersX = offers.filter((offer) => offer.city === city);
+  const offersX = offers.filter((offer) => offer.city.name === city);
   switch(sortingType) {
     case 'Popular':
       return offersX;

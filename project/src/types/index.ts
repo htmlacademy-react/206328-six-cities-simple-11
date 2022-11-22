@@ -25,7 +25,7 @@ export type Offer = {
   previewImage: string;
   images: string[];
   title: string;
-  city: string;
+  city: City;
   isPremium: boolean;
   description: string;
   type: string;
@@ -55,25 +55,25 @@ export type MapProps = {
   className: string;
 };
 
-export type Offer2 = {
-  bedrooms: number;
-  city: City;
-  description: string;
-  goods: [string];
-  host: Host;
-  id: number;
-  images: [string];
-  isPremium: boolean;
-  location: Location;
-  maxAdults: number;
-  previewImage: string;
-  price: number;
-  rating: number;
-  title: string;
-  type: string;
-};
+// export type Offer2 = {
+//   bedrooms: number;
+//   city: City;
+//   description: string;
+//   goods: [string];
+//   host: Host;
+//   id: number;
+//   images: [string];
+//   isPremium: boolean;
+//   location: Location;
+//   maxAdults: number;
+//   previewImage: string;
+//   price: number;
+//   rating: number;
+//   title: string;
+//   type: string;
+// };
 
-export type Offers = Offer2[];
+export type Offers = Offer[];
 
 export type ReviewListProps = { reviews: Review[] };
 export type ReviewItemProps = { review: Review };

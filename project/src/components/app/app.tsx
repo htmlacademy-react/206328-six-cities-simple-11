@@ -5,8 +5,7 @@ import { MainScreen } from '../../pages/main-screen';
 import { NotFound } from '../../pages/not-found';
 import { Room } from '../../pages/room';
 import { useAppDispatch,useAppSelector } from '../../hooks';
-import { getCities, getOffers } from '../../store/action';
-import { getOffersByCity } from '../../mocks/offers';
+import { getCities } from '../../store/action';
 import { fetchHotelsAction } from '../../store/api-actions';
 
 function App(): JSX.Element {
@@ -16,7 +15,6 @@ function App(): JSX.Element {
 
   useEffect(() => {
     dispatch(getCities());
-    dispatch(getOffers({ offers: getOffersByCity(city?.name ?? 'Paris', sortingState )}));
     dispatch(fetchHotelsAction());
   }, [city, sortingState, dispatch]);
 
