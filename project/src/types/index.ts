@@ -9,7 +9,7 @@ export type Review = {
 
 export type Host = {
   name: string;
-  type: string;
+  isPro: boolean;
   avatar: string;
   comments: string[];
 };

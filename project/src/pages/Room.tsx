@@ -170,9 +170,7 @@ export const Room = (): JSX.Element => {
                     <span className='property__user-name'>
                       {offer.host.name}
                     </span>
-                    <span className='property__user-status'>
-                      {offer.host.type}
-                    </span>
+                    {offer.host.isPro && <span className='property__user-status' />}
                   </div>
                   <div className='property__description'>
                     {offer.host.comments.map((comment: string) => (
