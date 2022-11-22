@@ -35,7 +35,7 @@ export type Offer = {
   features: Features;
   rating: number;
   price: number;
-  details: string[];
+  goods: string[];
   host: Host;
   reviews: Review[];
   location: Location;

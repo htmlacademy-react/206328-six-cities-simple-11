@@ -12,7 +12,7 @@ export const offers = [
     },
     rating: 3.8,
     price: 80,
-    details: [
+    goods: [
       'Wi-Fi',
       'Washing machine',
       'Towels',
@@ -58,7 +58,7 @@ export const offers = [
     },
     rating: 4.5,
     price: 120,
-    details: [
+    goods: [
       'Wi-Fi',
       'Washing machine',
       'Towels',
@@ -104,7 +104,7 @@ export const offers = [
     },
     rating: 4,
     price: 132,
-    details: [
+    goods: [
       'Wi-Fi',
       'Washing machine',
       'Towels',
@@ -150,7 +150,7 @@ export const offers = [
     },
     rating: 5,
     price: 180,
-    details: [
+    goods: [
       'Wi-Fi',
       'Washing machine',
       'Towels',
