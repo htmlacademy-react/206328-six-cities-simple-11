@@ -13,7 +13,7 @@ export const Room = (): JSX.Element => {
   const city = useAppSelector((state) => state.selectedCity);
   const { id } = useParams();
   const headerRef = useRef<HTMLHeadingElement>(null);
-  const offer = offers.find((item: Offer) => item.id === id) as Offer;
+  const offer = offers.find((item: Offer) => item.id === (Number(id) ?? 0)) as Offer;
   const [selectedPoint, setSelectedPoint] = useState(offer.point);
   const points = offers.map((item: Offer) => item.point);
   const exceptCarrentOffers = offers.filter(

@@ -11,7 +11,7 @@ export const Offers = (): JSX.Element => {
   const points = offers.map((item: Offer) => item.point);
   const [selectedPoint, setSelectedPoint] = useState<Point | null>(null);
 
-  const onListItemHover = (listItemId: string) => {
+  const onListItemHover = (listItemId: number) => {
     const offer = offers.find((item: Offer) => item.id === listItemId);
     if (offer) {
       setSelectedPoint(offer.point);

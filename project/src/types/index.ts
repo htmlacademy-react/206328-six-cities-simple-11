@@ -21,7 +21,7 @@ export type Features = {
 };
 
 export type Offer = {
-  id: string;
+  id: number;
   pic: string;
   name: string;
   city: string;
@@ -51,7 +51,7 @@ export type Point = {
 
 export type CardProps = {
   offer: Offer;
-  onListItemHover?: (id: string) => void;
+  onListItemHover?: (id: number) => void;
 };
 
 export type MapProps = {

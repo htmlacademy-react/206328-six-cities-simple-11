@@ -1,6 +1,6 @@
 export const offers = [
   {
-    id: 'e730b5b8-16fa-4cac-a04a-e09bbe280185',
+    id: 1,
     name: 'Wood and stone place',
     city: 'Amsterdam',
     premium: false,
@@ -49,7 +49,7 @@ export const offers = [
     },
   },
   {
-    id: 'e730b5b8-16fa-4cac-a04a-e09bbe280184',
+    id: 2,
     name: 'Beautiful & luxurious studio at great location',
     city: 'Amsterdam',
     premium: false,
@@ -98,7 +98,7 @@ export const offers = [
     },
   },
   {
-    id: 'e730b5b8-16fa-4cac-a04a-e09bbe280183',
+    id: 3,
     name: 'Canal View Prinsengracht',
     city: 'Amsterdam',
     premium: false,
@@ -147,7 +147,7 @@ export const offers = [
     },
   },
   {
-    id: 'e730b5b8-16fa-4cac-a04a-e09bbe280453',
+    id: 4,
     name: 'Nice, cozy, warm big bed appartment',
     city: 'Amsterdam',
     premium: true,
