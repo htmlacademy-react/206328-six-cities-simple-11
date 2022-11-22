@@ -30,15 +30,6 @@ export const offers = [
       isPro: true,
       avatarUrl: 'img/avatar-angelina.jpg',
     },
-    reviews: [
-      {
-        text: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.',
-        name: 'Max',
-        rating: 1,
-        date: '10.10.2022',
-        avatar: 'img/avatar-max.jpg',
-      },
-    ],
     location: {
       latitude: 52.3909553943508,
       longitude: 4.85309666406198,
@@ -76,15 +67,6 @@ export const offers = [
       id: 1,
       avatarUrl: 'img/avatar-angelina.jpg',
     },
-    reviews: [
-      {
-        text: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.',
-        name: 'Max',
-        rating: 4,
-        date: '10.10.2022',
-        avatar: 'img/avatar-max.jpg',
-      },
-    ],
     location: {
       latitude: 52.3609553943508,
       longitude: 4.85309666406198,
@@ -122,15 +104,6 @@ export const offers = [
       id: 1,
       avatarUrl: 'img/avatar-angelina.jpg',
     },
-    reviews: [
-      {
-        text: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.',
-        name: 'Max',
-        rating: 4,
-        date: '10.10.2022',
-        avatar: 'img/avatar-max.jpg',
-      },
-    ],
     location: {
       latitude: 52.3909553943508,
       longitude: 4.929309666406198,
@@ -168,15 +141,6 @@ export const offers = [
       id: 1,
       avatarUrl: 'img/avatar-angelina.jpg',
     },
-    reviews: [
-      {
-        text: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.',
-        name: 'Max',
-        rating: 4,
-        date: '10.10.2022',
-        avatar: 'img/avatar-max.jpg',
-      },
-    ],
     location: {
       latitude: 52.3809553943508,
       longitude: 4.939309666406198,

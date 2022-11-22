@@ -26,6 +26,16 @@ export const Room = (): JSX.Element => {
     'An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.',
   ];
 
+  const reviews = [
+    {
+      text: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.',
+      name: 'Max',
+      rating: 4,
+      date: '10.10.2022',
+      avatar: 'img/avatar-max.jpg',
+    },
+  ];
+
   useEffect(() => {
     setSelectedPoint(offer.location);
     headerRef?.current?.scrollIntoView();
@@ -190,10 +200,10 @@ export const Room = (): JSX.Element => {
                   <h2 className='reviews__title'>
                     Reviews &middot;
                     <span className='reviews__amount'>
-                      {offer.reviews.length}
+                      {reviews.length}
                     </span>
                   </h2>
-                  <ReviewList reviews={offer.reviews} />
+                  <ReviewList reviews={reviews} />
                   <Form />
                 </section>
               </div>
