@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Offer, Point } from '../types';
+import { Offer, Location } from '../types';
 import { Card } from './card';
 import { Map } from './map';
 import { useAppSelector } from '../hooks';
@@ -8,13 +8,13 @@ import { SortingState } from './sorting-state';
 export const Offers = (): JSX.Element => {
   const offers = useAppSelector((state) => state.offers);
   const city = useAppSelector((state) => state.selectedCity);
-  const points = offers.map((item: Offer) => item.point);
-  const [selectedPoint, setSelectedPoint] = useState<Point | null>(null);
+  const points = offers.map((item: Offer) => item.location);
+  const [selectedPoint, setSelectedPoint] = useState<Location | null>(null);
 
   const onListItemHover = (listItemId: number) => {
     const offer = offers.find((item: Offer) => item.id === listItemId);
     if (offer) {
-      setSelectedPoint(offer.point);
+      setSelectedPoint(offer.location);
     }
   };
 

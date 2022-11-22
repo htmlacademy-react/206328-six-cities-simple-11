@@ -7,6 +7,12 @@ export type Review = {
   avatar: string;
 };
 
+export type Location = {
+  latitude: number;
+  longitude: number;
+  zoom: number;
+};
+
 export type Host = {
   name: string;
   isPro: boolean;
@@ -32,21 +38,12 @@ export type Offer = {
   details: string[];
   host: Host;
   reviews: Review[];
-  point: Point;
+  location: Location;
 };
 
 export type City = {
-  location: {
-    latitude: number;
-    longitude: number;
-    zoom: number;
-  };
+  location: Location;
   name: string;
-};
-
-export type Point = {
-  lat: number;
-  lng: number;
 };
 
 export type CardProps = {
@@ -56,8 +53,8 @@ export type CardProps = {
 
 export type MapProps = {
   city: City;
-  points: Point[];
-  selectedPoint: Point | null;
+  points: Location[];
+  selectedPoint: Location | null;
   className: string;
 };
 
@@ -70,11 +67,7 @@ export type Offer2 = {
   id: number;
   images: [string];
   isPremium: boolean;
-  location: {
-    latitude: number;
-    longitude: number;
-    zoom: number;
-  };
+  location: Location;
   maxAdults: number;
   previewImage: string;
   price: number;

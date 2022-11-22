@@ -14,8 +14,8 @@ export const Room = (): JSX.Element => {
   const { id } = useParams();
   const headerRef = useRef<HTMLHeadingElement>(null);
   const offer = offers.find((item: Offer) => item.id === (Number(id) ?? 0)) as Offer;
-  const [selectedPoint, setSelectedPoint] = useState(offer.point);
-  const points = offers.map((item: Offer) => item.point);
+  const [selectedPoint, setSelectedPoint] = useState(offer.location);
+  const points = offers.map((item: Offer) => item.location);
   const exceptCarrentOffers = offers.filter(
     (item: Offer) => item.id !== offer.id
   );
@@ -27,9 +27,9 @@ export const Room = (): JSX.Element => {
   ];
 
   useEffect(() => {
-    setSelectedPoint(offer.point);
+    setSelectedPoint(offer.location);
     headerRef?.current?.scrollIntoView();
-  }, [offer.point]);
+  }, [offer.location]);
 
   return (
     <div className='page'>
