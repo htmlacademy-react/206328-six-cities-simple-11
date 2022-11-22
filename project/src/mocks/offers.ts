@@ -26,13 +26,9 @@ export const offers = [
     ],
     host: {
       name: 'Angelina',
+      id: 1,
       isPro: true,
       avatarUrl: 'img/avatar-angelina.jpg',
-      comments: [
-        'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.',
-
-        'An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.',
-      ],
     },
     reviews: [
       {
@@ -76,12 +72,8 @@ export const offers = [
     host: {
       name: 'Angelina',
       isPro: true,
+      id: 1,
       avatarUrl: 'img/avatar-angelina.jpg',
-      comments: [
-        'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.',
-
-        'An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.',
-      ],
     },
     reviews: [
       {
@@ -125,12 +117,8 @@ export const offers = [
     host: {
       name: 'Angelina',
       isPro: true,
+      id: 1,
       avatarUrl: 'img/avatar-angelina.jpg',
-      comments: [
-        'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.',
-
-        'An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.',
-      ],
     },
     reviews: [
       {
@@ -174,12 +162,8 @@ export const offers = [
     host: {
       name: 'Angelina',
       isPro: true,
+      id: 1,
       avatarUrl: 'img/avatar-angelina.jpg',
-      comments: [
-        'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.',
-
-        'An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.',
-      ],
     },
     reviews: [
       {

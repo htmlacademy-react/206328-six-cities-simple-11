@@ -11,7 +11,7 @@ export type Host = {
   name: string;
   isPro: boolean;
   avatarUrl: string;
-  comments: string[];
+  id: number;
 };
 
 export type Features = {
@@ -66,12 +66,7 @@ export type Offer2 = {
   city: City;
   description: string;
   goods: [string];
-  host: {
-    avatarUrl: string;
-    id: number;
-    isPro: boolean;
-    name: string;
-  };
+  host: Host;
   id: number;
   images: [string];
   isPremium: boolean;
