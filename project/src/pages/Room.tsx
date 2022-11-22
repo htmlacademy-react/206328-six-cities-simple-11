@@ -135,7 +135,7 @@ export const Room = (): JSX.Element => {
                   </div>
                 )}
                 <div className='property__name-wrapper'>
-                  <h1 className='property__name'>{offer.name}</h1>
+                  <h1 className='property__name'>{offer.title}</h1>
                 </div>
                 <div className='property__rating rating'>
                   <div className='property__stars rating__stars'>
@@ -148,13 +148,13 @@ export const Room = (): JSX.Element => {
                 </div>
                 <ul className='property__features'>
                   <li className='property__feature property__feature--entire'>
-                    {offer.features.type}
+                    {offer.type}
                   </li>
                   <li className='property__feature property__feature--bedrooms'>
-                    {offer.features.bedrooms}
+                    {offer.bedrooms} bedrooms
                   </li>
                   <li className='property__feature property__feature--adults'>
-                    {offer.features.adults}
+                    Max {offer.maxAdults} adults
                   </li>
                 </ul>
                 <div className='property__price'>

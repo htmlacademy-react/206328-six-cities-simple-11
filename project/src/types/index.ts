@@ -20,20 +20,16 @@ export type Host = {
   id: number;
 };
 
-export type Features = {
-  type: string;
-  bedrooms: string;
-  adults: string;
-};
-
 export type Offer = {
   id: number;
   previewImage: string;
   images: string[];
-  name: string;
+  title: string;
   city: string;
   premium: boolean;
-  features: Features;
+  type: string;
+  bedrooms: number;
+  maxAdults: number;
   rating: number;
   price: number;
   goods: string[];

@@ -42,10 +42,10 @@ export const Card = ({
         </div>
         <h2 className='place-card__name'>
           <a href='https://localhost:3000'>
-            {offer.name}
+            {offer.title}
           </a>
         </h2>
-        <p className='place-card__type'>{offer.features.type}</p>
+        <p className='place-card__type'>{offer.type}</p>
       </div>
     </article>
   </Link>
