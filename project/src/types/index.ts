@@ -26,7 +26,8 @@ export type Offer = {
   images: string[];
   title: string;
   city: string;
-  premium: boolean;
+  isPremium: boolean;
+  description: string;
   type: string;
   bedrooms: number;
   maxAdults: number;

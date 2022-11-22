@@ -11,7 +11,7 @@ export const Card = ({
       className='cities__card place-card'
       onMouseEnter={() => onListItemHover?.(offer.id)}
     >
-      {offer.premium && (
+      {offer.isPremium && (
         <div className='place-card__mark'>
           <span>Premium</span>
         </div>
