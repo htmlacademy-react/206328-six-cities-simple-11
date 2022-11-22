@@ -28,7 +28,8 @@ export type Features = {
 
 export type Offer = {
   id: number;
-  pic: string;
+  previewImage: string;
+  images: string[];
   name: string;
   city: string;
   premium: boolean;

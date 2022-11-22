@@ -4,7 +4,8 @@ export const offers = [
     name: 'Wood and stone place',
     city: 'Amsterdam',
     premium: false,
-    pic: 'img/apartment-01.jpg',
+    previewImage: 'img/apartment-01.jpg',
+    images: ['img/apartment-01.jpg'],
     features: {
       type: 'Private room',
       bedrooms: '3 Bedrooms',
@@ -41,7 +42,8 @@ export const offers = [
     name: 'Beautiful & luxurious studio at great location',
     city: 'Amsterdam',
     premium: false,
-    pic: 'img/apartment-02.jpg',
+    previewImage: 'img/apartment-02.jpg',
+    images: ['img/apartment-02.jpg'],
     features: {
       type: 'Apartment',
       bedrooms: '3 Bedrooms',
@@ -78,7 +80,8 @@ export const offers = [
     name: 'Canal View Prinsengracht',
     city: 'Amsterdam',
     premium: false,
-    pic: 'img/apartment-03.jpg',
+    previewImage: 'img/apartment-03.jpg',
+    images: ['img/apartment-03.jpg'],
     features: {
       type: 'Apartment',
       bedrooms: '3 Bedrooms',
@@ -115,7 +118,8 @@ export const offers = [
     name: 'Nice, cozy, warm big bed appartment',
     city: 'Amsterdam',
     premium: true,
-    pic: 'img/room.jpg',
+    previewImage: 'img/room.jpg',
+    images: ['img/room.jpg'],
     features: {
       type: 'Apartment',
       bedrooms: '3 Bedrooms',
