@@ -4,6 +4,7 @@ import { Offers } from '../types';
 import { State, AppDispatch } from '../types/state';
 import { loadOffers } from './action';
 import { APIRoute } from './const';
+import { sorted } from './utils';
 
 export const fetchHotelsAction = createAsyncThunk<
   void,
@@ -17,5 +18,5 @@ export const fetchHotelsAction = createAsyncThunk<
   const { data } = await api.get<Offers>(APIRoute.Hotels);
   const state = getState();
   const filtered = data.filter((item) => item.city.name === state?.selectedCity?.title ?? 'Paris');
-  dispatch(loadOffers(filtered));
+  dispatch(loadOffers(sorted(filtered, state.sortingState)));
 });
