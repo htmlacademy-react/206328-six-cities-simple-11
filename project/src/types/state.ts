@@ -10,4 +10,5 @@ export type InitialStateType = {
   selectedCity: City | null;
   selectedOffer: Offer | null;
   sortingState: string;
+  isLoading: boolean;
 }

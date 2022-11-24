@@ -1,5 +1,6 @@
 import { createReducer } from '@reduxjs/toolkit';
 import { setCity, setOffer, getCities, loadOffers, setSortingState } from './action';
+import { fetchHotelsAction } from './api-actions';
 import { cities } from '../mocks';
 import { InitialStateType } from '../types';
 
@@ -10,6 +11,7 @@ const initialState: InitialStateType = {
   selectedCity: cities[1],
   selectedOffer: null,
   sortingState: 'Popular',
+  isLoading: false
 };
 
 const reducer = createReducer(initialState, (builder) => {
@@ -23,6 +25,12 @@ const reducer = createReducer(initialState, (builder) => {
     state.selectedCity = action.payload.city;
   }).addCase(setSortingState, (state, action) => {
     state.sortingState = action.payload.state;
+  }).addCase(fetchHotelsAction.pending, (state) => {
+    state.isLoading = true;
+  }).addCase(fetchHotelsAction.fulfilled, (state) => {
+    state.isLoading = false;
+  }).addCase(fetchHotelsAction.rejected, (state) => {
+    state.isLoading = false;
   });
 });
 
