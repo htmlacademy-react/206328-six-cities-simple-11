@@ -22,7 +22,7 @@ export const Offers = (): JSX.Element => {
     <div className='cities'>
       <div
         className='cities__places-container container'
-        style={{ minHeight: 800 }}
+
       >
         <section className='cities__places places'>
           <h2 className='visually-hidden'>Places</h2>
@@ -30,7 +30,7 @@ export const Offers = (): JSX.Element => {
             {offers.length} places to stay in {city?.name}
           </b>
           <SortingState />
-          <div className='cities__places-list places__list tabs__content'>
+          <div className='cities__places-list places__list tabs__content' style={{ height: 620, overflow: 'auto' }}>
             {offers.map((offer: Offer) => (
               <Card
                 key={offer.id}
