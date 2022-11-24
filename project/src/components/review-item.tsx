@@ -1,3 +1,4 @@
+import { MAX_RATING_VALUE } from '../constants';
 import { ReviewItemProps } from '../types';
 
 export const ReviewItem = ({ review }: ReviewItemProps) => (
@@ -17,7 +18,7 @@ export const ReviewItem = ({ review }: ReviewItemProps) => (
     <div className='reviews__info'>
       <div className='reviews__rating rating'>
         <div className='reviews__stars rating__stars'>
-          <span style={{ width: `${(review.rating / 5) * 100}%` }}></span>
+          <span style={{ width: `${(review.rating / MAX_RATING_VALUE) * 100}%` }}></span>
           <span className='visually-hidden'>Rating</span>
         </div>
       </div>

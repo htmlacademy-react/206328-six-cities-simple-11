@@ -1,5 +1,6 @@
 
 
+export type { InitialStateType } from './state';
 export type Review = {
   text: string;
   name: string;
@@ -25,6 +26,7 @@ export type Offer = {
   id: string;
   pic: string;
   name: string;
+  city: string;
   premium: boolean;
   features: Features;
   rating: number;
@@ -47,15 +49,11 @@ export type Point = {
   lng: number;
 };
 
-export type AppProps = { offers: Offer[] };
 export type CardProps = {
   offer: Offer;
-  index: number;
   onListItemHover?: (id: string) => void;
 };
-export type MainProps = { offers: Offer[] };
-export type OffersProps = { offers: Offer[]; city: City };
-export type RoomProps = { offers: Offer[] };
+
 export type MapProps = {
   city: City;
   points: Point[];
