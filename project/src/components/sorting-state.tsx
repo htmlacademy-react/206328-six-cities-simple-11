@@ -14,12 +14,12 @@ export const SortingState = () => {
     dispatch(setSortingState({ state: value }));
   };
 
-  const sortingTypes = [
-    'Popular',
-    'Price: low to high',
-    'Price: high to low',
-    'Top rated first',
-  ];
+  enum sortingTypes {
+    Popular = 'Popular',
+    PriceLowHigh = 'Price: low to high',
+    PriceHighLow = 'Price: high to low',
+    TopRated = 'Top rated first',
+  }
 
   return (
     <form className='places__sorting' action='#' method='get'>
@@ -35,7 +35,7 @@ export const SortingState = () => {
           open ? ' places__options--opened' : ''
         }`}
       >
-        {sortingTypes.map((item: string) => (
+        {Object.values(sortingTypes).map((item: string) => (
           <li className={cn('places__option', { 'places__option--active': sortingValue === item })} key={item} tabIndex={0} onClick={() => handleChange(item)}>
             {item}
           </li>
