@@ -199,17 +199,17 @@ export const offers = [
 
 
 export const getOffersByCity = (city: string, sortingType?: string) => {
-  const offersX = offers.filter((offer) => offer.city === city);
+  const filtered = offers.filter((offer) => offer.city === city);
   switch(sortingType) {
     case 'Popular':
-      return offersX;
+      return filtered;
     case 'Price: low to high':
-      return offersX.sort((a,b) => a.price - b.price);
+      return filtered.sort((a,b) => a.price - b.price);
     case 'Price: high to low':
-      return offersX.sort((a,b) => b.price - a.price);
+      return filtered.sort((a,b) => b.price - a.price);
     case 'Top rated first':
-      return offersX.sort((a,b) => b.rating - a.rating);
+      return filtered.sort((a,b) => b.rating - a.rating);
     default:
-      return offersX;
+      return filtered;
   }
 };
