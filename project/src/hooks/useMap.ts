@@ -3,6 +3,7 @@ import leaflet from 'leaflet';
 import type { Map as MapType } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { City } from '../types';
+import { ZOOM_SCALE_COEFICENT } from '../constants';
 
 export const useMap = (
   mapRef: React.MutableRefObject<null | HTMLDivElement>,
@@ -18,7 +19,7 @@ export const useMap = (
           lat: city.location.latitude,
           lng: city.location.longitude,
         },
-        zoom: city.location.zoom,
+        zoom: city.location.zoom * ZOOM_SCALE_COEFICENT,
       });
 
       leaflet
@@ -29,15 +30,16 @@ export const useMap = (
 
       setMap(instance);
       isRenderedRef.current = true;
-    } else if (map && isRenderedRef.current) {
-      map.setView(
-        {
-          lat: city.location.latitude,
-          lng: city.location.longitude,
-        },
-        city.location.zoom
-      );
     }
+    // else if (map && isRenderedRef.current) {
+    //   map.flyTo(
+    //     {
+    //       lat: city.location.latitude,
+    //       lng: city.location.longitude,
+    //     },
+    //     city.location.zoom * ZOOM_SCALE_COEFICENT
+    //   );
+    // }
   }, [mapRef, city, map]);
 
   return map;
