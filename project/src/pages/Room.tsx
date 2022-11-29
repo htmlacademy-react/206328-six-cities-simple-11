@@ -5,19 +5,21 @@ import type { Offer } from '../types';
 import { useParams } from 'react-router-dom';
 import { ReviewList } from '../components/review-list';
 import { Map } from '../components/map';
-import { useAppSelector } from '../hooks';
+import { useAppSelector, useAppDispatch } from '../hooks';
 import { MAX_RATING_VALUE } from '../constants';
+import { fetchHotelAction } from '../store/api-actions';
 
 export const Room = (): JSX.Element => {
+  const dispatch = useAppDispatch();
   const offers = useAppSelector((state) => state.offers);
   const city = useAppSelector((state) => state.selectedCity);
   const { id } = useParams();
   const headerRef = useRef<HTMLHeadingElement>(null);
-  const offer = offers.find((item: Offer) => item.id === (Number(id) ?? 0)) as Offer;
-  const [selectedPoint, setSelectedPoint] = useState(offer.location);
+  const offer = useAppSelector((state) => state.selectedOffer);
+  const [selectedPoint, setSelectedPoint] = useState(offer?.location);
   const points = offers.map((item: Offer) => item.location);
   const exceptCarrentOffers = offers.filter(
-    (item: Offer) => item.id !== offer.id
+    (item: Offer) => item.id !== offer?.id
   );
 
   const comments = [
@@ -37,9 +39,14 @@ export const Room = (): JSX.Element => {
   ];
 
   useEffect(() => {
-    setSelectedPoint(offer.location);
+    setSelectedPoint(offer?.location);
     headerRef?.current?.scrollIntoView();
-  }, [offer.location]);
+  }, [offer?.location]);
+
+
+  useEffect(() => {
+    if (id) { dispatch(fetchHotelAction(Number(id))); }
+  }, [dispatch, id]);
 
   return (
     <div className='page'>
@@ -208,7 +215,7 @@ export const Room = (): JSX.Element => {
                 </section>
               </div>
             </div>
-            {city && (
+            {city && selectedPoint && (
               <Map
                 city={city}
                 points={points}

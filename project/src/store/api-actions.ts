@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
-import { Offers } from '../types';
+import { Offers, Offer } from '../types';
 import { State, AppDispatch } from '../types/state';
-import { loadOffers } from './action';
+import { loadOffers, setOffer } from './action';
 import { APIRoute } from './const';
 import { sorted } from './utils';
 
@@ -19,4 +19,18 @@ export const fetchHotelsAction = createAsyncThunk<
   const state = getState();
   const filtered = data.filter((item) => item.city.name === state?.selectedCity?.name ?? 'Paris');
   dispatch(loadOffers(sorted(filtered, state.sortingState)));
+});
+
+export const fetchHotelAction = createAsyncThunk<
+  void,
+  number,
+  {
+    dispatch: AppDispatch;
+    state: State;
+    extra: AxiosInstance;
+  }
+>('data/fetchHotel', async (arg, { dispatch, extra: api }) => {
+  const { data } = await api.get<Offer>(`${APIRoute.Hotels}/${ arg}`);
+  dispatch(setOffer({offer: data}));
+
 });
