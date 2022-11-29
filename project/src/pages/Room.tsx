@@ -1,13 +1,13 @@
 import { useEffect, useState, useRef } from 'react';
 import { Form } from '../components/form';
 import { Card } from '../components/card';
-import type { Offer } from '../types';
+import type { Comment, Offer } from '../types';
 import { useParams } from 'react-router-dom';
 import { ReviewList } from '../components/review-list';
 import { Map } from '../components/map';
 import { useAppSelector, useAppDispatch } from '../hooks';
 import { MAX_RATING_VALUE } from '../constants';
-import { fetchHotelAction } from '../store/api-actions';
+import { fetchCommentsAction, fetchHotelAction } from '../store/api-actions';
 
 export const Room = (): JSX.Element => {
   const dispatch = useAppDispatch();
@@ -21,12 +21,8 @@ export const Room = (): JSX.Element => {
   const exceptCarrentOffers = offers.filter(
     (item: Offer) => item.id !== offer?.id
   );
+  const comments = useAppSelector((state) => state.comments);
 
-  const comments = [
-    'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.',
-
-    'An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.',
-  ];
 
   const reviews = [
     {
@@ -45,7 +41,10 @@ export const Room = (): JSX.Element => {
 
 
   useEffect(() => {
-    if (id) { dispatch(fetchHotelAction(Number(id))); }
+    if (id) {
+      dispatch(fetchHotelAction(Number(id)));
+      dispatch(fetchCommentsAction(Number(id)));
+    }
   }, [dispatch, id]);
 
   return (
@@ -196,9 +195,9 @@ export const Room = (): JSX.Element => {
                     {offer.host.isPro && <span className='property__user-status' />}
                   </div>
                   <div className='property__description'>
-                    {comments.map((comment: string) => (
-                      <p key={comment} className='property__text'>
-                        {comment}
+                    {comments.map((comment: Comment) => (
+                      <p key={comment.id} className='property__text'>
+                        {comment.comment}
                       </p>
                     ))}
                   </div>

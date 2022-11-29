@@ -55,6 +55,14 @@ export type MapProps = {
   className: string;
 };
 
+export type Comment = {
+  comment: string;
+  date: string;
+  id: number;
+  rating: number;
+  user: Host;
+};
+
 // export type Offer2 = {
 //   bedrooms: number;
 //   city: City;
@@ -74,7 +82,7 @@ export type MapProps = {
 // };
 
 export type Offers = Offer[];
-
+export type Comments = Comment[];
 export type ReviewListProps = { reviews: Review[] };
 export type ReviewItemProps = { review: Review };
 export type MapComponentProps = { className: string };
