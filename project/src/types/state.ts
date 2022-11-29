@@ -7,6 +7,7 @@ export type AppDispatch = typeof store.dispatch;
 export type InitialStateType = {
   cities: City[];
   offers: Offer[];
+  nearby: Offer[];
   comments: Comments;
   selectedCity: City | null;
   selectedOffer: Offer | null;

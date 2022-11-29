@@ -63,24 +63,6 @@ export type Comment = {
   user: Host;
 };
 
-// export type Offer2 = {
-//   bedrooms: number;
-//   city: City;
-//   description: string;
-//   goods: [string];
-//   host: Host;
-//   id: number;
-//   images: [string];
-//   isPremium: boolean;
-//   location: Location;
-//   maxAdults: number;
-//   previewImage: string;
-//   price: number;
-//   rating: number;
-//   title: string;
-//   type: string;
-// };
-
 export type Offers = Offer[];
 export type Comments = Comment[];
 export type ReviewListProps = { reviews: Review[] };

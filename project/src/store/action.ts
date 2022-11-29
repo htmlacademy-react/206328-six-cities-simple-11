@@ -7,3 +7,4 @@ export const setOffer = createAction<{ offer: Offer }>('offers/setOffer');
 export const setSortingState = createAction<{ state: string }>('offers/setSortingState');
 export const loadOffers = createAction<Offers>('data/loadOffers');
 export const loadComments = createAction<Comments>('data/loadComments');
+export const loadNearby = createAction<Offers>('data/loadNearby');

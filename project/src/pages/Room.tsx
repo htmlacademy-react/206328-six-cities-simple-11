@@ -7,20 +7,17 @@ import { ReviewList } from '../components/review-list';
 import { Map } from '../components/map';
 import { useAppSelector, useAppDispatch } from '../hooks';
 import { MAX_RATING_VALUE } from '../constants';
-import { fetchCommentsAction, fetchHotelAction } from '../store/api-actions';
+import { fetchCommentsAction, fetchHotelAction, fetchNearbyAction } from '../store/api-actions';
 
 export const Room = (): JSX.Element => {
   const dispatch = useAppDispatch();
-  const offers = useAppSelector((state) => state.offers);
   const city = useAppSelector((state) => state.selectedCity);
   const { id } = useParams();
   const headerRef = useRef<HTMLHeadingElement>(null);
   const offer = useAppSelector((state) => state.selectedOffer);
   const [selectedPoint, setSelectedPoint] = useState(offer?.location);
-  const points = offers.map((item: Offer) => item.location);
-  const exceptCarrentOffers = offers.filter(
-    (item: Offer) => item.id !== offer?.id
-  );
+  const nearby = useAppSelector((state) => state.nearby);
+  const points = nearby.map((item: Offer) => item.location);
   const comments = useAppSelector((state) => state.comments);
 
 
@@ -35,17 +32,19 @@ export const Room = (): JSX.Element => {
   ];
 
   useEffect(() => {
-    setSelectedPoint(offer?.location);
-    headerRef?.current?.scrollIntoView();
-  }, [offer?.location]);
-
-
-  useEffect(() => {
     if (id) {
       dispatch(fetchHotelAction(Number(id)));
       dispatch(fetchCommentsAction(Number(id)));
+      dispatch(fetchNearbyAction(Number(id)));
     }
   }, [dispatch, id]);
+
+  useEffect(() => {
+    if(offer) {
+      setSelectedPoint(offer?.location);
+      headerRef?.current?.scrollIntoView();
+    }
+  }, [offer]);
 
   return (
     <div className='page'>
@@ -229,7 +228,7 @@ export const Room = (): JSX.Element => {
                 Other places in the neighbourhood
               </h2>
               <div className='near-places__list places__list'>
-                {exceptCarrentOffers.map((item: Offer) => (
+                {nearby.map((item: Offer) => (
                   <Card key={item.id} offer={item} />
                 ))}
               </div>
