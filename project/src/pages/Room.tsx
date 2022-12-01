@@ -24,7 +24,6 @@ export const Room = (): JSX.Element => {
   const points = nearby.map((item: Offer) => item.location);
   const comments = useAppSelector((state) => state.comments);
 
-
   useEffect(() => {
     if (id) {
       dispatch(fetchHotelAction(Number(id)));
@@ -82,48 +81,15 @@ export const Room = (): JSX.Element => {
           <section className='property'>
             <div className='property__gallery-container container'>
               <div className='property__gallery'>
-                <div className='property__pic-wrapper'>
-                  <img
-                    className='property__pic'
-                    src='img/room.jpg'
-                    alt='studio pic'
-                  />
-                </div>
-                <div className='property__pic-wrapper'>
-                  <img
-                    className='property__pic'
-                    src='img/apartment-01.jpg'
-                    alt='studio pic'
-                  />
-                </div>
-                <div className='property__pic-wrapper'>
-                  <img
-                    className='property__pic'
-                    src='img/apartment-02.jpg'
-                    alt='studio pic'
-                  />
-                </div>
-                <div className='property__pic-wrapper'>
-                  <img
-                    className='property__pic'
-                    src='img/apartment-03.jpg'
-                    alt='studio pic'
-                  />
-                </div>
-                <div className='property__pic-wrapper'>
-                  <img
-                    className='property__pic'
-                    src='img/studio-01.jpg'
-                    alt='studio pic'
-                  />
-                </div>
-                <div className='property__pic-wrapper'>
-                  <img
-                    className='property__pic'
-                    src='img/apartment-01.jpg'
-                    alt='studio pic'
-                  />
-                </div>
+                {offer.images.map((image: string, index: number) => (
+                  <div className='property__pic-wrapper' key={image}>
+                    <img
+                      className='property__pic'
+                      src={image}
+                      alt={`studio pic${index}`}
+                    />
+                  </div>
+                ))}
               </div>
             </div>
             <div className='property__container container'>
