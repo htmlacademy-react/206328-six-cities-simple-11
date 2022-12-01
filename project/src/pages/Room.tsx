@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { Form } from '../components/form';
 import { Card } from '../components/card';
-import type { Comment, Offer } from '../types';
+import type { Offer } from '../types';
 import { useParams } from 'react-router-dom';
 import { ReviewList } from '../components/review-list';
 import { Map } from '../components/map';
@@ -194,11 +194,9 @@ export const Room = (): JSX.Element => {
                     )}
                   </div>
                   <div className='property__description'>
-                    {comments.map((comment: Comment) => (
-                      <p key={comment.id} className='property__text'>
-                        {comment.comment}
-                      </p>
-                    ))}
+                    <p key={offer.id} className='property__text'>
+                      {offer.description}
+                    </p>
                   </div>
                 </div>
                 <section className='property__reviews reviews'>
