@@ -6,7 +6,6 @@ export const Cities = () => {
   const cities = useAppSelector((state) => state.cities);
   const selectedCity = useAppSelector((state) => state.selectedCity);
   const dispatch = useAppDispatch();
-
   return (
     <ul className='locations__list tabs__list'>
       {cities.map((item) => (
