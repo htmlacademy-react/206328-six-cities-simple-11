@@ -65,6 +65,6 @@ export type Comment = {
 
 export type Offers = Offer[];
 export type Comments = Comment[];
-export type ReviewListProps = { reviews: Review[] };
-export type ReviewItemProps = { review: Review };
+export type ReviewListProps = { comments: Comments };
+export type ReviewItemProps = { comment: Comment };
 export type MapComponentProps = { className: string };

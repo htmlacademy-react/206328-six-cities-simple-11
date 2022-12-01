@@ -7,7 +7,11 @@ import { ReviewList } from '../components/review-list';
 import { Map } from '../components/map';
 import { useAppSelector, useAppDispatch } from '../hooks';
 import { MAX_RATING_VALUE } from '../constants';
-import { fetchCommentsAction, fetchHotelAction, fetchNearbyAction } from '../store/api-actions';
+import {
+  fetchCommentsAction,
+  fetchHotelAction,
+  fetchNearbyAction,
+} from '../store/api-actions';
 
 export const Room = (): JSX.Element => {
   const dispatch = useAppDispatch();
@@ -21,16 +25,6 @@ export const Room = (): JSX.Element => {
   const comments = useAppSelector((state) => state.comments);
 
 
-  const reviews = [
-    {
-      text: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.',
-      name: 'Max',
-      rating: 4,
-      date: '10.10.2022',
-      avatar: 'img/avatar-max.jpg',
-    },
-  ];
-
   useEffect(() => {
     if (id) {
       dispatch(fetchHotelAction(Number(id)));
@@ -40,7 +34,7 @@ export const Room = (): JSX.Element => {
   }, [dispatch, id]);
 
   useEffect(() => {
-    if(offer) {
+    if (offer) {
       setSelectedPoint(offer?.location);
       headerRef?.current?.scrollIntoView();
     }
@@ -144,7 +138,11 @@ export const Room = (): JSX.Element => {
                 </div>
                 <div className='property__rating rating'>
                   <div className='property__stars rating__stars'>
-                    <span style={{ width: `${(offer.rating / MAX_RATING_VALUE) * 100}%` }} />
+                    <span
+                      style={{
+                        width: `${(offer.rating / MAX_RATING_VALUE) * 100}%`,
+                      }}
+                    />
                     <span className='visually-hidden'>Rating</span>
                   </div>
                   <span className='property__rating-value rating__value'>
@@ -191,7 +189,9 @@ export const Room = (): JSX.Element => {
                     <span className='property__user-name'>
                       {offer.host.name}
                     </span>
-                    {offer.host.isPro && <span className='property__user-status' />}
+                    {offer.host.isPro && (
+                      <span className='property__user-status' />
+                    )}
                   </div>
                   <div className='property__description'>
                     {comments.map((comment: Comment) => (
@@ -204,11 +204,9 @@ export const Room = (): JSX.Element => {
                 <section className='property__reviews reviews'>
                   <h2 className='reviews__title'>
                     Reviews &middot;
-                    <span className='reviews__amount'>
-                      {reviews.length}
-                    </span>
+                    <span className='reviews__amount'>{comments.length}</span>
                   </h2>
-                  <ReviewList reviews={reviews} />
+                  <ReviewList comments={comments} />
                   <Form />
                 </section>
               </div>
