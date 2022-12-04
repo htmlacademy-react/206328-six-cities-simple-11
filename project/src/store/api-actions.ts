@@ -4,8 +4,8 @@ import { AuthorizationStatus } from '../constants';
 import { dropToken, saveToken } from '../services/token';
 import { Offers, Offer, Comments, UserData, AuthData } from '../types';
 import { State, AppDispatch } from '../types/state';
-import { loadComments, loadOffers, setOffer, loadNearby, requireAuthorization } from './action';
-import { APIRoute } from './const';
+import { loadComments, loadOffers, setOffer, loadNearby, requireAuthorization, setError } from './action';
+import { APIRoute, TIMEOUT_SHOW_ERROR } from './const';
 import { sorted } from './utils';
 
 export const fetchHotelsAction = createAsyncThunk<
@@ -113,3 +113,21 @@ export const logoutAction = createAsyncThunk<
   dropToken();
   dispatch(requireAuthorization(AuthorizationStatus.NoAuth));
 });
+
+export const clearErrorAction = createAsyncThunk<
+void,
+undefined,
+{
+  dispatch: AppDispatch;
+  state: State;
+  extra: AxiosInstance;
+}
+>(
+  'app/clearError',
+  (_arg, { dispatch }) => {
+    setTimeout(
+      () => dispatch(setError(null)),
+      TIMEOUT_SHOW_ERROR,
+    );
+  }
+);
