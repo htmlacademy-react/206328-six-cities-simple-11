@@ -1,5 +1,5 @@
 import { useRef, FormEvent } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useAppDispatch } from '../hooks';
 import { loginAction } from '../store/api-actions';
 import { AuthData } from '../types';
@@ -9,7 +9,7 @@ export const Login = () => {
   const passwordRef = useRef<HTMLInputElement | null>(null);
 
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
+
 
   const onSubmit = (authData: AuthData) => {
     dispatch(loginAction(authData));
@@ -78,7 +78,6 @@ export const Login = () => {
                 />
               </div>
               <button
-                onClick={() => navigate('/')}
                 className='login__submit form__submit button'
                 type='submit'
               >
