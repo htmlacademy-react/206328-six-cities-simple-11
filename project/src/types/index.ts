@@ -68,3 +68,14 @@ export type Comments = Comment[];
 export type ReviewListProps = { comments: Comments };
 export type ReviewItemProps = { comment: Comment };
 export type MapComponentProps = { className: string };
+
+export type AuthData = {
+  login: string;
+  password: string;
+};
+
+export type UserData = {
+  id: number;
+  email: string;
+  token: string;
+};
