@@ -1,4 +1,5 @@
 import { City, Comments, Offer } from '.';
+import { AuthorizationStatus } from '../constants';
 import { store } from '../store';
 
 export type State = ReturnType<typeof store.getState>;
@@ -13,4 +14,5 @@ export type InitialStateType = {
   selectedOffer: Offer | null;
   sortingState: string;
   isLoading: boolean;
+  authorizationStatus: AuthorizationStatus;
 }

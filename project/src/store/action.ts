@@ -1,4 +1,5 @@
 import {createAction} from '@reduxjs/toolkit';
+import { AuthorizationStatus } from '../constants';
 import { City, Comments, Offer, Offers } from '../types';
 
 export const getCities = createAction('cities/getCities');
@@ -8,3 +9,4 @@ export const setSortingState = createAction<{ state: string }>('offers/setSortin
 export const loadOffers = createAction<Offers>('data/loadOffers');
 export const loadComments = createAction<Comments>('data/loadComments');
 export const loadNearby = createAction<Offers>('data/loadNearby');
+export const requireAuthorization = createAction<AuthorizationStatus>('user/requireAuthorization');
