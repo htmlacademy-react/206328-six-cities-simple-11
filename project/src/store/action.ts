@@ -10,3 +10,4 @@ export const loadOffers = createAction<Offers>('data/loadOffers');
 export const loadComments = createAction<Comments>('data/loadComments');
 export const loadNearby = createAction<Offers>('data/loadNearby');
 export const requireAuthorization = createAction<AuthorizationStatus>('user/requireAuthorization');
+export const setError = createAction<string | null>('app/setError');

@@ -15,4 +15,5 @@ export type InitialStateType = {
   sortingState: string;
   isLoading: boolean;
   authorizationStatus: AuthorizationStatus;
+  error: string | null;
 }
