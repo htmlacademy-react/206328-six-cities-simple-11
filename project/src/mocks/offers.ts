@@ -1,18 +1,25 @@
 export const offers = [
   {
-    id: 'e730b5b8-16fa-4cac-a04a-e09bbe280185',
-    name: 'Wood and stone place',
-    city: 'Amsterdam',
-    premium: false,
-    pic: 'img/apartment-01.jpg',
-    features: {
-      type: 'Private room',
-      bedrooms: '3 Bedrooms',
-      adults: 'Max 4 adults',
+    id: 1,
+    title: 'Wood and stone place',
+    city: {
+      name: 'Amsterdam',
+      location: {
+        latitude: 52.377956,
+        longitude: 4.89707,
+        zoom: 10
+      }
     },
+    isPremium: false,
+    description: 'test',
+    previewImage: 'img/apartment-01.jpg',
+    images: ['img/apartment-01.jpg'],
+    type: 'Private room',
+    bedrooms: 3,
+    maxAdults: 4,
     rating: 3.8,
     price: 80,
-    details: [
+    goods: [
       'Wi-Fi',
       'Washing machine',
       'Towels',
@@ -26,42 +33,37 @@ export const offers = [
     ],
     host: {
       name: 'Angelina',
-      type: 'Pro',
-      avatar: 'img/avatar-angelina.jpg',
-      comments: [
-        'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.',
-
-        'An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.',
-      ],
+      id: 1,
+      isPro: true,
+      avatarUrl: 'img/avatar-angelina.jpg',
     },
-    reviews: [
-      {
-        text: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.',
-        name: 'Max',
-        rating: 1,
-        date: '10.10.2022',
-        avatar: 'img/avatar-max.jpg',
-      },
-    ],
-    point: {
-      lat: 52.3909553943508,
-      lng: 4.85309666406198,
+    location: {
+      latitude: 52.3909553943508,
+      longitude: 4.85309666406198,
+      zoom: 10
     },
   },
   {
-    id: 'e730b5b8-16fa-4cac-a04a-e09bbe280184',
-    name: 'Beautiful & luxurious studio at great location',
-    city: 'Amsterdam',
-    premium: false,
-    pic: 'img/apartment-02.jpg',
-    features: {
-      type: 'Apartment',
-      bedrooms: '3 Bedrooms',
-      adults: 'Max 4 adults',
+    id: 2,
+    title: 'Beautiful & luxurious studio at great location',
+    city: {
+      name: 'Amsterdam',
+      location: {
+        latitude: 52.377956,
+        longitude: 4.89707,
+        zoom: 10
+      }
     },
+    isPremium: false,
+    description: 'test',
+    previewImage: 'img/apartment-02.jpg',
+    images: ['img/apartment-02.jpg'],
+    type: 'Apartment',
+    bedrooms: 3,
+    maxAdults: 4,
     rating: 4.5,
     price: 120,
-    details: [
+    goods: [
       'Wi-Fi',
       'Washing machine',
       'Towels',
@@ -75,42 +77,37 @@ export const offers = [
     ],
     host: {
       name: 'Angelina',
-      type: 'Pro',
-      avatar: 'img/avatar-angelina.jpg',
-      comments: [
-        'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.',
-
-        'An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.',
-      ],
+      isPro: true,
+      id: 1,
+      avatarUrl: 'img/avatar-angelina.jpg',
     },
-    reviews: [
-      {
-        text: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.',
-        name: 'Max',
-        rating: 4,
-        date: '10.10.2022',
-        avatar: 'img/avatar-max.jpg',
-      },
-    ],
-    point: {
-      lat: 52.3609553943508,
-      lng: 4.85309666406198,
+    location: {
+      latitude: 52.3609553943508,
+      longitude: 4.85309666406198,
+      zoom: 10
     },
   },
   {
-    id: 'e730b5b8-16fa-4cac-a04a-e09bbe280183',
-    name: 'Canal View Prinsengracht',
-    city: 'Amsterdam',
-    premium: false,
-    pic: 'img/apartment-03.jpg',
-    features: {
-      type: 'Apartment',
-      bedrooms: '3 Bedrooms',
-      adults: 'Max 4 adults',
+    id: 3,
+    title: 'Canal View Prinsengracht',
+    city: {
+      name: 'Amsterdam',
+      location: {
+        latitude: 52.377956,
+        longitude: 4.89707,
+        zoom: 10
+      }
     },
+    isPremium: false,
+    previewImage: 'img/apartment-03.jpg',
+    images: ['img/apartment-03.jpg'],
+    type: 'Apartment',
+    bedrooms: 3,
+    maxAdults: 4,
     rating: 4,
     price: 132,
-    details: [
+    description: 'test',
+    goods: [
       'Wi-Fi',
       'Washing machine',
       'Towels',
@@ -124,42 +121,36 @@ export const offers = [
     ],
     host: {
       name: 'Angelina',
-      type: 'Pro',
-      avatar: 'img/avatar-angelina.jpg',
-      comments: [
-        'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.',
-
-        'An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.',
-      ],
+      isPro: true,
+      id: 1,
+      avatarUrl: 'img/avatar-angelina.jpg',
     },
-    reviews: [
-      {
-        text: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.',
-        name: 'Max',
-        rating: 4,
-        date: '10.10.2022',
-        avatar: 'img/avatar-max.jpg',
-      },
-    ],
-    point: {
-      lat: 52.3909553943508,
-      lng: 4.929309666406198,
+    location: {
+      latitude: 52.3909553943508,
+      longitude: 4.929309666406198,
+      zoom: 10
     },
   },
   {
-    id: 'e730b5b8-16fa-4cac-a04a-e09bbe280453',
-    name: 'Nice, cozy, warm big bed appartment',
-    city: 'Amsterdam',
-    premium: true,
-    pic: 'img/room.jpg',
-    features: {
-      type: 'Apartment',
-      bedrooms: '3 Bedrooms',
-      adults: 'Max 4 adults',
+    id: 4,
+    title: 'Nice, cozy, warm big bed appartment',
+    city: {
+      name: 'Amsterdam',
+      location: {
+        latitude: 52.377956,
+        longitude: 4.89707,
+        zoom: 10
+      }
     },
+    isPremium: true,
+    previewImage: 'img/room.jpg',
+    images: ['img/room.jpg'],
+    type: 'Apartment',
+    bedrooms: 3,
+    maxAdults: 4,
     rating: 5,
     price: 180,
-    details: [
+    goods: [
       'Wi-Fi',
       'Washing machine',
       'Towels',
@@ -171,35 +162,24 @@ export const offers = [
       'Cabel TV',
       'Fridge',
     ],
+    description: 'test',
     host: {
       name: 'Angelina',
-      type: 'Pro',
-      avatar: 'img/avatar-angelina.jpg',
-      comments: [
-        'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.',
-
-        'An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.',
-      ],
+      isPro: true,
+      id: 1,
+      avatarUrl: 'img/avatar-angelina.jpg',
     },
-    reviews: [
-      {
-        text: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.',
-        name: 'Max',
-        rating: 4,
-        date: '10.10.2022',
-        avatar: 'img/avatar-max.jpg',
-      },
-    ],
-    point: {
-      lat: 52.3809553943508,
-      lng: 4.939309666406198,
+    location: {
+      latitude: 52.3809553943508,
+      longitude: 4.939309666406198,
+      zoom: 10
     },
   },
 ];
 
 
 export const getOffersByCity = (city: string, sortingType?: string) => {
-  const filtered = offers.filter((offer) => offer.city === city);
+  const filtered = offers.filter((offer) => offer.city.name === city);
   switch(sortingType) {
     case 'Popular':
       return filtered;

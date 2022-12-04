@@ -5,25 +5,39 @@ import type { Offer } from '../types';
 import { useParams } from 'react-router-dom';
 import { ReviewList } from '../components/review-list';
 import { Map } from '../components/map';
-import { useAppSelector } from '../hooks';
+import { useAppSelector, useAppDispatch } from '../hooks';
 import { MAX_RATING_VALUE } from '../constants';
+import {
+  fetchCommentsAction,
+  fetchHotelAction,
+  fetchNearbyAction,
+} from '../store/api-actions';
 
 export const Room = (): JSX.Element => {
-  const offers = useAppSelector((state) => state.offers);
+  const dispatch = useAppDispatch();
   const city = useAppSelector((state) => state.selectedCity);
   const { id } = useParams();
   const headerRef = useRef<HTMLHeadingElement>(null);
-  const offer = offers.find((item: Offer) => item.id === id) as Offer;
-  const [selectedPoint, setSelectedPoint] = useState(offer.point);
-  const points = offers.map((item: Offer) => item.point);
-  const exceptCarrentOffers = offers.filter(
-    (item: Offer) => item.id !== offer.id
-  );
+  const offer = useAppSelector((state) => state.selectedOffer);
+  const [selectedPoint, setSelectedPoint] = useState(offer?.location);
+  const nearby = useAppSelector((state) => state.nearby);
+  const points = nearby.map((item: Offer) => item.location);
+  const comments = useAppSelector((state) => state.comments);
 
   useEffect(() => {
-    setSelectedPoint(offer.point);
-    headerRef?.current?.scrollIntoView();
-  }, [offer.point]);
+    if (id) {
+      dispatch(fetchHotelAction(Number(id)));
+      dispatch(fetchCommentsAction(Number(id)));
+      dispatch(fetchNearbyAction(Number(id)));
+    }
+  }, [dispatch, id]);
+
+  useEffect(() => {
+    if (offer) {
+      setSelectedPoint(offer?.location);
+      headerRef?.current?.scrollIntoView();
+    }
+  }, [offer]);
 
   return (
     <div className='page'>
@@ -67,63 +81,34 @@ export const Room = (): JSX.Element => {
           <section className='property'>
             <div className='property__gallery-container container'>
               <div className='property__gallery'>
-                <div className='property__pic-wrapper'>
-                  <img
-                    className='property__pic'
-                    src='img/room.jpg'
-                    alt='studio pic'
-                  />
-                </div>
-                <div className='property__pic-wrapper'>
-                  <img
-                    className='property__pic'
-                    src='img/apartment-01.jpg'
-                    alt='studio pic'
-                  />
-                </div>
-                <div className='property__pic-wrapper'>
-                  <img
-                    className='property__pic'
-                    src='img/apartment-02.jpg'
-                    alt='studio pic'
-                  />
-                </div>
-                <div className='property__pic-wrapper'>
-                  <img
-                    className='property__pic'
-                    src='img/apartment-03.jpg'
-                    alt='studio pic'
-                  />
-                </div>
-                <div className='property__pic-wrapper'>
-                  <img
-                    className='property__pic'
-                    src='img/studio-01.jpg'
-                    alt='studio pic'
-                  />
-                </div>
-                <div className='property__pic-wrapper'>
-                  <img
-                    className='property__pic'
-                    src='img/apartment-01.jpg'
-                    alt='studio pic'
-                  />
-                </div>
+                {offer.images.map((image: string, index: number) => (
+                  <div className='property__pic-wrapper' key={image}>
+                    <img
+                      className='property__pic'
+                      src={image}
+                      alt={`studio pic${index}`}
+                    />
+                  </div>
+                ))}
               </div>
             </div>
             <div className='property__container container'>
               <div className='property__wrapper'>
-                {offer.premium && (
+                {offer.isPremium && (
                   <div className='property__mark'>
                     <span>Premium</span>
                   </div>
                 )}
                 <div className='property__name-wrapper'>
-                  <h1 className='property__name'>{offer.name}</h1>
+                  <h1 className='property__name'>{offer.title}</h1>
                 </div>
                 <div className='property__rating rating'>
                   <div className='property__stars rating__stars'>
-                    <span style={{ width: `${(offer.rating / MAX_RATING_VALUE) * 100}%` }} />
+                    <span
+                      style={{
+                        width: `${(offer.rating / MAX_RATING_VALUE) * 100}%`,
+                      }}
+                    />
                     <span className='visually-hidden'>Rating</span>
                   </div>
                   <span className='property__rating-value rating__value'>
@@ -132,13 +117,13 @@ export const Room = (): JSX.Element => {
                 </div>
                 <ul className='property__features'>
                   <li className='property__feature property__feature--entire'>
-                    {offer.features.type}
+                    {offer.type}
                   </li>
                   <li className='property__feature property__feature--bedrooms'>
-                    {offer.features.bedrooms}
+                    {offer.bedrooms} bedrooms
                   </li>
                   <li className='property__feature property__feature--adults'>
-                    {offer.features.adults}
+                    Max {offer.maxAdults} adults
                   </li>
                 </ul>
                 <div className='property__price'>
@@ -148,7 +133,7 @@ export const Room = (): JSX.Element => {
                 <div className='property__inside'>
                   <h2 className='property__inside-title'>What&apos;s inside</h2>
                   <ul className='property__inside-list'>
-                    {offer.details.map((detail: string) => (
+                    {offer.goods.map((detail: string) => (
                       <li key={detail} className='property__inside-item'>
                         {detail}
                       </li>
@@ -161,7 +146,7 @@ export const Room = (): JSX.Element => {
                     <div className='property__avatar-wrapper property__avatar-wrapper--pro user__avatar-wrapper'>
                       <img
                         className='property__avatar user__avatar'
-                        src={offer.host.avatar}
+                        src={offer.host.avatarUrl}
                         width='74'
                         height='74'
                         alt='Host avatar'
@@ -170,31 +155,27 @@ export const Room = (): JSX.Element => {
                     <span className='property__user-name'>
                       {offer.host.name}
                     </span>
-                    <span className='property__user-status'>
-                      {offer.host.type}
-                    </span>
+                    {offer.host.isPro && (
+                      <span className='property__user-status' />
+                    )}
                   </div>
                   <div className='property__description'>
-                    {offer.host.comments.map((comment: string) => (
-                      <p key={comment} className='property__text'>
-                        {comment}
-                      </p>
-                    ))}
+                    <p key={offer.id} className='property__text'>
+                      {offer.description}
+                    </p>
                   </div>
                 </div>
                 <section className='property__reviews reviews'>
                   <h2 className='reviews__title'>
                     Reviews &middot;
-                    <span className='reviews__amount'>
-                      {offer.reviews.length}
-                    </span>
+                    <span className='reviews__amount'>{comments.length}</span>
                   </h2>
-                  <ReviewList reviews={offer.reviews} />
+                  <ReviewList comments={comments} />
                   <Form />
                 </section>
               </div>
             </div>
-            {city && (
+            {city && selectedPoint && (
               <Map
                 city={city}
                 points={points}
@@ -209,7 +190,7 @@ export const Room = (): JSX.Element => {
                 Other places in the neighbourhood
               </h2>
               <div className='near-places__list places__list'>
-                {exceptCarrentOffers.map((item: Offer) => (
+                {nearby.map((item: Offer) => (
                   <Card key={item.id} offer={item} />
                 ))}
               </div>

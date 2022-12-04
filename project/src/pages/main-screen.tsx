@@ -1,55 +1,61 @@
 import { Offers } from '../components/offers';
 import { Cities } from '../components/cities';
+import { Spinner } from '../components/spinner/spinner';
+import { useAppSelector } from '../hooks';
+import { State } from '../types/state';
 
-export const MainScreen = () => (
-  <>
-    <header className='header'>
-      <div className='container'>
-        <div className='header__wrapper'>
-          <div className='header__left'>
-            <a
-              className='header__logo-link header__logo-link--active'
-              href='https://localhost:3000'
-            >
-              <img
-                className='header__logo'
-                src='img/logo.svg'
-                alt='6 cities logo'
-                width='81'
-                height='41'
-              />
-            </a>
+export const MainScreen = () => {
+  const isLoading = useAppSelector((state: State) => state.isLoading);
+
+  return (
+    <>
+      <header className='header'>
+        <div className='container'>
+          <div className='header__wrapper'>
+            <div className='header__left'>
+              <a
+                className='header__logo-link header__logo-link--active'
+                href='https://localhost:3000'
+              >
+                <img
+                  className='header__logo'
+                  src='img/logo.svg'
+                  alt='6 cities logo'
+                  width='81'
+                  height='41'
+                />
+              </a>
+            </div>
+            <nav className='header__nav'>
+              <ul className='header__nav-list'>
+                <li className='header__nav-item user'>
+                  <div className='header__nav-profile'>
+                    <div className='header__avatar-wrapper user__avatar-wrapper'></div>
+                    <span className='header__user-name user__name'>
+                      Oliver.conner@gmail.com
+                    </span>
+                  </div>
+                </li>
+                <li className='header__nav-item'>
+                  <div className='header__nav-link'>
+                    <span className='header__signout'>Sign out</span>
+                  </div>
+                </li>
+              </ul>
+            </nav>
           </div>
-          <nav className='header__nav'>
-            <ul className='header__nav-list'>
-              <li className='header__nav-item user'>
-                <div className='header__nav-profile'>
-                  <div className='header__avatar-wrapper user__avatar-wrapper'></div>
-                  <span className='header__user-name user__name'>
-                    Oliver.conner@gmail.com
-                  </span>
-                </div>
-              </li>
-              <li className='header__nav-item'>
-                <a className='header__nav-link' href='https://localhost:3000'>
-                  <span className='header__signout'>Sign out</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
         </div>
-      </div>
-    </header>
+      </header>
 
-    <main className='page__main page__main--index'>
-      <h1 className='visually-hidden'>Cities</h1>
-      <div className='tabs'>
-        <section className='locations container'>
-          <Cities />
-        </section>
-      </div>
-      <Offers />
-    </main>
-  </>
-);
-
+      <main className='page__main page__main--index'>
+        <h1 className='visually-hidden'>Cities</h1>
+        <div className='tabs'>
+          <section className='locations container'>
+            <Cities />
+          </section>
+        </div>
+        {isLoading ? <Spinner /> : <Offers />}
+      </main>
+    </>
+  );
+};

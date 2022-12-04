@@ -32,13 +32,13 @@ export const Map = ({ city, points, selectedPoint, className }: MapProps) => {
         leaflet
           .marker(
             {
-              lat: point.lat,
-              lng: point.lng,
+              lat: point.latitude,
+              lng: point.longitude,
             },
             {
               icon:
-                point.lat === selectedPoint?.lat &&
-                point.lng === selectedPoint?.lng
+                point.latitude === selectedPoint?.latitude &&
+                point.longitude === selectedPoint?.longitude
                   ? currentCustomIcon
                   : defaultCustomIcon,
             }

@@ -1,5 +1,3 @@
-
-
 export type { InitialStateType } from './state';
 export type Review = {
   text: string;
@@ -9,57 +7,64 @@ export type Review = {
   avatar: string;
 };
 
-export type Host = {
-  name: string;
-  type: string;
-  avatar: string;
-  comments: string[];
-};
-
-export type Features = {
-  type: string;
-  bedrooms: string;
-  adults: string;
-};
-
-export type Offer = {
-  id: string;
-  pic: string;
-  name: string;
-  city: string;
-  premium: boolean;
-  features: Features;
-  rating: number;
-  price: number;
-  details: string[];
-  host: Host;
-  reviews: Review[];
-  point: Point;
-};
-
-export type City = {
-  title: string;
-  lat: number;
-  lng: number;
+export type Location = {
+  latitude: number;
+  longitude: number;
   zoom: number;
 };
 
-export type Point = {
-  lat: number;
-  lng: number;
+export type Host = {
+  name: string;
+  isPro: boolean;
+  avatarUrl: string;
+  id: number;
+};
+
+export type Offer = {
+  id: number;
+  previewImage: string;
+  images: string[];
+  title: string;
+  city: City;
+  isPremium: boolean;
+  description: string;
+  type: string;
+  bedrooms: number;
+  maxAdults: number;
+  rating: number;
+  price: number;
+  goods: string[];
+  host: Host;
+  location: Location;
+};
+
+export type City = {
+  location: Location;
+  name: string;
 };
 
 export type CardProps = {
   offer: Offer;
-  onListItemHover?: (id: string) => void;
+  onListItemHover?: (id: number) => void;
 };
 
 export type MapProps = {
   city: City;
-  points: Point[];
-  selectedPoint: Point | null;
+  points: Location[];
+  selectedPoint: Location | null;
   className: string;
 };
-export type ReviewListProps = { reviews: Review[] };
-export type ReviewItemProps = { review: Review };
+
+export type Comment = {
+  comment: string;
+  date: string;
+  id: number;
+  rating: number;
+  user: Host;
+};
+
+export type Offers = Offer[];
+export type Comments = Comment[];
+export type ReviewListProps = { comments: Comments };
+export type ReviewItemProps = { comment: Comment };
 export type MapComponentProps = { className: string };
