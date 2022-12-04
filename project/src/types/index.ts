@@ -55,26 +55,16 @@ export type MapProps = {
   className: string;
 };
 
-// export type Offer2 = {
-//   bedrooms: number;
-//   city: City;
-//   description: string;
-//   goods: [string];
-//   host: Host;
-//   id: number;
-//   images: [string];
-//   isPremium: boolean;
-//   location: Location;
-//   maxAdults: number;
-//   previewImage: string;
-//   price: number;
-//   rating: number;
-//   title: string;
-//   type: string;
-// };
+export type Comment = {
+  comment: string;
+  date: string;
+  id: number;
+  rating: number;
+  user: Host;
+};
 
 export type Offers = Offer[];
-
-export type ReviewListProps = { reviews: Review[] };
-export type ReviewItemProps = { review: Review };
+export type Comments = Comment[];
+export type ReviewListProps = { comments: Comments };
+export type ReviewItemProps = { comment: Comment };
 export type MapComponentProps = { className: string };

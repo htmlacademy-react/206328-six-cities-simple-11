@@ -26,8 +26,8 @@ export const cities = [
   {
     name: 'Brussels',
     location: {
-      latitude: 50.872986,
-      longitude: 4.309333,
+      latitude: 50.85,
+      longitude: 4.35,
       zoom: 10,
     },
   },
