@@ -5,7 +5,7 @@ import { dropToken, saveToken } from '../services/token';
 import { saveEmail, dropEmail } from '../services/email';
 import { Offers, Offer, Comments, UserData, AuthData } from '../types';
 import { State, AppDispatch } from '../types/state';
-import { loadComments, loadOffers, setOffer, loadNearby, requireAuthorization, setError, redirectToRoute, setUserEmail } from './action';
+import { loadComments, loadOffers, setOffer, loadNearby, requireAuthorization, setError, redirectToRoute } from './action';
 import { APIRoute, TIMEOUT_SHOW_ERROR } from './const';
 import { sorted } from './utils';
 
@@ -111,7 +111,6 @@ export const loginAction = createAsyncThunk<
     saveToken(token);
     saveEmail(email);
     dispatch(requireAuthorization(AuthorizationStatus.Auth));
-    dispatch(setUserEmail(email));
     dispatch(redirectToRoute(AppRoute.Root));
   }
 );
