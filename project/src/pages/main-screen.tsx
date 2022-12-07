@@ -9,7 +9,9 @@ import { AuthorizationStatus } from '../constants';
 
 export const MainScreen = () => {
   const isLoading = useAppSelector((state: State) => state.isLoading);
-  const authStatus = useAppSelector((state: State) => state.authorizationStatus);
+  const authStatus = useAppSelector(
+    (state: State) => state.authorizationStatus
+  );
   const dispatch = useAppDispatch();
 
   return (
@@ -30,14 +32,16 @@ export const MainScreen = () => {
             </div>
             <nav className='header__nav'>
               <ul className='header__nav-list'>
-                <li className='header__nav-item user'>
-                  <div className='header__nav-profile'>
-                    <div className='header__avatar-wrapper user__avatar-wrapper'></div>
-                    <span className='header__user-name user__name'>
-                      Oliver.conner@gmail.com
-                    </span>
-                  </div>
-                </li>
+                {authStatus === AuthorizationStatus.Auth && (
+                  <li className='header__nav-item user'>
+                    <div className='header__nav-profile'>
+                      <div className='header__avatar-wrapper user__avatar-wrapper'></div>
+                      <span className='header__user-name user__name'>
+                        Oliver.conner@gmail.com
+                      </span>
+                    </div>
+                  </li>
+                )}
                 <li className='header__nav-item'>
                   <div className='header__nav-link'>
                     <Link
@@ -48,7 +52,9 @@ export const MainScreen = () => {
                       className='header__signout'
                       to='/login'
                     >
-                      {authStatus === AuthorizationStatus.Auth ? 'Sign out' : 'Sing in'}
+                      {authStatus === AuthorizationStatus.Auth
+                        ? 'Sign out'
+                        : 'Sing in'}
                     </Link>
                   </div>
                 </li>
