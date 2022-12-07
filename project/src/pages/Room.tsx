@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 import { ReviewList } from '../components/review-list';
 import { Map } from '../components/map';
 import { useAppSelector, useAppDispatch } from '../hooks';
-import { MAX_RATING_VALUE } from '../constants';
+import { AuthorizationStatus, MAX_RATING_VALUE } from '../constants';
 import { Header } from '../components/header';
 import {
   fetchCommentsAction,
@@ -24,6 +24,7 @@ export const Room = (): JSX.Element => {
   const nearby = useAppSelector((state) => state.nearby);
   const points = nearby.map((item: Offer) => item.location);
   const comments = useAppSelector((state) => state.comments);
+  const authStatus = useAppSelector((state) => state.authorizationStatus);
 
   useEffect(() => {
     if (id) {
@@ -141,7 +142,7 @@ export const Room = (): JSX.Element => {
                     <span className='reviews__amount'>{comments.length}</span>
                   </h2>
                   <ReviewList comments={comments} />
-                  <Form />
+                  {authStatus === AuthorizationStatus.Auth && <Form />}
                 </section>
               </div>
             </div>
