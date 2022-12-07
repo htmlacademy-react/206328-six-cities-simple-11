@@ -1,4 +1,5 @@
 import {createAction} from '@reduxjs/toolkit';
+import { AppRoute, AuthorizationStatus } from '../constants';
 import { City, Comments, Offer, Offers } from '../types';
 
 export const getCities = createAction('cities/getCities');
@@ -8,3 +9,6 @@ export const setSortingState = createAction<{ state: string }>('offers/setSortin
 export const loadOffers = createAction<Offers>('data/loadOffers');
 export const loadComments = createAction<Comments>('data/loadComments');
 export const loadNearby = createAction<Offers>('data/loadNearby');
+export const requireAuthorization = createAction<AuthorizationStatus>('user/requireAuthorization');
+export const setError = createAction<string | null>('app/setError');
+export const redirectToRoute = createAction<AppRoute>('app/redirectToRoute');

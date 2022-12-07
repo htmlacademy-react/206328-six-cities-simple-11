@@ -1,11 +1,16 @@
 import { Offers } from '../components/offers';
 import { Cities } from '../components/cities';
 import { Spinner } from '../components/spinner/spinner';
-import { useAppSelector } from '../hooks';
+import { useAppSelector, useAppDispatch } from '../hooks';
 import { State } from '../types/state';
+import { Link } from 'react-router-dom';
+import { logoutAction } from '../store/api-actions';
+import { AuthorizationStatus } from '../constants';
 
 export const MainScreen = () => {
   const isLoading = useAppSelector((state: State) => state.isLoading);
+  const authStatus = useAppSelector((state: State) => state.authorizationStatus);
+  const dispatch = useAppDispatch();
 
   return (
     <>
@@ -13,10 +18,7 @@ export const MainScreen = () => {
         <div className='container'>
           <div className='header__wrapper'>
             <div className='header__left'>
-              <a
-                className='header__logo-link header__logo-link--active'
-                href='https://localhost:3000'
-              >
+              <div className='header__logo-link header__logo-link--active'>
                 <img
                   className='header__logo'
                   src='img/logo.svg'
@@ -24,7 +26,7 @@ export const MainScreen = () => {
                   width='81'
                   height='41'
                 />
-              </a>
+              </div>
             </div>
             <nav className='header__nav'>
               <ul className='header__nav-list'>
@@ -38,7 +40,16 @@ export const MainScreen = () => {
                 </li>
                 <li className='header__nav-item'>
                   <div className='header__nav-link'>
-                    <span className='header__signout'>Sign out</span>
+                    <Link
+                      onClick={(evt) => {
+                        evt.preventDefault();
+                        dispatch(logoutAction());
+                      }}
+                      className='header__signout'
+                      to='/login'
+                    >
+                      {authStatus === AuthorizationStatus.Auth ? 'Sign out' : 'Sing in'}
+                    </Link>
                   </div>
                 </li>
               </ul>
