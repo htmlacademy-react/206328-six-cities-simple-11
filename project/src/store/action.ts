@@ -12,3 +12,4 @@ export const loadNearby = createAction<Offers>('data/loadNearby');
 export const requireAuthorization = createAction<AuthorizationStatus>('user/requireAuthorization');
 export const setError = createAction<string | null>('app/setError');
 export const redirectToRoute = createAction<AppRoute>('app/redirectToRoute');
+export const setUserEmail = createAction<string>('user/email');

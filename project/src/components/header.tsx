@@ -11,6 +11,10 @@ export const Header = () => {
     (state: State) => state.authorizationStatus
   );
 
+  const userEmail = useAppSelector(
+    (state: State) => state.userEmail
+  );
+
   return (
     <header className='header'>
       <div className='container'>
@@ -33,7 +37,7 @@ export const Header = () => {
                   <div className='header__nav-profile'>
                     <div className='header__avatar-wrapper user__avatar-wrapper'></div>
                     <span className='header__user-name user__name'>
-                      Oliver.conner@gmail.com
+                      {userEmail}
                     </span>
                   </div>
                 </li>

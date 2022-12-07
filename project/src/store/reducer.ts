@@ -1,5 +1,5 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { setCity, setOffer, getCities, loadOffers, setSortingState, loadComments, loadNearby, requireAuthorization, setError } from './action';
+import { setCity, setOffer, getCities, loadOffers, setSortingState, loadComments, loadNearby, requireAuthorization, setError, setUserEmail } from './action';
 import { fetchHotelsAction } from './api-actions';
 import { cities } from '../mocks';
 import { InitialStateType } from '../types';
@@ -16,7 +16,8 @@ const initialState: InitialStateType = {
   sortingState: 'Popular',
   isLoading: false,
   authorizationStatus: AuthorizationStatus.Unknown,
-  error: null
+  error: null,
+  userEmail: '',
 };
 
 const reducer = createReducer(initialState, (builder) => {
@@ -44,6 +45,8 @@ const reducer = createReducer(initialState, (builder) => {
     state.authorizationStatus = action.payload;
   }).addCase(setError, (state, action) => {
     state.error = action.payload;
+  }).addCase(setUserEmail, (state, action) => {
+    state.userEmail = action.payload;
   });
 });
 

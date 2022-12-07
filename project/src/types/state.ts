@@ -16,4 +16,5 @@ export type InitialStateType = {
   isLoading: boolean;
   authorizationStatus: AuthorizationStatus;
   error: string | null;
+  userEmail: string;
 }
