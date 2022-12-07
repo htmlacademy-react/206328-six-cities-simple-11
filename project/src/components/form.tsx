@@ -5,7 +5,7 @@ import { postComment } from '../store/api-actions';
 
 
 export const Form = () => {
-  const { id } = useParams();
+  const { id = '' } = useParams();
   const dispatch = useAppDispatch();
   const [state, setState] = useState({
     rating: 0,
@@ -28,10 +28,9 @@ export const Form = () => {
     });
   };
 
-  const handleSubmit = () => dispatch(postComment({ ...state, id: id ?? ''}));
+  const handleSubmit = () => { dispatch(postComment({ ...state, id })); };
 
   return (
-    // eslint-disable-next-line @typescript-eslint/no-misused-promises
     <form className='reviews__form form' onSubmit={handleSubmit}>
       <label className='reviews__label form__label' htmlFor='review'>
         Your review
@@ -145,6 +144,8 @@ export const Form = () => {
         <button
           className='reviews__submit form__submit button'
           type='submit'
+          disabled={state.comment.length < 50 || state.comment.length > 250}
+          title="Length of message should be less than 250 characters"
         >
           Submit
         </button>
