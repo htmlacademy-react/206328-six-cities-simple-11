@@ -1,9 +1,15 @@
 import { useState } from 'react';
+import { useAppDispatch } from '../hooks';
+import { useParams } from 'react-router-dom';
+import { postComment } from '../store/api-actions';
+
 
 export const Form = () => {
+  const { id } = useParams();
+  const dispatch = useAppDispatch();
   const [state, setState] = useState({
     rating: 0,
-    text: '',
+    comment: '',
   });
 
   const handleRatingChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
@@ -18,12 +24,15 @@ export const Form = () => {
     const { value } = event.target;
     setState({
       ...state,
-      text: value
+      comment: value
     });
   };
 
+  const handleSubmit = () => dispatch(postComment({ ...state, id: id ?? ''}));
+
   return (
-    <form className='reviews__form form' action='#' method='post'>
+    // eslint-disable-next-line @typescript-eslint/no-misused-promises
+    <form className='reviews__form form' onSubmit={handleSubmit}>
       <label className='reviews__label form__label' htmlFor='review'>
         Your review
       </label>
@@ -122,7 +131,7 @@ export const Form = () => {
         className='reviews__textarea form__textarea'
         id='review'
         name='review'
-        value={state.text}
+        value={state.comment}
         placeholder='Tell how was your stay, what you like and what can be improved'
         onChange={handleTextChange}
       />
@@ -136,7 +145,6 @@ export const Form = () => {
         <button
           className='reviews__submit form__submit button'
           type='submit'
-          disabled
         >
           Submit
         </button>
