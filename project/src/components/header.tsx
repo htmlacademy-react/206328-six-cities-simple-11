@@ -4,15 +4,12 @@ import { Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../hooks';
 import { State } from '../types/state';
 import { logoutAction } from '../store/api-actions';
+import { getEmail } from '../services/email';
 
 export const Header = () => {
   const dispatch = useAppDispatch();
   const authStatus = useAppSelector(
     (state: State) => state.authorizationStatus
-  );
-
-  const userEmail = useAppSelector(
-    (state: State) => state.userEmail
   );
 
   return (
@@ -37,7 +34,7 @@ export const Header = () => {
                   <div className='header__nav-profile'>
                     <div className='header__avatar-wrapper user__avatar-wrapper'></div>
                     <span className='header__user-name user__name'>
-                      {userEmail}
+                      {getEmail()}
                     </span>
                   </div>
                 </li>
