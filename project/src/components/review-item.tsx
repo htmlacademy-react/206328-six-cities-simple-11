@@ -1,5 +1,13 @@
 import { MAX_RATING_VALUE } from '../constants';
 import { ReviewItemProps } from '../types';
+import { monthNames } from '../constants';
+
+const beautifyDate = (input: string) => {
+  const date = new Date(input);
+  const month = date.getMonth();
+  const year = date.getFullYear();
+  return `${monthNames[month]} ${year}`;
+};
 
 export const ReviewItem = ({ comment }: ReviewItemProps) => (
   <li className='reviews__item'>
@@ -26,7 +34,7 @@ export const ReviewItem = ({ comment }: ReviewItemProps) => (
         {comment.comment}
       </p>
       <time className='reviews__time' dateTime={comment.date}>
-        {comment.date}
+        {beautifyDate(comment.date)}
       </time>
     </div>
   </li>
