@@ -1,9 +1,8 @@
 import { createReducer } from '@reduxjs/toolkit';
 import { setCity, setOffer, getCities, loadOffers, setSortingState, loadComments, loadNearby, requireAuthorization, setError } from './action';
 import { fetchHotelsAction } from './api-actions';
-import { cities } from '../mocks';
 import { InitialStateType } from '../types';
-import { AuthorizationStatus } from '../constants';
+import { AuthorizationStatus, cities } from '../constants';
 
 
 const initialState: InitialStateType = {
