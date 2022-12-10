@@ -1,6 +1,6 @@
-import { MAX_RATING_VALUE } from '../constants';
-import { ReviewItemProps } from '../types';
-import { monthNames } from '../constants';
+import { MAX_RATING_VALUE } from '../../constants';
+import { ReviewItemProps } from '../../types';
+import { monthNames } from '../../constants';
 
 const beautifyDate = (input: string) => {
   const date = new Date(input);

@@ -1,6 +1,6 @@
 import React from 'react';
-import { MAX_RATING_VALUE } from '../constants';
-import { useAppSelector } from '../hooks';
+import { MAX_RATING_VALUE } from '../../constants';
+import { useAppSelector } from '../../hooks';
 
 export const Rating = () => {
   const offer = useAppSelector((state) => state.selectedOffer);

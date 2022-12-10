@@ -1,5 +1,5 @@
 import React from 'react';
-import { GalleryProps } from '../types';
+import { GalleryProps } from '../../types';
 
 export const Gallery = ({ images }: GalleryProps) => (
   <div className='property__gallery-container container'>

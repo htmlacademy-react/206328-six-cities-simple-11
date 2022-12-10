@@ -3,7 +3,9 @@ import { Form } from '../components/form/form';
 import { Card } from '../components/card';
 import type { Offer } from '../types';
 import { useParams } from 'react-router-dom';
-import { ReviewList } from '../components/review-list';
+import { Gallery } from '../components/property/gallery';
+import { Rating } from '../components/property/rating';
+import { ReviewList } from '../components/property/review-list';
 import { Map } from '../components/map';
 import { useAppSelector, useAppDispatch } from '../hooks';
 import { AuthorizationStatus } from '../constants';
@@ -13,8 +15,7 @@ import {
   fetchHotelAction,
   fetchNearbyAction,
 } from '../store/api-actions';
-import { Gallery } from '../components/gellery';
-import { Rating } from '../components/Rating';
+
 
 export const Room = (): JSX.Element => {
   const dispatch = useAppDispatch();
