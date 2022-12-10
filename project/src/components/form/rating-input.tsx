@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, Fragment } from 'react';
 import { ratingValues, MAX_RATING_VALUE } from '../../constants';
 
 const useMyState = () =>
@@ -23,7 +23,7 @@ export const RatingInput = ({ setState }: { setState: StateType[1] }): JSX.Eleme
   return (
     <div className='reviews__rating-form form__rating'>
       {ratingValues.map((title, index) => (
-        <>
+        <Fragment key={title}>
           <input
             className='form__rating-input visually-hidden'
             name='rating'
@@ -41,7 +41,7 @@ export const RatingInput = ({ setState }: { setState: StateType[1] }): JSX.Eleme
               <use xlinkHref='#icon-star'></use>
             </svg>
           </label>
-        </>
+        </Fragment>
       ))}
     </div>
   );
