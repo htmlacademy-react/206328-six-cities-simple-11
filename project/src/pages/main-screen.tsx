@@ -5,10 +5,8 @@ import { useAppSelector } from '../hooks';
 import { State } from '../types/state';
 import { Header } from '../components/header';
 
-
 export const MainScreen = () => {
   const isLoading = useAppSelector((state: State) => state.isLoading);
-
 
   return (
     <>

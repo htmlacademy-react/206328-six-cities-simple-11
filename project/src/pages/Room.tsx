@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { Form } from '../components/form/form';
 import { Card } from '../components/card';
 import type { Offer } from '../types';
@@ -26,7 +26,6 @@ export const Room = (): JSX.Element => {
   const { id } = useParams();
   const headerRef = useRef<HTMLHeadingElement>(null);
   const offer = useAppSelector((state) => state.selectedOffer);
-  const [selectedPoint, setSelectedPoint] = useState(offer?.location);
   const nearby = useAppSelector((state) => state.nearby);
   const points = nearby.map((item: Offer) => item.location);
   const comments = useAppSelector((state) => state.comments);
@@ -39,13 +38,6 @@ export const Room = (): JSX.Element => {
       dispatch(fetchNearbyAction(Number(id)));
     }
   }, [dispatch, id]);
-
-  useEffect(() => {
-    if (offer) {
-      setSelectedPoint(offer?.location);
-      headerRef?.current?.scrollIntoView();
-    }
-  }, [offer]);
 
   return (
     <div className='page'>
@@ -85,11 +77,11 @@ export const Room = (): JSX.Element => {
                 </section>
               </div>
             </div>
-            {city && selectedPoint && (
+            {city && (
               <Map
                 city={city}
                 points={points}
-                selectedPoint={selectedPoint}
+                selectedPoint={null}
                 className='property__map map'
               />
             )}
