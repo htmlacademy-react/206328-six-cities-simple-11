@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
-import { Form } from '../components/form';
+import { Form } from '../components/form/form';
 import { Card } from '../components/card';
 import type { Offer } from '../types';
 import { useParams } from 'react-router-dom';
