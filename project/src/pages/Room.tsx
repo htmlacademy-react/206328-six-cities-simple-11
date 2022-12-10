@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { Form } from '../components/form/form';
 import { Card } from '../components/card';
 import type { Offer } from '../types';
@@ -7,21 +6,15 @@ import { Gallery } from '../components/property/gallery';
 import { Rating } from '../components/property/rating';
 import { ReviewList } from '../components/property/review-list';
 import { Map } from '../components/map';
-import { useAppSelector, useAppDispatch } from '../hooks';
+import { useAppSelector } from '../hooks';
 import { AuthorizationStatus } from '../constants';
 import { Header } from '../components/header';
-import {
-  fetchCommentsAction,
-  fetchHotelAction,
-  fetchNearbyAction,
-} from '../store/api-actions';
 import { Host } from '../components/property/host';
 import { Inside } from '../components/property/inside';
 import { Features } from '../components/property/features';
-
+import { usePageInit } from '../hooks/usePageInit';
 
 export const Room = (): JSX.Element => {
-  const dispatch = useAppDispatch();
   const city = useAppSelector((state) => state.selectedCity);
   const { id } = useParams();
   const offer = useAppSelector((state) => state.selectedOffer);
@@ -30,13 +23,7 @@ export const Room = (): JSX.Element => {
   const comments = useAppSelector((state) => state.comments);
   const authStatus = useAppSelector((state) => state.authorizationStatus);
 
-  useEffect(() => {
-    if (id) {
-      dispatch(fetchHotelAction(Number(id)));
-      dispatch(fetchCommentsAction(Number(id)));
-      dispatch(fetchNearbyAction(Number(id)));
-    }
-  }, [dispatch, id]);
+  usePageInit(id);
 
   return (
     <div className='page'>
