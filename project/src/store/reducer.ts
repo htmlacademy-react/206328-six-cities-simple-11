@@ -16,7 +16,7 @@ const initialState: InitialStateType = {
   sortingState: 'Popular',
   isLoading: false,
   authorizationStatus: AuthorizationStatus.Unknown,
-  error: null
+  error: null,
 };
 
 const reducer = createReducer(initialState, (builder) => {

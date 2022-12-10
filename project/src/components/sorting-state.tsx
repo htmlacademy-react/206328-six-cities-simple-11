@@ -1,16 +1,16 @@
 import { useState } from 'react';
 import cn from 'classnames';
 import { setSortingState } from '../store/action';
-import { useAppDispatch } from '../hooks';
+import { useAppDispatch, useAppSelector } from '../hooks';
+import { State } from '../types/state';
 
 export const SortingState = () => {
   const dispatch = useAppDispatch();
   const [open, setOpen] = useState(false);
-  const [sortingValue, setValue] = useState('Popular');
+  const sortingValue = useAppSelector((state: State) => state.sortingState);
   const handleOpen = () => setOpen(true);
   const handleChange = (value: string) => {
     setOpen(false);
-    setValue(value);
     dispatch(setSortingState({ state: value }));
   };
 
@@ -36,7 +36,14 @@ export const SortingState = () => {
         }`}
       >
         {Object.values(sortingTypes).map((item: string) => (
-          <li className={cn('places__option', { 'places__option--active': sortingValue === item })} key={item} tabIndex={0} onClick={() => handleChange(item)}>
+          <li
+            className={cn('places__option', {
+              'places__option--active': sortingValue === item,
+            })}
+            key={item}
+            tabIndex={0}
+            onClick={() => handleChange(item)}
+          >
             {item}
           </li>
         ))}
