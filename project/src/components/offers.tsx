@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { Offer, Location } from '../types';
 import { Card } from './card';
 import { Map } from './map';
@@ -13,12 +13,12 @@ export const Offers = (): JSX.Element => {
   const points = offers.map((item: Offer) => item.location);
   const [selectedPoint, setSelectedPoint] = useState<Location | null>(null);
 
-  const onListItemHover = (listItemId: number) => {
+  const onListItemHover = useCallback((listItemId: number) => {
     const offer = offers.find((item: Offer) => item.id === listItemId);
     if (offer) {
       setSelectedPoint(offer.location);
     }
-  };
+  }, [offers]);
 
   return (
     <div className='cities'>
