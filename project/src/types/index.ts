@@ -68,6 +68,7 @@ export type Comments = Comment[];
 export type ReviewListProps = { comments: Comments };
 export type ReviewItemProps = { comment: Comment };
 export type HeaderProps = { withBtn?: boolean };
+export type GalleryProps = { images: string[] };
 
 export type AuthData = {
   login: string;

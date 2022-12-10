@@ -13,6 +13,7 @@ import {
   fetchHotelAction,
   fetchNearbyAction,
 } from '../store/api-actions';
+import { Gallery } from '../components/gellery';
 
 export const Room = (): JSX.Element => {
   const dispatch = useAppDispatch();
@@ -50,19 +51,7 @@ export const Room = (): JSX.Element => {
       {offer ? (
         <main className='page__main page__main--property'>
           <section className='property'>
-            <div className='property__gallery-container container'>
-              <div className='property__gallery'>
-                {offer.images.map((image: string, index: number) => (
-                  <div className='property__pic-wrapper' key={image}>
-                    <img
-                      className='property__pic'
-                      src={image}
-                      alt={`studio pic${index}`}
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
+            <Gallery images={offer.images} />
             <div className='property__container container'>
               <div className='property__wrapper'>
                 {offer.isPremium && (
