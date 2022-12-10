@@ -15,6 +15,9 @@ import {
   fetchHotelAction,
   fetchNearbyAction,
 } from '../store/api-actions';
+import { Host } from '../components/property/host';
+import { Inside } from '../components/property/inside';
+import { Features } from '../components/property/features';
 
 
 export const Room = (): JSX.Element => {
@@ -65,56 +68,13 @@ export const Room = (): JSX.Element => {
                   <h1 className='property__name'>{offer.title}</h1>
                 </div>
                 <Rating />
-                <ul className='property__features'>
-                  <li className='property__feature property__feature--entire'>
-                    {offer.type}
-                  </li>
-                  <li className='property__feature property__feature--bedrooms'>
-                    {offer.bedrooms} bedrooms
-                  </li>
-                  <li className='property__feature property__feature--adults'>
-                    Max {offer.maxAdults} adults
-                  </li>
-                </ul>
+                <Features />
                 <div className='property__price'>
                   <b className='property__price-value'>&euro;{offer.price}</b>
                   <span className='property__price-text'>&nbsp;night</span>
                 </div>
-                <div className='property__inside'>
-                  <h2 className='property__inside-title'>What&apos;s inside</h2>
-                  <ul className='property__inside-list'>
-                    {offer.goods.map((detail: string) => (
-                      <li key={detail} className='property__inside-item'>
-                        {detail}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className='property__host'>
-                  <h2 className='property__host-title'>Meet the host</h2>
-                  <div className='property__host-user user'>
-                    <div className='property__avatar-wrapper property__avatar-wrapper--pro user__avatar-wrapper'>
-                      <img
-                        className='property__avatar user__avatar'
-                        src={offer.host.avatarUrl}
-                        width='74'
-                        height='74'
-                        alt='Host avatar'
-                      />
-                    </div>
-                    <span className='property__user-name'>
-                      {offer.host.name}
-                    </span>
-                    {offer.host.isPro && (
-                      <span className='property__user-status' />
-                    )}
-                  </div>
-                  <div className='property__description'>
-                    <p key={offer.id} className='property__text'>
-                      {offer.description}
-                    </p>
-                  </div>
-                </div>
+                <Inside />
+                <Host />
                 <section className='property__reviews reviews'>
                   <h2 className='reviews__title'>
                     Reviews &middot;
