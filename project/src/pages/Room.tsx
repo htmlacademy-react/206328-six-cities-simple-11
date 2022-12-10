@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { Form } from '../components/form/form';
 import { Card } from '../components/card';
 import type { Offer } from '../types';
@@ -24,7 +24,6 @@ export const Room = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const city = useAppSelector((state) => state.selectedCity);
   const { id } = useParams();
-  const headerRef = useRef<HTMLHeadingElement>(null);
   const offer = useAppSelector((state) => state.selectedOffer);
   const nearby = useAppSelector((state) => state.nearby);
   const points = nearby.map((item: Offer) => item.location);
@@ -41,9 +40,7 @@ export const Room = (): JSX.Element => {
 
   return (
     <div className='page'>
-      <div ref={headerRef}>
-        <Header withBtn />
-      </div>
+      <Header withBtn />
 
       {offer ? (
         <main className='page__main page__main--property'>
