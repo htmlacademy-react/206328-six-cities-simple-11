@@ -1,8 +1,8 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { setCity, setOffer, loadOffers, setSortingState, loadComments, loadNearby, requireAuthorization, setError } from './action';
+import { setCity, setOffer, loadOffers, setSortingState, loadComments, loadNearby, setError } from './action';
 import { fetchHotelsAction } from './api-actions';
 import { InitialStateType } from '../types';
-import { AuthorizationStatus, cities } from '../constants';
+import { cities } from '../constants';
 
 
 const initialState: InitialStateType = {
@@ -13,7 +13,6 @@ const initialState: InitialStateType = {
   selectedOffer: null,
   sortingState: 'Popular',
   isLoading: false,
-  authorizationStatus: AuthorizationStatus.Unknown,
   error: null,
 };
 
@@ -36,8 +35,6 @@ const reducer = createReducer(initialState, (builder) => {
     state.isLoading = false;
   }).addCase(fetchHotelsAction.rejected, (state) => {
     state.isLoading = false;
-  }).addCase(requireAuthorization, (state, action) => {
-    state.authorizationStatus = action.payload;
   }).addCase(setError, (state, action) => {
     state.error = action.payload;
   });

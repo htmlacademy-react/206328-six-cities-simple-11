@@ -5,11 +5,12 @@ import { useAppDispatch, useAppSelector } from '../hooks';
 import { logoutAction } from '../store/api-actions';
 import { getEmail } from '../services/email';
 import { HeaderProps } from '../types';
-import { authStatusSelector } from '../store/selectors';
+import { getAuthorizationStatus } from '../store/user-process/selectors';
+
 
 export const Header = ({ withBtn }: HeaderProps) => {
   const dispatch = useAppDispatch();
-  const authStatus = useAppSelector(authStatusSelector);
+  const authStatus = useAppSelector(getAuthorizationStatus);
 
   return (
     <header className='header'>
