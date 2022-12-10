@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 import { ReviewList } from '../components/review-list';
 import { Map } from '../components/map';
 import { useAppSelector, useAppDispatch } from '../hooks';
-import { AuthorizationStatus, MAX_RATING_VALUE } from '../constants';
+import { AuthorizationStatus } from '../constants';
 import { Header } from '../components/header';
 import {
   fetchCommentsAction,
@@ -14,6 +14,7 @@ import {
   fetchNearbyAction,
 } from '../store/api-actions';
 import { Gallery } from '../components/gellery';
+import { Rating } from '../components/Rating';
 
 export const Room = (): JSX.Element => {
   const dispatch = useAppDispatch();
@@ -62,19 +63,7 @@ export const Room = (): JSX.Element => {
                 <div className='property__name-wrapper'>
                   <h1 className='property__name'>{offer.title}</h1>
                 </div>
-                <div className='property__rating rating'>
-                  <div className='property__stars rating__stars'>
-                    <span
-                      style={{
-                        width: `${(offer.rating / MAX_RATING_VALUE) * 100}%`,
-                      }}
-                    />
-                    <span className='visually-hidden'>Rating</span>
-                  </div>
-                  <span className='property__rating-value rating__value'>
-                    {offer.rating}
-                  </span>
-                </div>
+                <Rating />
                 <ul className='property__features'>
                   <li className='property__feature property__feature--entire'>
                     {offer.type}
