@@ -1,9 +1,10 @@
 import React from 'react';
 import { MAX_RATING_VALUE } from '../../constants';
 import { useAppSelector } from '../../hooks';
+import { offerSelector } from '../../store/selectors';
 
 export const Rating = () => {
-  const offer = useAppSelector((state) => state.selectedOffer);
+  const offer = useAppSelector(offerSelector);
 
   return offer ? (
     <div className='property__rating rating'>

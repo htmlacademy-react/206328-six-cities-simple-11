@@ -1,8 +1,9 @@
 import React from 'react';
 import { useAppSelector } from '../../hooks';
+import { offerSelector } from '../../store/selectors';
 
 export const Inside = () => {
-  const offer = useAppSelector((state) => state.selectedOffer);
+  const offer = useAppSelector(offerSelector);
 
   return offer ? (
     <div className='property__inside'>

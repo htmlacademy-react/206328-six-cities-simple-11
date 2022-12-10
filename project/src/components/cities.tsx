@@ -2,10 +2,11 @@ import { useAppSelector, useAppDispatch } from '../hooks';
 import { setCity } from '../store/action';
 import cn from 'classnames';
 import { City } from '../types';
+import { citiesSelector, citySelector } from '../store/selectors';
 
 export const Cities = () => {
-  const cities = useAppSelector((state) => state.cities);
-  const selectedCity = useAppSelector((state) => state.selectedCity);
+  const cities = useAppSelector(citiesSelector);
+  const selectedCity = useAppSelector(citySelector);
   const dispatch = useAppDispatch();
   return (
     <ul className='locations__list tabs__list'>

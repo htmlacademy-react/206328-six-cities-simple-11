@@ -2,12 +2,12 @@ import { useState } from 'react';
 import cn from 'classnames';
 import { setSortingState } from '../store/action';
 import { useAppDispatch, useAppSelector } from '../hooks';
-import { State } from '../types/state';
+import { sortingStateSelector } from '../store/selectors';
 
 export const SortingState = () => {
   const dispatch = useAppDispatch();
   const [open, setOpen] = useState(false);
-  const sortingValue = useAppSelector((state: State) => state.sortingState);
+  const sortingValue = useAppSelector(sortingStateSelector);
   const handleOpen = () => setOpen(true);
   const handleChange = (value: string) => {
     setOpen(false);

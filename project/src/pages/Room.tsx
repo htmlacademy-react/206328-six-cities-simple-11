@@ -13,15 +13,16 @@ import { Host } from '../components/property/host';
 import { Inside } from '../components/property/inside';
 import { Features } from '../components/property/features';
 import { usePageInit } from '../hooks/usePageInit';
+import { authStatusSelector, citySelector, commentsSelector, nearbySelector, offerSelector } from '../store/selectors';
 
 export const Room = (): JSX.Element => {
-  const city = useAppSelector((state) => state.selectedCity);
   const { id } = useParams();
-  const offer = useAppSelector((state) => state.selectedOffer);
-  const nearby = useAppSelector((state) => state.nearby);
+  const city = useAppSelector(citySelector);
+  const offer = useAppSelector(offerSelector);
+  const comments = useAppSelector(commentsSelector);
+  const authStatus = useAppSelector(authStatusSelector);
+  const nearby = useAppSelector(nearbySelector);
   const points = nearby.map((item: Offer) => item.location);
-  const comments = useAppSelector((state) => state.comments);
-  const authStatus = useAppSelector((state) => state.authorizationStatus);
 
   usePageInit(id);
 

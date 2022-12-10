@@ -2,16 +2,14 @@ import React from 'react';
 import { AuthorizationStatus } from '../constants';
 import { Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../hooks';
-import { State } from '../types/state';
 import { logoutAction } from '../store/api-actions';
 import { getEmail } from '../services/email';
 import { HeaderProps } from '../types';
+import { authStatusSelector } from '../store/selectors';
 
 export const Header = ({ withBtn }: HeaderProps) => {
   const dispatch = useAppDispatch();
-  const authStatus = useAppSelector(
-    (state: State) => state.authorizationStatus
-  );
+  const authStatus = useAppSelector(authStatusSelector);
 
   return (
     <header className='header'>

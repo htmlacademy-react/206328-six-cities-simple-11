@@ -1,8 +1,9 @@
 import React from 'react';
 import { useAppSelector } from '../../hooks';
+import { offerSelector } from '../../store/selectors';
 
 export const Features = () => {
-  const offer = useAppSelector((state) => state.selectedOffer);
+  const offer = useAppSelector(offerSelector);
 
   return offer ? (
     <ul className='property__features'>

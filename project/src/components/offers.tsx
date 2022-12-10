@@ -4,10 +4,11 @@ import { Card } from './card';
 import { Map } from './map';
 import { useAppSelector } from '../hooks';
 import { SortingState } from './sorting-state';
+import { citySelector, offersSelector } from '../store/selectors';
 
 export const Offers = (): JSX.Element => {
-  const offers = useAppSelector((state) => state.offers);
-  const city = useAppSelector((state) => state.selectedCity);
+  const offers = useAppSelector(offersSelector);
+  const city = useAppSelector(citySelector);
   const points = offers.map((item: Offer) => item.location);
   const [selectedPoint, setSelectedPoint] = useState<Location | null>(null);
 

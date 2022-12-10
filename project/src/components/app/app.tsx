@@ -9,11 +9,12 @@ import { getCities } from '../../store/action';
 import { fetchHotelsAction } from '../../store/api-actions';
 import HistoryRouter from '../../components/history-route/history-route';
 import browserHistory from '../../browser-history';
+import { citySelector, sortingStateSelector } from '../../store/selectors';
 
 function App(): JSX.Element {
   const dispatch = useAppDispatch();
-  const city = useAppSelector((state) => state.selectedCity);
-  const sortingState = useAppSelector((state) => state.sortingState);
+  const city = useAppSelector(citySelector);
+  const sortingState = useAppSelector(sortingStateSelector);
 
   useEffect(() => {
     dispatch(getCities());
