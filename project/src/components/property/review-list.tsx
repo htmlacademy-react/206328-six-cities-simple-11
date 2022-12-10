@@ -1,4 +1,4 @@
-import { ReviewListProps } from '../types';
+import { ReviewListProps } from '../../types';
 import { ReviewItem } from './review-item';
 
 export const ReviewList = ({ comments }: ReviewListProps) => (

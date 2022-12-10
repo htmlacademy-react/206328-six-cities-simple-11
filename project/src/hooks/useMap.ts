@@ -31,15 +31,6 @@ export const useMap = (
       setMap(instance);
       isRenderedRef.current = true;
     }
-    // else if (map && isRenderedRef.current) {
-    //   map.flyTo(
-    //     {
-    //       lat: city.location.latitude,
-    //       lng: city.location.longitude,
-    //     },
-    //     city.location.zoom * ZOOM_SCALE_COEFICENT
-    //   );
-    // }
   }, [mapRef, city, map]);
 
   return map;
