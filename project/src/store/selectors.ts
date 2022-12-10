@@ -1,6 +1,5 @@
 import { State } from '../types/state';
 
-export const citiesSelector = (state: State) => state.cities;
 export const citySelector = (state: State) => state.selectedCity;
 export const authStatusSelector = (state: State) => state.authorizationStatus;
 export const offersSelector = (state: State) => state.offers;
