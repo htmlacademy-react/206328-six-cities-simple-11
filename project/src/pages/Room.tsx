@@ -6,30 +6,20 @@ import { Gallery } from '../components/property/gallery';
 import { Rating } from '../components/property/rating';
 import { ReviewList } from '../components/property/review-list';
 import { Map } from '../components/map';
-import { useAppSelector } from '../hooks';
 import { AuthorizationStatus } from '../constants';
 import { Header } from '../components/header';
 import { Host } from '../components/property/host';
 import { Inside } from '../components/property/inside';
 import { Features } from '../components/property/features';
 import { usePageInit } from '../hooks/usePageInit';
-import { authStatusSelector, citySelector, commentsSelector, nearbySelector, offerSelector } from '../store/selectors';
 
 export const Room = (): JSX.Element => {
   const { id } = useParams();
-  const city = useAppSelector(citySelector);
-  const offer = useAppSelector(offerSelector);
-  const comments = useAppSelector(commentsSelector);
-  const authStatus = useAppSelector(authStatusSelector);
-  const nearby = useAppSelector(nearbySelector);
-  const points = nearby.map((item: Offer) => item.location);
-
-  usePageInit(id);
+  const { city, offer, comments, authStatus, nearby, points } = usePageInit(id);
 
   return (
     <div className='page'>
       <Header withBtn />
-
       {offer ? (
         <main className='page__main page__main--property'>
           <section className='property'>
