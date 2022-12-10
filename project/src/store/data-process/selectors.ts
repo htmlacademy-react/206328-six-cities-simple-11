@@ -1,5 +1,5 @@
-import { State } from '../types/state';
-import { NameSpace } from './const';
+import { State } from '../../types/state';
+import { NameSpace } from '../const';
 
 export const citySelector = (state: State) => state[NameSpace.Data].selectedCity;
 export const offersSelector = (state: State) => state[NameSpace.Data].offers;

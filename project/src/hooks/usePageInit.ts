@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '.';
 import { fetchCommentsAction, fetchHotelAction, fetchNearbyAction } from '../store/api-actions';
-import { citySelector, commentsSelector, nearbySelector, offerSelector } from '../store/selectors';
+import { citySelector, commentsSelector, nearbySelector, offerSelector } from '../store/data-process/selectors';
 import { getAuthorizationStatus } from '../store/user-process/selectors';
 import { Offer } from '../types';
 

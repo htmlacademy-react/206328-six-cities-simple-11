@@ -4,7 +4,7 @@ import { Card } from './card';
 import { Map } from './map';
 import { useAppSelector } from '../hooks';
 import { SortingState } from './sorting-state';
-import { citySelector, offersSelector } from '../store/selectors';
+import { citySelector, offersSelector } from '../store/data-process/selectors';
 import { NoPlacesAvalible } from './no-places-avalible';
 
 export const Offers = (): JSX.Element => {

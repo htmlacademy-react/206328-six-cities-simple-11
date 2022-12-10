@@ -2,7 +2,7 @@ import { useAppSelector, useAppDispatch } from '../hooks';
 import { setCity } from '../store/action';
 import cn from 'classnames';
 import { City } from '../types';
-import { citySelector } from '../store/selectors';
+import { citySelector } from '../store/data-process/selectors';
 import { cities } from '../constants';
 
 export const Cities = () => {

@@ -8,7 +8,7 @@ import { useAppDispatch,useAppSelector } from '../../hooks';
 import { fetchHotelsAction } from '../../store/api-actions';
 import HistoryRouter from '../../components/history-route/history-route';
 import browserHistory from '../../browser-history';
-import { citySelector, sortingStateSelector } from '../../store/selectors';
+import { citySelector, sortingStateSelector } from '../../store/data-process/selectors';
 
 function App(): JSX.Element {
   const dispatch = useAppDispatch();

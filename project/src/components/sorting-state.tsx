@@ -2,7 +2,7 @@ import { useState } from 'react';
 import cn from 'classnames';
 import { setSortingState } from '../store/action';
 import { useAppDispatch, useAppSelector } from '../hooks';
-import { sortingStateSelector } from '../store/selectors';
+import { sortingStateSelector } from '../store/data-process/selectors';
 
 export const SortingState = () => {
   const dispatch = useAppDispatch();
