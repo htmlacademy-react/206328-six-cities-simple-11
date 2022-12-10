@@ -5,11 +5,10 @@ import { MainScreen } from '../../pages/main-screen';
 import { NotFound } from '../../pages/not-found';
 import { Room } from '../../pages/room';
 import { useAppDispatch,useAppSelector } from '../../hooks';
-import { getCities } from '../../store/action';
 import { fetchHotelsAction } from '../../store/api-actions';
 import HistoryRouter from '../../components/history-route/history-route';
 import browserHistory from '../../browser-history';
-import { citySelector, sortingStateSelector } from '../../store/selectors';
+import { citySelector, sortingStateSelector } from '../../store/data-process/selectors';
 
 function App(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -17,7 +16,6 @@ function App(): JSX.Element {
   const sortingState = useAppSelector(sortingStateSelector);
 
   useEffect(() => {
-    dispatch(getCities());
     dispatch(fetchHotelsAction());
   }, [city, sortingState, dispatch]);
 

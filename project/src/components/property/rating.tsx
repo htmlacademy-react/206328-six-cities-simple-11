@@ -1,7 +1,7 @@
 import React from 'react';
 import { MAX_RATING_VALUE } from '../../constants';
 import { useAppSelector } from '../../hooks';
-import { offerSelector } from '../../store/selectors';
+import { offerSelector } from '../../store/data-process/selectors';
 
 export const Rating = () => {
   const offer = useAppSelector(offerSelector);

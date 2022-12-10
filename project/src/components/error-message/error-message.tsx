@@ -1,5 +1,5 @@
 import {useAppSelector} from '../../hooks';
-import { errorSelector } from '../../store/selectors';
+import { errorSelector } from '../../store/data-process/selectors';
 import './error-message.css';
 
 function ErrorMessage(): JSX.Element | null {

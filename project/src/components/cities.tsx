@@ -2,10 +2,10 @@ import { useAppSelector, useAppDispatch } from '../hooks';
 import { setCity } from '../store/action';
 import cn from 'classnames';
 import { City } from '../types';
-import { citiesSelector, citySelector } from '../store/selectors';
+import { citySelector } from '../store/data-process/selectors';
+import { cities } from '../constants';
 
 export const Cities = () => {
-  const cities = useAppSelector(citiesSelector);
   const selectedCity = useAppSelector(citySelector);
   const dispatch = useAppDispatch();
   return (

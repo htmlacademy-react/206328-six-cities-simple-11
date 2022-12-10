@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '.';
 import { fetchCommentsAction, fetchHotelAction, fetchNearbyAction } from '../store/api-actions';
-import { authStatusSelector, citySelector, commentsSelector, nearbySelector, offerSelector } from '../store/selectors';
+import { citySelector, commentsSelector, nearbySelector, offerSelector } from '../store/data-process/selectors';
+import { getAuthorizationStatus } from '../store/user-process/selectors';
 import { Offer } from '../types';
 
 export const usePageInit = (id?: string) => {
@@ -17,7 +18,7 @@ export const usePageInit = (id?: string) => {
   const city = useAppSelector(citySelector);
   const offer = useAppSelector(offerSelector);
   const comments = useAppSelector(commentsSelector);
-  const authStatus = useAppSelector(authStatusSelector);
+  const authStatus = useAppSelector(getAuthorizationStatus);
   const nearby = useAppSelector(nearbySelector);
   const points = nearby.map((item: Offer) => item.location);
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAppSelector } from '../../hooks';
-import { offerSelector } from '../../store/selectors';
+import { offerSelector } from '../../store/data-process/selectors';
 
 export const Inside = () => {
   const offer = useAppSelector(offerSelector);

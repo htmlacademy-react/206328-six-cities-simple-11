@@ -3,7 +3,7 @@ import { Cities } from '../components/cities';
 import { Spinner } from '../components/spinner/spinner';
 import { useAppSelector } from '../hooks';
 import { Header } from '../components/header';
-import { loadingSelector } from '../store/selectors';
+import { loadingSelector } from '../store/data-process/selectors';
 
 export const MainScreen = () => {
   const isLoading = useAppSelector(loadingSelector);
