@@ -5,8 +5,9 @@ import { useAppDispatch, useAppSelector } from '../hooks';
 import { State } from '../types/state';
 import { logoutAction } from '../store/api-actions';
 import { getEmail } from '../services/email';
+import { HeaderProps } from '../types';
 
-export const Header = () => {
+export const Header = ({ withBtn }: HeaderProps) => {
   const dispatch = useAppDispatch();
   const authStatus = useAppSelector(
     (state: State) => state.authorizationStatus
@@ -27,36 +28,38 @@ export const Header = () => {
               />
             </div>
           </div>
-          <nav className='header__nav'>
-            <ul className='header__nav-list'>
-              {authStatus === AuthorizationStatus.Auth && (
-                <li className='header__nav-item user'>
-                  <div className='header__nav-profile'>
-                    <div className='header__avatar-wrapper user__avatar-wrapper'></div>
-                    <span className='header__user-name user__name'>
-                      {getEmail()}
-                    </span>
+          {withBtn && (
+            <nav className='header__nav'>
+              <ul className='header__nav-list'>
+                {authStatus === AuthorizationStatus.Auth && (
+                  <li className='header__nav-item user'>
+                    <div className='header__nav-profile'>
+                      <div className='header__avatar-wrapper user__avatar-wrapper'></div>
+                      <span className='header__user-name user__name'>
+                        {getEmail()}
+                      </span>
+                    </div>
+                  </li>
+                )}
+                <li className='header__nav-item'>
+                  <div className='header__nav-link'>
+                    <Link
+                      onClick={(evt) => {
+                        evt.preventDefault();
+                        dispatch(logoutAction());
+                      }}
+                      className='header__signout'
+                      to='/login'
+                    >
+                      {authStatus === AuthorizationStatus.Auth
+                        ? 'Sign out'
+                        : 'Sing in'}
+                    </Link>
                   </div>
                 </li>
-              )}
-              <li className='header__nav-item'>
-                <div className='header__nav-link'>
-                  <Link
-                    onClick={(evt) => {
-                      evt.preventDefault();
-                      dispatch(logoutAction());
-                    }}
-                    className='header__signout'
-                    to='/login'
-                  >
-                    {authStatus === AuthorizationStatus.Auth
-                      ? 'Sign out'
-                      : 'Sing in'}
-                  </Link>
-                </div>
-              </li>
-            </ul>
-          </nav>
+              </ul>
+            </nav>
+          )}
         </div>
       </div>
     </header>

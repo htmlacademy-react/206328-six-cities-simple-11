@@ -44,7 +44,7 @@ export const Room = (): JSX.Element => {
   return (
     <div className='page'>
       <div ref={headerRef}>
-        <Header />
+        <Header withBtn />
       </div>
 
       {offer ? (
