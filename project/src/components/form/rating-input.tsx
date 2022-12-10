@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ratingValues } from '../../constants';
+import { ratingValues, MAX_RATING_VALUE } from '../../constants';
 
 const useMyState = () =>
   useState({
@@ -27,8 +27,8 @@ export const RatingInput = ({ setState }: { setState: StateType[1] }): JSX.Eleme
           <input
             className='form__rating-input visually-hidden'
             name='rating'
-            value={5 - index}
-            id={`${5 - index}-stars`}
+            value={MAX_RATING_VALUE - index}
+            id={`${MAX_RATING_VALUE - index}-stars`}
             type='radio'
             onChange={handleRatingChange}
           />
