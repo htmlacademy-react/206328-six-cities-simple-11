@@ -57,6 +57,8 @@ export const Login = () => {
                   className='login__input form__input'
                   type='password'
                   name='password'
+                  pattern='\D+\d+.*'
+                  title="Password has to start with character and contain at least one digit"
                   placeholder='Password'
                   required
                 />
