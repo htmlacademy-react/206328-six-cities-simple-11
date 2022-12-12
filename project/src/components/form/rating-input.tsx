@@ -1,5 +1,5 @@
 import { useState, Fragment } from 'react';
-import { RatingValues, MAX_RATING_VALUE } from '../../constants';
+import { RatingValues } from '../../constants';
 
 const useMyState = () =>
   useState({
@@ -22,18 +22,18 @@ export const RatingInput = ({ setState }: { setState: StateType[1] }): JSX.Eleme
 
   return (
     <div className='reviews__rating-form form__rating'>
-      {Object.keys(RatingValues).map((title, index) => (
+      {Object.keys(RatingValues).map((title) => (
         <Fragment key={title}>
           <input
             className='form__rating-input visually-hidden'
             name='rating'
-            value={MAX_RATING_VALUE - index}
-            id={`${MAX_RATING_VALUE - index}-stars`}
+            value={RatingValues[title as keyof typeof RatingValues]}
+            id={`${RatingValues[title as keyof typeof RatingValues]}-stars`}
             type='radio'
             onChange={handleRatingChange}
           />
           <label
-            htmlFor={`${5 - index}-stars`}
+            htmlFor={`${RatingValues[title as keyof typeof RatingValues]}-stars`}
             className='reviews__rating-label form__rating-label'
             title={title}
           >
