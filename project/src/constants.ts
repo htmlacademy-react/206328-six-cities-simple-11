@@ -35,6 +35,11 @@ export enum RatingValues {
   Terribly = '1'
 }
 
+export enum PasswordRestrictions {
+  MinLenght = 50,
+  MaxLenght = 250
+}
+
 export const cities = [
   {
     name: 'Amsterdam',

@@ -3,6 +3,7 @@ import { useAppDispatch } from '../../hooks';
 import { useParams } from 'react-router-dom';
 import { postComment } from '../../store/api-actions';
 import { RatingInput } from './rating-input';
+import { PasswordRestrictions } from '../../constants';
 
 export const Form = () => {
   const { id = '' } = useParams();
@@ -47,12 +48,12 @@ export const Form = () => {
           To submit review please make sure to set
           <span className='reviews__star'>rating</span> and describe your stay
           with at least
-          <b className='reviews__text-amount'>50 characters</b>.
+          <b className='reviews__text-amount'>{PasswordRestrictions.MinLenght} characters</b>.
         </p>
         <button
           className='reviews__submit form__submit button'
           type='submit'
-          disabled={state.comment.length < 50 || state.comment.length > 250}
+          disabled={state.comment.length < PasswordRestrictions.MinLenght || state.comment.length > PasswordRestrictions.MaxLenght}
           title='Length of message should be less than 250 characters'
         >
           Submit
