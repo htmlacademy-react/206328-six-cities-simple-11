@@ -5,7 +5,7 @@ import { fetchHotelsAction } from '../api-actions';
 import { cities } from '../../constants';
 import { loadComments, loadNearby, loadOffers, setCity, setError, setOffer, setSortingState } from '../action';
 
-const initialState: DataProcess = {
+export const initialState: DataProcess = {
   offers: [],
   comments: [],
   nearby: [],
