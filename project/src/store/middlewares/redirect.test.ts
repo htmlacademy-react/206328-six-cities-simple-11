@@ -41,4 +41,9 @@ describe('Middleware: redirect', () => {
     ]);
   });
 
+  it('should not to be redirect / because bad action', () => {
+    store.dispatch({type: 'UNKNOWN_ACTION', payload: AppRoute.Root});
+    expect(fakeHistory.location.pathname).not.toBe(AppRoute.Root);
+  });
+
 });
