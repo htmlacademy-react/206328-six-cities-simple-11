@@ -3,7 +3,7 @@ import { NameSpace } from '../const';
 import { DataProcess } from '../../types/state';
 import { fetchHotelsAction } from '../api-actions';
 import { cities } from '../../constants';
-import { loadComments, loadNearby, loadOffers, setCity, setError, setOffer, setSortingState } from '../action';
+import { loadComments, loadNearby, loadOffers, setCity, setOffer, setSortingState } from '../action';
 
 export const initialState: DataProcess = {
   offers: [],
@@ -13,7 +13,6 @@ export const initialState: DataProcess = {
   selectedOffer: null,
   sortingState: 'Popular',
   isLoading: false,
-  error: null,
 };
 
 export const dataProcess = createSlice({
@@ -48,9 +47,6 @@ export const dataProcess = createSlice({
       })
       .addCase(fetchHotelsAction.rejected, (state) => {
         state.isLoading = false;
-      })
-      .addCase(setError, (state, action) => {
-        state.error = action.payload;
       });
   },
 });

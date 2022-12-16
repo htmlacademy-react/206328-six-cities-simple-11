@@ -5,8 +5,8 @@ import { dropToken, saveToken } from '../services/token';
 import { saveEmail, dropEmail } from '../services/email';
 import { Offers, Offer, Comments, UserData, AuthData } from '../types';
 import { State, AppDispatch } from '../types/state';
-import { loadComments, loadOffers, setOffer, loadNearby, setError, redirectToRoute } from './action';
-import { APIRoute, NameSpace, TIMEOUT_SHOW_ERROR } from './const';
+import { loadComments, loadOffers, setOffer, loadNearby, redirectToRoute } from './action';
+import { APIRoute, NameSpace } from './const';
 import { sorted } from './utils';
 
 export const fetchHotelsAction = createAsyncThunk<
@@ -124,20 +124,3 @@ export const logoutAction = createAsyncThunk<
   dispatch(redirectToRoute(AppRoute.Login));
 });
 
-export const clearErrorAction = createAsyncThunk<
-void,
-undefined,
-{
-  dispatch: AppDispatch;
-  state: State;
-  extra: AxiosInstance;
-}
->(
-  'app/clearError',
-  (_arg, { dispatch }) => {
-    setTimeout(
-      () => dispatch(setError(null)),
-      TIMEOUT_SHOW_ERROR,
-    );
-  }
-);
