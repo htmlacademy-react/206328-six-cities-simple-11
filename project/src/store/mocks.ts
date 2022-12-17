@@ -1,5 +1,5 @@
 import faker from 'faker';
-import { Offer, City, Location, Host } from '../types';
+import { Offer, City, Location, Host, Comment } from '../types';
 
 export const makeFakeOffer = (): Offer => ({
   id: faker.datatype.number(100),
@@ -38,5 +38,20 @@ export const makeFakeOffer = (): Offer => ({
     id: faker.datatype.number(100)
   } as Host
 } as Offer);
+
+export const makeFakeComment = (): Comment => ({
+  comment: faker.datatype.string(),
+  date: faker.datatype.string(),
+  id: faker.datatype.number(100),
+  rating: faker.datatype.number(5),
+  user: {
+    name: faker.name.firstName(),
+    avatarUrl: faker.image.avatar(),
+    isPro: faker.datatype.boolean(),
+    id: faker.datatype.number(100)
+  } as Host
+});
+
+export const makeFakeComments = () => [makeFakeComment(), makeFakeComment()];
 
 export const makeFakeOffers = () => [makeFakeOffer(), makeFakeOffer(), makeFakeOffer()];
