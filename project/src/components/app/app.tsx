@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Login } from '../../pages/login';
 import { MainScreen } from '../../pages/main-screen';
-import { NotFound } from '../../pages/not-found';
+import { NotFound } from '../../pages/not-found/not-found';
 import { Room } from '../../pages/room';
 import { useAppDispatch,useAppSelector } from '../../hooks';
 import { fetchHotelsAction } from '../../store/api-actions';
