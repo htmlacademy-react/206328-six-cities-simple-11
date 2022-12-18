@@ -6,8 +6,6 @@ import { NotFound } from '../../pages/not-found/not-found';
 import { Room } from '../../pages/room';
 import { useAppDispatch,useAppSelector } from '../../hooks';
 import { fetchHotelsAction } from '../../store/api-actions';
-import HistoryRouter from '../../components/history-route/history-route';
-import browserHistory from '../../browser-history';
 import { citySelector, sortingStateSelector } from '../../store/data-process/selectors';
 
 function App(): JSX.Element {
@@ -20,14 +18,12 @@ function App(): JSX.Element {
   }, [city, sortingState, dispatch]);
 
   return (
-    <HistoryRouter history={browserHistory}>
-      <Routes>
-        <Route path='/' element={<MainScreen />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/offer/:id' element={<Room />} />
-        <Route path='*' element={<NotFound />} />
-      </Routes>
-    </HistoryRouter>
+    <Routes>
+      <Route path='/' element={<MainScreen />} />
+      <Route path='/login' element={<Login />} />
+      <Route path='/offer/:id' element={<Room />} />
+      <Route path='*' element={<NotFound />} />
+    </Routes>
   );
 }
 
