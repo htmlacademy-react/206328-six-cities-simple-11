@@ -4,7 +4,6 @@ import { NameSpace } from '../const';
 export const citySelector = (state: State) => state[NameSpace.Data].selectedCity;
 export const offersSelector = (state: State) => state[NameSpace.Data].offers;
 export const sortingStateSelector = (state: State) => state[NameSpace.Data].sortingState;
-export const errorSelector = (state: State) => state[NameSpace.Data].error;
 export const offerSelector = (state: State) => state[NameSpace.Data].selectedOffer;
 export const loadingSelector = (state: State) => state[NameSpace.Data].isLoading;
 export const commentsSelector = (state: State) => state[NameSpace.Data].comments;

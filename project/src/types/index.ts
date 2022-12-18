@@ -1,4 +1,3 @@
-export type { InitialStateType } from './state';
 export type Review = {
   text: string;
   name: string;

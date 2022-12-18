@@ -27,7 +27,18 @@ export const monthNames = [
   'December',
 ];
 
-export const ratingValues = ['perfect', 'good', 'not bad', 'badly', 'terribly'];
+export enum RatingValues {
+  Perfect = '5',
+  Good = '4',
+  NotBad = '3',
+  Badly = '2',
+  Terribly = '1'
+}
+
+export enum PasswordRestrictions {
+  MinLenght = 50,
+  MaxLenght = 250
+}
 
 export const cities = [
   {
